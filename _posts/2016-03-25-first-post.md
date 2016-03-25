@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: posts
 title: Blogging Like a Hacker
 date: 2016-03-25
 ---

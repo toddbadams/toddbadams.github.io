@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Blogging Like a Hacker
+date: 2016-03-25
 ---
 ## What is the ControllerTest?
 

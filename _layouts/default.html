@@ -16,6 +16,16 @@
 </head>
 
 <body>
+<md-toolbar>
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="menu">
+          <ng-md-icon icon="menu"></md-icon>
+        </md-button>
+        <h2>
+          <span>Todd B. Adams</span>
+        </h2>
+      </div>
+    </md-toolbar>
     <div class="container">
         {{ content }}
     </div>
@@ -30,7 +40,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-aria.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js"></script>
-    <script src="https://cdn.gitcdn.xyz/cdn/angular/bower-material/v1.0.5/angular-material.js"></script><script>
+    <script src="https://cdn.gitcdn.xyz/cdn/angular/bower-material/v1.0.5/angular-material.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js"></script>
+
+    <script>
     angular.module('wt', [
         'ngMaterial'
     ]);

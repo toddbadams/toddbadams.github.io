@@ -16,15 +16,16 @@
 </head>
 
 <body>
-<md-toolbar>
-      <div class="md-toolbar-tools">
-        <md-button class="md-icon-button" aria-label="menu">
-          <ng-md-icon icon="menu"></md-icon>
-        </md-button>
-        <h2>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" aria-label="menu">
+                <ng-md-icon icon="menu">
+                    </md-icon>
+            </md-button>
+            <h2>
           <span>Todd B. Adams</span>
         </h2>
-      </div>
+        </div>
     </md-toolbar>
     <md-content class="container">
         {{ content }}
@@ -35,15 +36,101 @@
             <li><a href="https://github.com/toddbadams">github.com/toddbadams</a></li>
         </ul>
     </footer>
-
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-aria.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-animate.min.js"></script>
     <script src="//cdn.gitcdn.xyz/cdn/angular/bower-material/v1.0.5/angular-material.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js"></script> 
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.7.0/angular-material-icons.min.js"></script>
     <script>
-    angular.module('wt', ['ngMaterial', 'ngMdIcons']);
+    angular
+        .module('wt', ['ngMaterial', 'ngMdIcons'])
+        .config(function($mdThemingProvider, palettes) {
+            var customPrimary = {
+                '50': '#ffffff',
+                '100': '#ffffff',
+                '200': '#ffffff',
+                '300': '#ffffff',
+                '400': '#ffffff',
+                '500': '#fafafa',
+                '600': '#ededed',
+                '700': '#e0e0e0',
+                '800': '#d4d4d4',
+                '900': '#c7c7c7',
+                'A100': '#ffffff',
+                'A200': '#ffffff',
+                'A400': '#ffffff',
+                'A700': '#bababa'
+            };
+            $mdThemingProvider
+                .definePalette('customPrimary',
+                    customPrimary);
+
+            var customAccent = {
+                '50': '#ffffff',
+                '100': '#ffffff',
+                '200': '#ffffff',
+                '300': '#f3f3f3',
+                '400': '#e7e7e7',
+                '500': '#dadada',
+                '600': '#cdcdcd',
+                '700': '#c0c0c0',
+                '800': '#b4b4b4',
+                '900': '#a7a7a7',
+                'A100': '#ffffff',
+                'A200': '#ffffff',
+                'A400': '#ffffff',
+                'A700': '#9a9a9a'
+            };
+            $mdThemingProvider
+                .definePalette('customAccent',
+                    customAccent);
+
+            var customWarn = {
+                '50': '#ffb280',
+                '100': '#ffa266',
+                '200': '#ff934d',
+                '300': '#ff8333',
+                '400': '#ff741a',
+                '500': '#ff6400',
+                '600': '#e65a00',
+                '700': '#cc5000',
+                '800': '#b34600',
+                '900': '#993c00',
+                'A100': '#ffc199',
+                'A200': '#ffd1b3',
+                'A400': '#ffe0cc',
+                'A700': '#803200'
+            };
+            $mdThemingProvider
+                .definePalette('customWarn',
+                    customWarn);
+
+            var customBackground = {
+                '50': '#ffffff',
+                '100': '#ffffff',
+                '200': '#ffffff',
+                '300': '#ffffff',
+                '400': '#ffffff',
+                '500': '#ffffff',
+                '600': '#f2f2f2',
+                '700': '#e6e6e6',
+                '800': '#d9d9d9',
+                '900': '#cccccc',
+                'A100': '#ffffff',
+                'A200': '#ffffff',
+                'A400': '#ffffff',
+                'A700': '#bfbfbf'
+            };
+            $mdThemingProvider
+                .definePalette('customBackground',
+                    customBackground);
+
+            $mdThemingProvider.theme('default')
+                .primaryPalette('customPrimary')
+                .accentPalette('customAccent')
+                .warnPalette('customWarn')
+                .backgroundPalette('customBackground')
+        });
     </script>
 </body>
 

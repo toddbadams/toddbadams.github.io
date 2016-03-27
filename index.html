@@ -3,9 +3,10 @@ layout: default
 title: Todd B. Adams
 ---
 <h1>{{ page.title }}</h1>
-	<ul class="posts">
+	<md-list class="posts">
 
 	  {% for post in site.posts %}
-	    <li><span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+	    <md-list-item>
+	    <span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></md-list-item>
 	  {% endfor %}
-	</ul>
+	</md-list>

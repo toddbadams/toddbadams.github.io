@@ -1,6 +1,7 @@
 .region-key {
     display: none;
 }
+
 .container {
     max-width: 38rem;
     padding-left: 1rem;
@@ -8,12 +9,14 @@
     margin-left: auto;
     margin-right: auto;
 }
+
 .date {
-        display: block;
+    display: block;
     margin-top: -.5rem;
     margin-bottom: 1rem;
-    color: #9a9a9a;
+    color: #b69b10;
 }
+
 body {
     font-size: 20px;
     line-height: 33px;
@@ -22,4 +25,7 @@ body {
     letter-spacing: 0;
     text-transform: none;
     color: #707070;
+}
+.post_image_inner .post_image_title{
+    display: none;
 }

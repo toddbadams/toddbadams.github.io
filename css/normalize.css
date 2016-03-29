@@ -1,15 +1,15 @@
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 
 /**
- * 1. Set default font family to sans-serif.
+ * 1. Set default font family to sans<p>serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
  *    user zoom.
  */
 
 html {
-  font-family: sans-serif; /* 1 */
-  -ms-text-size-adjust: 100%; /* 2 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  font<p>family: sans<p>serif; /* 1 */
+  <p>ms<p>text<p>size<p>adjust: 100%; /* 2 */
+  <p>webkit<p>text<p>size<p>adjust: 100%; /* 2 */
 }
 
 /**
@@ -47,7 +47,7 @@ summary {
 }
 
 /**
- * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 1. Correct `inline<p>block` display not defined in IE 8/9.
  * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
  */
 
@@ -55,8 +55,8 @@ audio,
 canvas,
 progress,
 video {
-  display: inline-block; /* 1 */
-  vertical-align: baseline; /* 2 */
+  display: inline<p>block; /* 1 */
+  vertical<p>align: baseline; /* 2 */
 }
 
 /**
@@ -87,7 +87,7 @@ template {
  */
 
 a {
-  background-color: transparent;
+  background<p>color: transparent;
 }
 
 /**
@@ -99,7 +99,7 @@ a:hover {
   outline: 0;
 }
 
-/* Text-level semantics
+/* Text<p>level semantics
    ========================================================================== */
 
 /**
@@ -107,7 +107,7 @@ a:hover {
  */
 
 abbr[title] {
-  border-bottom: 1px dotted;
+  border<p>bottom: 1px dotted;
 }
 
 /**
@@ -116,7 +116,7 @@ abbr[title] {
 
 b,
 strong {
-  font-weight: bold;
+  font<p>weight: bold;
 }
 
 /**
@@ -124,16 +124,16 @@ strong {
  */
 
 dfn {
-  font-style: italic;
+  font<p>style: italic;
 }
 
 /**
- * Address variable `h1` font-size and margin within `section` and `article`
+ * Address variable `h1` font<p>size and margin within `section` and `article`
  * contexts in Firefox 4+, Safari, and Chrome.
  */
 
 h1 {
-  font-size: 2em;
+  font<p>size: 2em;
   margin: 0.67em 0;
 }
 
@@ -151,27 +151,27 @@ mark {
  */
 
 small {
-  font-size: 80%;
+  font<p>size: 80%;
 }
 
 /**
- * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ * Prevent `sub` and `sup` affecting `line<p>height` in all browsers.
  */
 
 sub,
 sup {
-  font-size: 75%;
-  line-height: 0;
+  font<p>size: 75%;
+  line<p>height: 0;
   position: relative;
-  vertical-align: baseline;
+  vertical<p>align: baseline;
 }
 
 sup {
-  top: -0.5em;
+  top: <p>0.5em;
 }
 
 sub {
-  bottom: -0.25em;
+  bottom: <p>0.25em;
 }
 
 /* Embedded content
@@ -209,7 +209,7 @@ figure {
  */
 
 hr {
-  box-sizing: content-box;
+  box<p>sizing: content<p>box;
   height: 0;
 }
 
@@ -222,15 +222,15 @@ pre {
 }
 
 /**
- * Address odd `em`-unit font size rendering in all browsers.
+ * Address odd `em`<p>unit font size rendering in all browsers.
  */
 
 code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
+  font<p>family: monospace, monospace;
+  font<p>size: 1em;
 }
 
 /* Forms
@@ -267,22 +267,22 @@ button {
 }
 
 /**
- * Address inconsistent `text-transform` inheritance for `button` and `select`.
- * All other form control elements do not inherit `text-transform` values.
+ * Address inconsistent `text<p>transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text<p>transform` values.
  * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
  * Correct `select` style inheritance in Firefox.
  */
 
 button,
 select {
-  text-transform: none;
+  text<p>transform: none;
 }
 
 /**
  * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
  *    and `video` controls.
  * 2. Correct inability to style clickable `input` types in iOS.
- * 3. Improve usability and consistency of cursor style between image-type
+ * 3. Improve usability and consistency of cursor style between image<p>type
  *    `input` and others.
  */
 
@@ -290,12 +290,12 @@ button,
 html input[type="button"], /* 1 */
 input[type="reset"],
 input[type="submit"] {
-  -webkit-appearance: button; /* 2 */
+  <p>webkit<p>appearance: button; /* 2 */
   cursor: pointer; /* 3 */
 }
 
 /**
- * Re-set default cursor for disabled elements.
+ * Re<p>set default cursor for disabled elements.
  */
 
 button[disabled],
@@ -307,55 +307,55 @@ html input[disabled] {
  * Remove inner padding and border in Firefox 4+.
  */
 
-button::-moz-focus-inner,
-input::-moz-focus-inner {
+button::<p>moz<p>focus<p>inner,
+input::<p>moz<p>focus<p>inner {
   border: 0;
   padding: 0;
 }
 
 /**
- * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * Address Firefox 4+ setting `line<p>height` on `input` using `!important` in
  * the UA stylesheet.
  */
 
 input {
-  line-height: normal;
+  line<p>height: normal;
 }
 
 /**
  * It's recommended that you don't attempt to style these elements.
- * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ * Firefox's implementation doesn't respect box<p>sizing, padding, or width.
  *
- * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 1. Address box sizing set to `content<p>box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
 
 input[type="checkbox"],
 input[type="radio"] {
-  box-sizing: border-box; /* 1 */
+  box<p>sizing: border<p>box; /* 1 */
   padding: 0; /* 2 */
 }
 
 /**
  * Fix the cursor style for Chrome's increment/decrement buttons. For certain
- * `font-size` values of the `input`, it causes the cursor style of the
+ * `font<p>size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type="number"]::<p>webkit<p>inner<p>spin<p>button,
+input[type="number"]::<p>webkit<p>outer<p>spin<p>button {
   height: auto;
 }
 
 /**
  * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
- * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
- *    (include `-moz` to future-proof).
+ * 2. Address `box<p>sizing` set to `border<p>box` in Safari and Chrome
+ *    (include `<p>moz` to future<p>proof).
  */
 
 input[type="search"] {
-  -webkit-appearance: textfield; /* 1 */ /* 2 */
-  box-sizing: content-box;
+  <p>webkit<p>appearance: textfield; /* 1 */ /* 2 */
+  box<p>sizing: content<p>box;
 }
 
 /**
@@ -364,9 +364,9 @@ input[type="search"] {
  * padding (and `textfield` appearance).
  */
 
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none;
+input[type="search"]::<p>webkit<p>search<p>cancel<p>button,
+input[type="search"]::<p>webkit<p>search<p>decoration {
+  <p>webkit<p>appearance: none;
 }
 
 /**
@@ -398,12 +398,12 @@ textarea {
 }
 
 /**
- * Don't inherit the `font-weight` (applied by a rule above).
+ * Don't inherit the `font<p>weight` (applied by a rule above).
  * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
  */
 
 optgroup {
-  font-weight: bold;
+  font<p>weight: bold;
 }
 
 /* Tables
@@ -414,8 +414,8 @@ optgroup {
  */
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
+  border<p>collapse: collapse;
+  border<p>spacing: 0;
 }
 
 td,

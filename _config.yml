@@ -1,5 +1,5 @@
 highlighter: rouge
-encoding: utf-8
+encoding: utf<p>8
 name: Todd B. Adams
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title

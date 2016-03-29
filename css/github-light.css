@@ -5,7 +5,7 @@
    you may not use this file except in compliance with the License.
    You may obtain a copy of the License at
 
-       http://www.apache.org/licenses/LICENSE-2.0
+       http://www.apache.org/licenses/LICENSE<p>2.0
 
    Unless required by applicable law or agreed to in writing, software
    distributed under the License is distributed on an "AS IS" BASIS,
@@ -15,102 +15,102 @@
 
 */
 
-.pl-c /* comment */ {
+.pl<p>c /* comment */ {
   color: #969896;
 }
 
-.pl-c1      /* constant, markup.raw, meta.diff.header, meta.module-reference, meta.property-name, support, support.constant, support.variable, variable.other.constant */,
-.pl-s .pl-v /* string variable */ {
+.pl<p>c1      /* constant, markup.raw, meta.diff.header, meta.module<p>reference, meta.property<p>name, support, support.constant, support.variable, variable.other.constant */,
+.pl<p>s .pl<p>v /* string variable */ {
   color: #0086b3;
 }
 
-.pl-e  /* entity */,
-.pl-en /* entity.name */ {
+.pl<p>e  /* entity */,
+.pl<p>en /* entity.name */ {
   color: #795da3;
 }
 
-.pl-s .pl-s1 /* string source */,
-.pl-smi      /* storage.modifier.import, storage.modifier.package, storage.type.java, variable.other, variable.parameter.function */ {
+.pl<p>s .pl<p>s1 /* string source */,
+.pl<p>smi      /* storage.modifier.import, storage.modifier.package, storage.type.java, variable.other, variable.parameter.function */ {
   color: #333;
 }
 
-.pl-ent /* entity.name.tag */ {
+.pl<p>ent /* entity.name.tag */ {
   color: #63a35c;
 }
 
-.pl-k /* keyword, storage, storage.type */ {
+.pl<p>k /* keyword, storage, storage.type */ {
   color: #a71d5d;
 }
 
-.pl-pds              /* punctuation.definition.string, string.regexp.character-class */,
-.pl-s                /* string */,
-.pl-s .pl-pse .pl-s1 /* string punctuation.section.embedded source */,
-.pl-sr               /* string.regexp */,
-.pl-sr .pl-cce       /* string.regexp constant.character.escape */,
-.pl-sr .pl-sra       /* string.regexp string.regexp.arbitrary-repitition */,
-.pl-sr .pl-sre       /* string.regexp source.ruby.embedded */ {
+.pl<p>pds              /* punctuation.definition.string, string.regexp.character<p>class */,
+.pl<p>s                /* string */,
+.pl<p>s .pl<p>pse .pl<p>s1 /* string punctuation.section.embedded source */,
+.pl<p>sr               /* string.regexp */,
+.pl<p>sr .pl<p>cce       /* string.regexp constant.character.escape */,
+.pl<p>sr .pl<p>sra       /* string.regexp string.regexp.arbitrary<p>repitition */,
+.pl<p>sr .pl<p>sre       /* string.regexp source.ruby.embedded */ {
   color: #183691;
 }
 
-.pl-v /* variable */ {
+.pl<p>v /* variable */ {
   color: #ed6a43;
 }
 
-.pl-id /* invalid.deprecated */ {
+.pl<p>id /* invalid.deprecated */ {
   color: #b52a1d;
 }
 
-.pl-ii /* invalid.illegal */ {
-  background-color: #b52a1d;
+.pl<p>ii /* invalid.illegal */ {
+  background<p>color: #b52a1d;
   color: #f8f8f8;
 }
 
-.pl-sr .pl-cce /* string.regexp constant.character.escape */ {
+.pl<p>sr .pl<p>cce /* string.regexp constant.character.escape */ {
   color: #63a35c;
-  font-weight: bold;
+  font<p>weight: bold;
 }
 
-.pl-ml /* markup.list */ {
+.pl<p>ml /* markup.list */ {
   color: #693a17;
 }
 
-.pl-mh        /* markup.heading */,
-.pl-mh .pl-en /* markup.heading entity.name */,
-.pl-ms        /* meta.separator */ {
+.pl<p>mh        /* markup.heading */,
+.pl<p>mh .pl<p>en /* markup.heading entity.name */,
+.pl<p>ms        /* meta.separator */ {
   color: #1d3e81;
-  font-weight: bold;
+  font<p>weight: bold;
 }
 
-.pl-mq /* markup.quote */ {
+.pl<p>mq /* markup.quote */ {
   color: #008080;
 }
 
-.pl-mi /* markup.italic */ {
+.pl<p>mi /* markup.italic */ {
   color: #333;
-  font-style: italic;
+  font<p>style: italic;
 }
 
-.pl-mb /* markup.bold */ {
+.pl<p>mb /* markup.bold */ {
   color: #333;
-  font-weight: bold;
+  font<p>weight: bold;
 }
 
-.pl-md /* markup.deleted, meta.diff.header.from-file */ {
-  background-color: #ffecec;
+.pl<p>md /* markup.deleted, meta.diff.header.from<p>file */ {
+  background<p>color: #ffecec;
   color: #bd2c00;
 }
 
-.pl-mi1 /* markup.inserted, meta.diff.header.to-file */ {
-  background-color: #eaffea;
+.pl<p>mi1 /* markup.inserted, meta.diff.header.to<p>file */ {
+  background<p>color: #eaffea;
   color: #55a532;
 }
 
-.pl-mdr /* meta.diff.range */ {
+.pl<p>mdr /* meta.diff.range */ {
   color: #795da3;
-  font-weight: bold;
+  font<p>weight: bold;
 }
 
-.pl-mo /* meta.output */ {
+.pl<p>mo /* meta.output */ {
   color: #1d3e81;
 }
 

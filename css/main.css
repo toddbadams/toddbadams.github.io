@@ -14,3 +14,12 @@
     margin-bottom: 1rem;
     color: #9a9a9a;
 }
+body {
+    font-size: 20px;
+    line-height: 33px;
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #707070;
+}

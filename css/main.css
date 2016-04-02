@@ -133,6 +133,11 @@ ul.wine-style li span:not(:first-child){
     height: 14px;
     border-radius: 8px;
 }
+ul.wine-style li span.line {    
+    width: inherit;
+    line-height: 16px;
+    margin-top: 4px;
+}
 ul.wine-style li > span.empty{
     border: 2px solid rgb(230, 230, 230);
 }

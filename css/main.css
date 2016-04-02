@@ -92,10 +92,6 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
 
 .md-table caption {
     border-bottom: 1px solid rgb(230, 230, 230);
-    color: rgb(130, 130, 130);
-    text-align: left;
-    font-size: 0.75em;
-    font-weight: 700;
     padding: 16px 16px 16px 0;
 }
 

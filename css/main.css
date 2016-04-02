@@ -53,4 +53,10 @@ md-card .md-headline  {
     color: rgba(0,0,0,0.87);
     text-decoration: initial;
     font-weight: 400;
-}}
+}
+
+
+md-list-item.md-3-line>.md-avatar.variety, md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
+    width: 90px;
+    heigth: 90px;
+}

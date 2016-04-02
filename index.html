@@ -2,8 +2,6 @@
 layout: default
 title: Todd B. Adams
 ---
-
-<h1>{{ page.title }}</h1>
 <md-list class="posts">
     {% for post in site.posts %}
     <article>
@@ -23,8 +21,6 @@ title: Todd B. Adams
             <md-card-actions layout="row" layout-align="end center">
                 <md-button>Read more</md-button>
             </md-card-actions>
-            <md-divider></md-divider>
-            
             <footer>
                 <p class="md-body-1">last modified on {{ post.date | date_to_string }}</span>
             </footer>

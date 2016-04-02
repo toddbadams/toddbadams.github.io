@@ -1,55 +1,26 @@
 ---
 layout: default
 ---
-<article class="post">
 
-    <div class="post_content_holder">
-        <div class="post_image">
-            <div class="grid_section blog_load_prev">
-                <div class="section_inner">
-                    <div class="blog_vertical_loop_button_holder prev_post">
-                        <div class="last_page">
-                            <a href="http://demo.edge-themes.com/tactile12/page/12/"></a>
-                        </div>
-                        <div class="blog_vertical_loop_back_button"><span class="button_icon"><a href="http://demo.edge-themes.com/tactile12/page/11/"></a></span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="post_image_inner">
-                <a href="#" title="{{ page.title }}" style="background-image: url('http://demo.edge-themes.com/tactile12/wp-content/uploads/2014/12/blg-productivity-tips.jpg');"></a>
-                <div class="post_image_title">
-                    <div class="post_image_title_inner">
-                        <div class="grid_section">
-                            <div class="section_inner">
-                                <h2>{{ page.title }}</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="grid_section">
-                <div class="section_inner">
-                    <div class="post_text">
-                        <div class="post_text_inner">
-                            <div class="post_info">
-                                <div class="date">
-                                    <span class="date_text">Posted on</span>
-                                    {{ page.date | date_to_string }}
-                                </div>
-                                <!--<div class="post_category">
-                                    in <a href="http://demo.edge-themes.com/tactile12/category/health/" rel="category tag">Health</a>
-                                </div>-->
-                            </div>
-                            <h2>
-                                {{ page.title }}
-                            </h2>
-                            <div class="post">
-                                {{ content }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</article>
+ <article>
+        <md-card>
+            <a href="{{ page.url }}" title="{{ page.title }}">
+                <img ng-src="/images/{{page.image}}.jpg" class="md-card-image" alt="{{page.title}}">
+            </a>
+            <p class="md-caption">"<span>{{page.imagecaption}}</span>" by {{page.imageby}}</a>, <small>licensed under <a rel="nofollow" class="external text" href="http://creativecommons.org/licenses/by/2.0/">Creative Commons</a></small></p>
+            <md-card-title>
+                <md-card-title-text>
+                    <a href="{{ page.url }}" title="{{ page.title }}" class="md-headline">{{ page.title }}</a>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                {{ content }}
+            </md-card-content>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button href="{{ page.url }}">Read more</md-button>
+            </md-card-actions>
+            <footer>
+                <p class="md-body-1">updated on {{ page.date | date_to_string }}</span>
+            </footer>
+        </md-card>
+    </article>

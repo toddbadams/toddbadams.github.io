@@ -17,7 +17,7 @@ title: Todd B. Adams
                 <p>{{ post.excerpt }}</p>
             </md-card-content>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button>Read more</md-button>
+                <md-button href="{{ post.url }}">Read more</md-button>
             </md-card-actions>
             <footer>
                 <p class="md-body-1">updated on {{ post.date | date_to_string }}</span>

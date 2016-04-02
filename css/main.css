@@ -65,7 +65,7 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
 }
 
 .md-table {
-    min-width: 100%;
+    width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
 }
@@ -74,6 +74,10 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
 .md-table tbody tr:focus {
     cursor: pointer;
     background-color: rgba(63, 81, 181, 0.2);
+}
+
+.md-table th {
+    border-bottom: 1px solid rgb(230, 230, 230);
 }
 
 .md-table th {

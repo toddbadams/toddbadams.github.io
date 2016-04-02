@@ -45,11 +45,12 @@ md-card footer {
     border-top-width: 1px;
     border-top-style: solid;
     margin: 0;
-    border-color: rgba(0,0,0,0.87);
+    border-color: rgba(0,0,0,0.2);
+    background-color: rgba(0,0,0,0.056);
 }
 
 md-card .md-headline  {
     color: rgba(0,0,0,0.87);
     text-decoration: initial;
-    font-weight: 300;
+    font-weight: 400;
 }}

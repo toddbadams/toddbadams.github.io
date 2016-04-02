@@ -1,14 +1,25 @@
----
-layout: default
-title: Todd B. Adams
----
-
+--- layout: default title: Todd B. Adams ---
 <h1>{{ page.title }}</h1>
 <md-list class="posts">
-
     {% for post in site.posts %}
-    <md-list-item>
-        <span>{{ post.date | date_to_string }}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    </md-list-item>
+    <article>
+        <md-card>
+            <img ng-src="/images/northern-rhone.jpg" class="md-card-image" alt="{{post.title}}">
+            <md-card-title>
+                <md-card-title-text>
+                    <a href="{{ post.url }}" title="{{ post.title }}" class="md-headline">{{ post.title }}</a>
+                    <span class="md-subhead">last modified on {{ post.date | date_to_string }}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button>View</md-button>
+            </md-card-actions>
+            <md-card-content>
+                <p>
+                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest Greene's musical language: feel it. It's a simple request, as well...
+                </p>
+            </md-card-content>
+        </md-card>
+    </article>
     {% endfor %}
 </md-list>

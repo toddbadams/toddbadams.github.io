@@ -66,6 +66,7 @@ md-list-item.md-3-line>.md-avatar.variety, md-list-item.md-3-line>.md-no-style>.
 .md-table {
   min-width: 100%;
   border-collapse: collapse;
+  word-wrap: break-word
 }
 
 .md-table tbody tr:hover, .md-table tbody tr:focus {
@@ -82,7 +83,7 @@ md-list-item.md-3-line>.md-avatar.variety, md-list-item.md-3-line>.md-no-style>.
   padding: 16px 16px 16px 0;
 }
 
-.md-table th a{
+.md-table th a {
   text-decoration: none;
   color: inherit;
 }
@@ -92,48 +93,4 @@ md-list-item.md-3-line>.md-avatar.variety, md-list-item.md-3-line>.md-no-style>.
   font-size: 0.8em;
   padding: 16px 16px 16px 0;
   height: 72px;
-}
-
-.md-table-td-more {
-  max-width:72px;
-  width:72px;
-  padding:16px;
-}
-
-.md-table-thumbs {
-  max-width: 104px;
-  width: 104px;
-  padding: 16px 32px;
-}
-
-.md-table-thumbs div {
-  overflow:hidden;
-  width: 40px;
-  height:40px;
-  border-radius:20px;
-  border: 1px solid rgba(0,0,0,0.2);
-  background-size:cover;
-  box-shadow: 0 8px 10px rgba(0,0,0,.3);
-  -webkit-box-shadow: 0 8px 10px rgba(0,0,0,.1);
-}
-
-.md-table-footer {
-  height:40px;
-  padding-left: 32px;
-  padding-right: 32px;
-}
-
-.md-table-count-info {
-  line-height:40px;
-  font-size:.75em;
-}
-
-.md-table-footer-item {
-  width: 40px;
-  height: 40px;
-  vertical-align:middle;
-}
-
-.md-table-active-page {
-  font-weight: 700;
 }

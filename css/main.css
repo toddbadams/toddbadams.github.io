@@ -59,4 +59,5 @@ md-card .md-headline  {
 md-list-item.md-3-line>.md-avatar.variety, md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
     width: 90px;
     height: 90px;
+    border-radius: 0;
 }

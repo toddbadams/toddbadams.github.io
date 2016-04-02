@@ -118,17 +118,22 @@ ul.wine-style {
 ul.wine-style li {
 
 }
-ul.wine-style li > span:first-child{
+ul.wine-style li span{
+    display: inline-block;
+    margin-right: 5px;
+}
+ul.wine-style li span:first-child{
     width: 45px;
 }
-ul.wine-style li > span:not(:first-child){
+ul.wine-style li span:not(:first-child){
     width:14px;
     height: 14px;
-    border-radius: 7px;
+    border-radius: 8px;
 }
 ul.wine-style li > span.empty{
     border: 2px solid rgb(230, 230, 230);
 }
 ul.wine-style li > span.full{
-    background-color: yellow;
+    background-color: rgb(130, 130, 130);
+    border: 2px solid rgb(130, 130, 130);
 }

@@ -3,3 +3,4 @@ encoding: utf<p>8
 name: Todd B. Adams
 markdown: kramdown
 permalink: /blog/:year/:month/:day/:title
+excerpt_separator: <!--more-->

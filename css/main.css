@@ -88,7 +88,7 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
     font-weight: 400;
 }
 
-.md-table thead {
+.md-table caption {
     border-bottom: 1px solid rgb(230, 230, 230);
     color: rgb(130, 130, 130);
     text-align: left;

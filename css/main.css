@@ -113,10 +113,11 @@ ul.wine-style {
     font-size: 14px;
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 20px;
+    border-left: 2px solid rgb(130, 130, 130);;
 }
 ul.wine-style li {
-
+    position: relative;
 }
 ul.wine-style li span{
     display: inline-block;
@@ -124,6 +125,8 @@ ul.wine-style li span{
 }
 ul.wine-style li span:first-child{
     width: 45px;
+    position: relative;
+    top: -4px;
 }
 ul.wine-style li span:not(:first-child){
     width:14px;

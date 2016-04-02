@@ -6,8 +6,8 @@ title: Todd B. Adams
     {% for post in site.posts %}
     <article>
         <md-card>
-            <img ng-src="/images/northern-rhone.jpg" class="md-card-image" alt="{{post.title}}">
-            <p class="md-caption">"<span>The French wine region of Beaujolais located south of Burgundy and north of the Rhone Valley.</span>" by <a rel="nofollow" class="external text" href="http://flickr.com/photos/32426054@N07">Geoff Wong</a> is licensed under <a rel="nofollow" class="external text" href="http://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></p>
+            <img ng-src="/images/{{post.image}}.jpg" class="md-card-image" alt="{{post.title}}">
+            <p class="md-caption">"<span>{{post.image-caption}}</span>" by {{post.image-by}}</a> is licensed under <a rel="nofollow" class="external text" href="http://creativecommons.org/licenses/by/2.0/">CC BY 2.0</a></p>
             <md-card-title>
                 <md-card-title-text>
                     <a href="{{ post.url }}" title="{{ post.title }}" class="md-headline">{{ post.title }}</a>

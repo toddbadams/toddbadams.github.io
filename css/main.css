@@ -79,11 +79,13 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
     background-color: rgba(63, 81, 181, 0.2);
 }
 
-.md-table tr {
+.md-table tbody tr {
     border-bottom: 1px solid rgb(230, 230, 230);
 }
-.md-table tr th {
+.md-table tbody tr th {
     width: 100px;
+    text-align: left;
+    font-weight: 400;
 }
 
 .md-table thead {
@@ -95,12 +97,12 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
     padding: 16px 16px 16px 0;
 }
 
-.md-table td {
+.md-table tbody td {
     width: 100px;
     word-wrap: break-word;
 }
 
-.md-table th a {
+.md-table tbody th a {
     text-decoration: none;
     color: inherit;
 }

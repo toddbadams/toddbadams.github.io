@@ -29,3 +29,9 @@ body {
 .post_image_inner .post_image_title{
     display: none;
 }
+
+md-card .md-caption {    
+    padding: 0 16px;
+    margin: 0;
+    line-height: 1.5;
+}

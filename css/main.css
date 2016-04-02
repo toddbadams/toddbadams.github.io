@@ -76,11 +76,11 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
     background-color: rgba(63, 81, 181, 0.2);
 }
 
-.md-table th {
+.md-table tr {
     border-bottom: 1px solid rgb(230, 230, 230);
 }
 
-.md-table th {
+.md-table thead {
     border-bottom: 1px solid rgb(230, 230, 230);
     color: rgb(130, 130, 130);
     text-align: left;
@@ -97,11 +97,4 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
 .md-table th a {
     text-decoration: none;
     color: inherit;
-}
-
-.md-table tbody {
-    white-space: nowrap;
-    font-size: 0.8em;
-    padding: 16px 16px 16px 0;
-    height: 72px;
 }

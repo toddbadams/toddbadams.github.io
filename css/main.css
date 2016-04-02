@@ -113,7 +113,7 @@ ul.wine-style {
     font-size: 14px;
     list-style-type: none;
     margin: 0;
-    padding: 20px;
+    padding: 20px 20px 0 20px
     border-left: 2px solid rgb(130, 130, 130);;
 }
 ul.wine-style li {

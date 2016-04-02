@@ -70,9 +70,10 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
     table-layout: fixed;
 }
 
-.md-table tbody  {
+.md-table tbody {
     font-size: 0.8em;
 }
+
 .md-table tbody tr:hover,
 .md-table tbody tr:focus {
     cursor: pointer;
@@ -82,6 +83,7 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
 .md-table tbody tr {
     border-bottom: 1px solid rgb(230, 230, 230);
 }
+
 .md-table tbody tr th {
     width: 100px;
     text-align: left;
@@ -105,4 +107,28 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
 .md-table tbody th a {
     text-decoration: none;
     color: inherit;
+}
+
+ul.wine-style {
+    font-size: 14px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul.wine-style li {
+
+}
+ul.wine-style li > span:first-child{
+    width: 45px;
+}
+ul.wine-style li > span:not(:first-child){
+    width:14px;
+    height: 14px;
+    border-radius: 7px;
+}
+ul.wine-style li > span.empty{
+    border: 2px solid rgb(230, 230, 230);
+}
+ul.wine-style li > span.full{
+    background-color: yellow;
 }

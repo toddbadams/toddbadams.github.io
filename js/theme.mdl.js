@@ -8,6 +8,7 @@
                 label: '@'
             },
             replace: true,
+            transclude: true,
             template: '<li><span>{{$ctrl.label}}</span><span ng-transclude></span></li>'
         })
         .component('wineTasting', {
@@ -16,6 +17,7 @@
                 date: '@'
             },
             controller: wineTasting,
+            transclude: true,
             template: ['<h3>{{$ctrl.title}}</h3>',
                 '<h4>{{$ctrl.date}}</h4>',
                 '<ul ng-transclude></ul>'].join('')

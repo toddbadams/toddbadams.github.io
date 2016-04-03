@@ -4,7 +4,7 @@
     angular.module('wt.theme', ['ngMaterial'])
         .config(config)
         .component('wineTastingItem', {
-            bindings {
+            bindings: {
                 label: '@'
             },
             replace: true,

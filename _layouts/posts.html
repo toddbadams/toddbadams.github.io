@@ -1,8 +1,9 @@
----
-layout: default
+--- 
+layout: default 
 ---
 
- <article class="post">
+<md-content class="container wine" flex layout="column">
+    <article class="post">
         <md-card>
             <a href="{{ page.url }}" title="{{ page.title }}">
                 <img ng-src="/images/{{page.image}}.jpg" class="md-card-image" alt="{{page.title}}">
@@ -16,11 +17,10 @@ layout: default
             <md-card-content>
                 {{ content }}
             </md-card-content>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button href="{{ page.url }}">Read more</md-button>
-            </md-card-actions>
             <footer>
                 <p class="md-body-1">updated on {{ page.date | date_to_string }}</span>
+                </p>
             </footer>
         </md-card>
     </article>
+</md-content>

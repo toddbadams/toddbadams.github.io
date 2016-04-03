@@ -2,7 +2,24 @@
     'use strict'
 
     angular.module('wt.theme', ['ngMaterial'])
-        .config(config);
+        .config(config)
+        .component('wineTastingItem', {
+            bindings {
+                label: '@'
+            }
+            replace: true,
+            template: '<li><span>{{$ctrl.label}}</span><span ng-transclude></span></li>'
+        })
+        .component('wineTasting', {
+            bindings: {
+                title: '@',
+                date: '@'
+            },
+            controller: 
+            template: ['<h3>{{$ctrl.title}}</h3>',
+                '<h4>{{$ctrl.date}}</h4>',
+                '<ul ng-transclude></ul>']
+        });
 
     config.$inject = ['$mdThemingProvider'];
 
@@ -82,5 +99,10 @@
             .accentPalette('customAccent')
             .warnPalette('customWarn')
             .backgroundPalette('customBackground')
+    }
+
+    wineTasting.$inject = ['$element'];
+    function($element){
+        $element.addClass('wine-tasting');
     }
 })();

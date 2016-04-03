@@ -1,8 +1,8 @@
-# Site settings
+# Site settings   (jekyll build --watch)
 title: Todd B. Adams
 email: toddbadams@msn.com
 description: My personal site and blog
-encoding: utf<p>8
+encoding: utf-8
 name: Todd B. Adams
 
 # Build settings

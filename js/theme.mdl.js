@@ -6,7 +6,7 @@
         .component('wineTastingItem', {
             bindings {
                 label: '@'
-            }
+            },
             replace: true,
             template: '<li><span>{{$ctrl.label}}</span><span ng-transclude></span></li>'
         })

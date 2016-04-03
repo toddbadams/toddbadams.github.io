@@ -3,31 +3,22 @@ layout: default
 ---
 
 <div>
-    <section class="home"></section>
-    <section class="posts">
-        {% for post in site.posts %}
-        <article>
-            <md-card>
-                <a href="{{ post.url }}" title="{{ post.title }}">
-                    <img ng-src="/images/{{post.image}}.jpg" class="md-card-image" alt="{{post.title}}">
-                </a>
-                 <p class="md-caption">"<span>{{post.imagecaption}}</span>" by {{post.imageby}}</a>, <small>licensed under <a rel="nofollow" class="external text" href="http://creativecommons.org/licenses/by/2.0/">Creative Commons</a></small></p>
-                <md-card-title>
-                    <md-card-title-text>
-                        <a href="{{ post.url }}" title="{{ post.title }}" class="md-headline">{{ post.title }}</a>
-                    </md-card-title-text>
-                </md-card-title>
-                <md-card-content>
-                    <p>{{ post.excerpt }}</p>
-                </md-card-content>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button href="{{ post.url }}">Read more</md-button>
-                </md-card-actions>
-                <footer>
-                    <p class="md-body-1">updated on {{ post.date | date_to_string }}</span></p>
-                </footer>
-            </md-card>
-        </article>
-        {% endfor %}
+    <section class="home">
+        
+        <div class="home-inner">
+                  <div class="center-align home-content">
+                    <h1 class="home-title">HI! I'm <span>Todd</span></h1>
+                    <h2 class="home-subtitle">Full stack developer from London/h2>
+                  </div>
+              </div>
+                      <div class="section-call-to-area">
+          <div class="container">
+            <div class="row">
+              <a href="#about" class="btn-floating btn-large button-middle call-to-about section-call-to-btn animated btn-show" data-section="#about">
+                <i class="mdi-navigation-expand-more"></i>
+              </a>
+            </div>
+          </div>
     </section>
+
 </div>

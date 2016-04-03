@@ -141,3 +141,7 @@ ul.wine-style li > span.full{
     background-color: rgb(130, 130, 130);
     border: 2px solid rgb(130, 130, 130);
 }
+
+.home {
+    background: url('/images/toddb.jpg') no-repeat fixed center center / cover;
+}

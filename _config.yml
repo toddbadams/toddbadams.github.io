@@ -1,5 +1,11 @@
-highlighter: rouge
+# Site settings
+title: Todd B. Adams
+email: toddbadams@msn.com
+description: My personal site and blog
 encoding: utf<p>8
 name: Todd B. Adams
+
+# Build settings
+highlighter: rouge
 markdown: kramdown
-permalink: /blog/:year/:month/:day/:title
+permalink: pretty

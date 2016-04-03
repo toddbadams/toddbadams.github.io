@@ -1,29 +1,33 @@
 --- 
 layout: default
 ---
-<div class="home"></div>
 
-{% for post in site.posts %}
-<article>
-    <md-card>
-        <a href="{{ post.url }}" title="{{ post.title }}">
-            <img ng-src="/images/{{post.image}}.jpg" class="md-card-image" alt="{{post.title}}">
-        </a>
-         <p class="md-caption">"<span>{{post.imagecaption}}</span>" by {{post.imageby}}</a>, <small>licensed under <a rel="nofollow" class="external text" href="http://creativecommons.org/licenses/by/2.0/">Creative Commons</a></small></p>
-        <md-card-title>
-            <md-card-title-text>
-                <a href="{{ post.url }}" title="{{ post.title }}" class="md-headline">{{ post.title }}</a>
-            </md-card-title-text>
-        </md-card-title>
-        <md-card-content>
-            <p>{{ post.excerpt }}</p>
-        </md-card-content>
-        <md-card-actions layout="row" layout-align="end center">
-            <md-button href="{{ post.url }}">Read more</md-button>
-        </md-card-actions>
-        <footer>
-            <p class="md-body-1">updated on {{ post.date | date_to_string }}</span>
-        </footer>
-    </md-card>
-</article>
-{% endfor %}
+<div>
+    <section class="home"></section>
+    <section class="posts">
+        {% for post in site.posts %}
+        <article>
+            <md-card>
+                <a href="{{ post.url }}" title="{{ post.title }}">
+                    <img ng-src="/images/{{post.image}}.jpg" class="md-card-image" alt="{{post.title}}">
+                </a>
+                 <p class="md-caption">"<span>{{post.imagecaption}}</span>" by {{post.imageby}}</a>, <small>licensed under <a rel="nofollow" class="external text" href="http://creativecommons.org/licenses/by/2.0/">Creative Commons</a></small></p>
+                <md-card-title>
+                    <md-card-title-text>
+                        <a href="{{ post.url }}" title="{{ post.title }}" class="md-headline">{{ post.title }}</a>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p>{{ post.excerpt }}</p>
+                </md-card-content>
+                <md-card-actions layout="row" layout-align="end center">
+                    <md-button href="{{ post.url }}">Read more</md-button>
+                </md-card-actions>
+                <footer>
+                    <p class="md-body-1">updated on {{ post.date | date_to_string }}</span></p>
+                </footer>
+            </md-card>
+        </article>
+        {% endfor %}
+    </section>
+</div>

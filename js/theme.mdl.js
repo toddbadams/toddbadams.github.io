@@ -102,7 +102,7 @@
     }
 
     wineTasting.$inject = ['$element'];
-    function($element){
+    function wineTasting($element){
         $element.addClass('wine-tasting');
     }
 })();

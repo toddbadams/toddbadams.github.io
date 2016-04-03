@@ -15,7 +15,7 @@
                 title: '@',
                 date: '@'
             },
-            controller: 
+            controller: wineTasting,
             template: ['<h3>{{$ctrl.title}}</h3>',
                 '<h4>{{$ctrl.date}}</h4>',
                 '<ul ng-transclude></ul>'].join('')

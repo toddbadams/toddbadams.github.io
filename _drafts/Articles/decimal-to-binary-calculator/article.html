@@ -1,0 +1,81 @@
+﻿<h2>The Calculator</h2>
+<form action="/internet/decimal-to-binary-results" data-ajax="true" data-ajax-loading="#loading" data-ajax-loading-duration="1000" data-ajax-method="Post" data-ajax-mode="replace" data-ajax-update="#result" id="form0" method="post" class="form-horizontal">
+<div class="control-group">
+    <label class="control-label" for="dec">Decimal</label>
+    <div class="controls">
+        <input type="number" id="dec" name="dec" />
+        <label class="error" for="dec" id="dec_error">This field is required.</label>
+    </div>
+</div>
+
+<div class="control-group">
+    <div class="controls">
+        <button class="btn btn-primary calculate" type="submit">Calculate</button><span id="loading" style="display: none;">loading...</span>
+    </div>
+</div>
+</form>
+
+<div id="result"></div>
+
+<h2>The Algorithm</h2>
+
+<pre>Length = RoundUp(log 2 ( decimal ) )
+Bits = new Array[Length]
+For (i = 0 to Length-1)
+If  ( decimal >= 2^ (Length-i) )
+	Bits[i]  =  1
+	Decimal = decimal - 2^ (Length-i)
+Else
+	Bits[i] = 0</pre>
+<p class="caption">An algorithm to convert decimal to binary.</p>
+
+<h2>An Example</h2>
+
+<p>In this example our input <em>Decimal</em> = 10.</p>
+<p>Length = RoundUp( log 2( 10 ) ) = 4</p>
+<p>Bits = new Array[4]</p>
+<table class="table table-bordered table-hover">
+    <caption>For i Loop</caption>
+    <thead>
+        <tr>
+            <th class="span1">i</th>
+            <th class="span1">2^(4-i)</th>
+            <th class="span1">Is decimal >= 2^(4-i)</th>
+            <th class="span1">decimal</th>
+            <th class="span1">Bit[i]</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>8</td>
+            <td>yes</td>
+            <td>2</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>4</td>
+            <td>no</td>
+            <td>2</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>2</td>
+            <td>no</td>
+            <td>0</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>1</td>
+            <td>yes</td>
+            <td>0</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Please leave some thoughts below and thanks for the read.
+</p>

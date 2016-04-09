@@ -1,0 +1,50 @@
+﻿/* Top Bar */
+#topbar { background: #464646; border-bottom: 1px solid black; margin: 0; padding: 0; font-size: 0.85em; }
+    #topbar .container { width: 1170px; margin: 0 auto; }
+    #topbar a { text-shadow: none; color: White; }
+        #topbar a:hover { text-decoration: underline; }
+/* Header */
+#header { background: #1d354d; -webkit-box-shadow: inset 0 1px 0 #28496b; -moz-box-shadow: inset 0 1px 0 #28496b; box-shadow: inset 0 1px 0 #28496b; padding-top: 12px; }
+    #header { margin-bottom: 0px; }
+    #header .container { width: 1170px; margin: 0 auto; }
+    #header .brand { text-shadow: none; color: white; }
+    #header .btn-navbar { display: none; height: auto; padding: 14px 0 10px; margin-top: 25px; margin-right: -20px; margin-left: -20px; color: #94ba65; font-size: 16px; text-align: center; border-top: 1px solid #010203; box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15); }
+        #header .btn-navbar:hover { text-decoration: none; }
+/* Main Administration Navigation */
+#main-nav { position: relative; display: inline-block; padding: 0; margin-top: 6px; margin-right: 0; margin-bottom: 0; }
+    #main-nav > li { float: left; padding: 0; margin: 0 4px 0 0; list-style: none; }
+        #main-nav > li > a { padding: 10px 12px; font-size: 12px; font-weight: 600; color: #ffffff; background: transparent; border: 1px solid transparent; -webkit-border-top-right-radius: 3px; -webkit-border-bottom-right-radius: 0; -webkit-border-bottom-left-radius: 0; -webkit-border-top-left-radius: 3px; -moz-border-radius-topright: 3px; -moz-border-radius-bottomright: 0; -moz-border-radius-bottomleft: 0; -moz-border-radius-topleft: 3px; border-top-right-radius: 3px; border-bottom-right-radius: 0; border-bottom-left-radius: 0; border-top-left-radius: 3px; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6); }
+            #main-nav > li > a,
+            #main-nav > li > a:hover,
+            #main-nav > li.open > a { color: #ffffff; text-decoration: none; background-color: #1f3852; background-image: -moz-linear-gradient(top, #24415f, #172b3e); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#24415f), to(#172b3e)); background-image: -webkit-linear-gradient(top, #24415f, #172b3e); background-image: -o-linear-gradient(top, #24415f, #172b3e); background-image: linear-gradient(to bottom, #24415f, #172b3e); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff24415f', endColorstr='#ff172b3e', GradientType=0); border: 1px solid #080f15; -webkit-box-shadow: inset 0 1px 0 #325b85; -moz-box-shadow: inset 0 1px 0 #325b85; box-shadow: inset 0 1px 0 #325b85; }
+                #main-nav > li > a:hover,
+                #main-nav > li.open > a { background-color: #1b3148; background-image: -moz-linear-gradient(top, #1e3751, #16283a); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#1e3751), to(#16283a)); background-image: -webkit-linear-gradient(top, #1e3751, #16283a); background-image: -o-linear-gradient(top, #1e3751, #16283a); background-image: linear-gradient(to bottom, #1e3751, #16283a); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff1e3751', endColorstr='#ff16283a', GradientType=0); }
+        #main-nav > li.active > a { color: #192d42; background: #ffffff; filter: none !important; border-bottom-color: #ffffff; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; text-shadow: none; }
+        #main-nav > li > a > i { position: relative; top: 1px; padding-right: .35em; font-size: 14px; }
+        #main-nav > li.nav-icon > a > i { padding-right: 0; }
+        #main-nav > li.nav-icon > a > span { display: none; }
+        #main-nav > li.dropdown > .dropdown-menu { top: 130%; left: auto; right: 0; }
+            #main-nav > li.dropdown > .dropdown-menu::before { content: ''; display: inline-block; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 7px solid #AAA; position: absolute; top: -7px; right: 9px; }
+            #main-nav > li.dropdown > .dropdown-menu::after { content: ''; display: inline-block; border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid white; position: absolute; top: -6px; right: 10px; }
+    #main-nav .dropdown-submenu .dropdown-menu { left: auto; right: 100%; }
+    #main-nav .caret { margin-top: 8px; margin-left: .25em; border-top-color: #FFF; opacity: 0.65; filter: alpha(opacity=65); }
+    #main-nav .active .dropdown-toggle .caret { border-top-color: #1d354d; }
+/* Mast Head Section */
+#masthead { width: 100%; padding: 20px 0; color: #333333; background-color: #f8f8f8; background-image: -moz-linear-gradient(top, #ffffff, #ededed); background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#ededed)); background-image: -webkit-linear-gradient(top, #ffffff, #ededed); background-image: -o-linear-gradient(top, #ffffff, #ededed); background-image: linear-gradient(to bottom, #ffffff, #ededed); background-repeat: repeat-x; filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffededed', GradientType=0); border-bottom: 1px solid #c9c9c9; -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15); text-shadow: 1px 1px 2px #FFF; }
+    #masthead h1,
+    #masthead h2,
+    #masthead h3,
+    #masthead h4,
+    #masthead h5,
+    #masthead h6 { margin-top: 0; margin-bottom: 0; font-weight: 600; font-size: 24px; }
+    #masthead p { margin-bottom: 0; font-size: 13px; }
+    #masthead .masthead-pad { display: table; width: 100%; }
+        #masthead .masthead-pad .masthead-icon { position: relative; display: table-cell; vertical-align: top; width: 65px; font-size: 50px; font-weight: 400; }
+            #masthead .masthead-pad .masthead-icon i { position: relative; top: 15px; }
+        #masthead .masthead-pad .masthead-text { display: table-cell; vertical-align: top; }
+/* Content section */
+#content .container { width: 1170px; margin: 24px auto; }
+/* Nav Overrides */
+.nav-tabs > .active > a { background-color: #4D90FE; color: white; }
+ .nav-tabs > .active > a:hover { background-color: #0072BB;  }
+ .navbar .nav > li > a { text-shadow: none; color: white; }

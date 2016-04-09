@@ -1,0 +1,14 @@
+﻿
+<div id="fb-root"></div>
+@if(Request.IsAuthenticated) {
+    <text><i class="icon-user icon-white"></i> Welcome <strong>@User.Identity.Name</strong>!
+    [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
+}
+else {
+    <div class="fb-login-button" data-show-faces="true" data-width="400" data-max-rows="1"></div>
+     @Html.ActionLink("Log On", "LogOn", "Account")
+    if(!(ViewBag.IsFaceBookLoggedIn != null && ViewBag.IsFaceBookLoggedIn)) {
+         <script type="text/javascript" src="@Url.Content("~/Scripts/FacebookLogin.js")"></script>
+    }
+}
+

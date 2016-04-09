@@ -4,23 +4,18 @@ layout: default
 
 <md-content class="container wine" flex layout="column">
     <article class="post">
-        <md-card>
-            <a href="{{ page.url }}" title="{{ page.title }}">
+            <header>
+            <a href="{{ page.url }}" title="{{ page.title }}" class="top-image">
                 <img ng-src="/images/{{page.image}}.jpg" class="md-card-image" alt="{{page.title}}">
             </a>
-            <p class="md-caption">"<span>{{page.imagecaption}}</span>" by {{page.imageby}}</a>, <small>licensed under <a rel="nofollow" class="external text" href="http://creativecommons.org/licenses/by/2.0/">Creative Commons</a></small></p>
-            <md-card-title>
-                <md-card-title-text>
-                    <a href="{{ page.url }}" title="{{ page.title }}" class="md-display-3">{{ page.title }}</a>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
+            <p class="caption">"<span>{{page.imagecaption}}</span>" by {{page.imageby}}</a>, licensed under <a rel="nofollow" class="external text" href="http://creativecommons.org/licenses/by/2.0/">Creative Commons</a></p>
+            <h1><a href="{{ page.url }}" title="{{ page.title }}" class="md-display-3">{{ page.title }}</a></h1>
+            <div class="content">
                 {{ content }}
-            </md-card-content>
+            </div>
             <footer>
                 <p class="md-body-1">updated on {{ page.date | date_to_string }}</span>
                 </p>
             </footer>
-        </md-card>
     </article>
 </md-content>

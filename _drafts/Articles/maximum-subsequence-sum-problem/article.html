@@ -1,0 +1,121 @@
+﻿<h3>The Problem</h3>
+<p>
+    Given a sequence of N integers A<sub>1</sub>,A<sub>2</sub>,&hellip;A<sub>n</sub>, 
+                Find the maximum value of: &Sigma;<sup>j</sup><sub>k=i</sub> A<sub>k</sub>.
+</p>
+<p>
+    In simpler terms take any continuous subset of an array and sum each of its objects 
+                (in this case integers).  Perform this for each possible continuous subset of objects. 
+                The <em>Maximum Subsequence Sum</em> is then the largest sum of the subset sums.
+</p>
+<h3>Assumptions</h3>
+<p>We will assume the maximum sum is 0, if all the integers in the subsequence are negative.</p>
+<h3>Sample Problem</h3>
+<p>We start with an array: A = [3, -4, 5, 2, -5]</p>
+<p>The length of the array: N = 5</p>
+<p>
+    We can visually look through the array and calculate the <em>Maximum Subsequence Sum</em>
+    of <strong>7</strong>.  But what if we have a much larger array?
+</p>
+
+<h3>The Algorithm</h3>
+<p>
+    I resisted the temptation to perform a Google search for the solution, instead I spent 
+                time playing around with an array of numbers in a spreadsheet program. The big ah-hah 
+                came when I noticed that when the running total fell below 0, the next cell became the 
+                start of the next possible subset. Below is the outline of the algorithm.
+</p>
+<ol>
+    <li>When the running total falls below zero, the next cell is the start of the next possible subset.</li>
+    <li>Set the current sum to zero, and continue.</li>
+    <li>At each index, add the array value to the current sum and if greater than the maximum sum 
+                    set its value to the current sum.</li>
+    <li>This algorithm requires only one loop through the array, which is a complexity of N. </li>
+</ol>
+<pre>maxSum = 0
+sum = 0
+for i = 1 to N
+   sum += A[i]
+   if sum < 0 then sum = 0
+   if sum > maxSum then maxSum = sum</pre>
+<p class="caption">Algorithm in pseudo code</p>
+<pre>public class MaxSubSumN : IAlgorithm
+    {
+        public MaxSubSumN(int[] data)
+        {
+            this.Data = data;
+        }
+
+        public int[] Data { get; private set; }
+
+        public int Calculate()
+        {
+            int maxSum = 0;
+            int sum = 0;
+            for (int i = 0; i < this.Data.Length; i++)
+            {
+                sum += this.Data[i];
+                if (sum < 0) sum = 0;
+                if (sum > maxSum) maxSum = sum;
+            }
+            return maxSum;
+        }
+    }</pre>
+<p class="caption">Algorithm in c#</p>
+<pre>public int Calculate(int[]& A)
+{
+    int maxSum = 0;
+    int sum = 0;
+    for (int i = 0; i < A.Length; i++)
+    {
+        sum += A[i];
+        if (sum < 0) sum = 0;
+        if (sum > maxSum) maxSum = sum;
+    }
+    return maxSum;
+}</pre>
+<p class="caption">Algorithm in c++</p>
+<h2>Calculate an Example</h2>
+<p>
+    The following generates an array of integers given the length, minimum value, and maximum value.
+                When submitted the <em>Maximum Subsequence Sum</em> is calculated, the array, and its result is presented.
+</p>
+@* @using (Ajax.BeginForm("max-sub-sum-results", ajaxOptions))
+            {
+                *@
+            <form action="/max-sub-sum-results" data-ajax="true" data-ajax-loading="#loading" 
+                data-ajax-loading-duration="1000" data-ajax-method="Post" data-ajax-mode="replace" 
+                data-ajax-update="#result" id="form0" method="post" class="form-horizontal">
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Length</label>
+                <div class="controls">
+                    <input type="number" id="Length" name="Length" />
+                    <label class="error" for="Length" id="Length_error">This field is required.</label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Max Value</label>
+                <div class="controls">
+                    <input type="number" id="Max" name="Max" />
+                    <label class="error" for="Max" id="Max_error">This field is required.</label>
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="inputEmail">Min Value</label>
+                <div class="controls">
+                    <input type="number" id="Min" name="Min" />
+                    <label class="error" for="Min" id="Min_error">This field is required.</label>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <button class="btn btn-primary calculate" type="submit">Calculate</button><span id="loading" style="display: none;">loading...</span>
+                </div>
+            </div>
+            </form>
+
+<div id="result"></div>
+
+<p>
+    Please leave some thoughts below and thanks for the read.
+</p>

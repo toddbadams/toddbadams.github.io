@@ -1,0 +1,160 @@
+﻿<p>
+    The Internet Protocol (IP) is the messaging format used to relay 
+    <a href="http://en.wikipedia.org/wiki/Datagrams" title="wikipedia" target="blank"><em>datagrams</em></a> (packets) 
+    on the Internetworking Layer (see <a href="/four-functional-layers-of-internet" title="Four Functional Layers of the Internet">"<em>Four Functional Layers of the Internet</em>"</a> ).
+    The Internetworking layer delivers datagrams from host to client solely based on addresses. 
+    IP defines the structure of the datagram which wraps the message being delivered. 
+    In addition IP defines the addressing methods used to denote the host and client.
+</p>
+<p>
+    The first version of IP to be implemented on the Internet is Internet Protocol Version 4 (IPv4) and
+    is most widely deployed Internet Layer protocol. An IPv4 address is a sequence of 32 bits (4 bytes). 
+    The number of addresses is limited to 2<sup>32</sup>, which is approximately 4.3 billion. 
+    <a href="http://en.wikipedia.org/wiki/Datagrams" title="wikipedia" target="blank"><em>Internet Corporation for Assigned Names and Numbers</em></a>  (ICANN)
+    is responsible for assigning IP numbers to organizations and only a limited number of IPv4 address 
+    remain to be assigned. As a result a new standard (IPv6) has been introduced and the Internet is in a 
+    transition to this new standard. 
+</p>
+
+<p>
+    An IPv4 address is a binary number comprising of 32 bits, and is  often represented in 
+    <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" title="wikipedia" target="blank"><em>Classless Inter-Domain Routing</em></a>
+    (CIDR) dotted-decimal format. In this format the address is broken into four bytes, each 
+    of which is  converted to decimal.
+</p>
+<p>
+    For example let's look at Google's IP Address, which is 209.85.231.104:
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <td>&nbsp;
+        </td>
+        <td>
+            <p>Byte 1</p>
+        </td>
+        <td>
+            <p>Byte1</p>
+        </td>
+        <td>
+            <p>Byte 3</p>
+        </td>
+        <td>
+            <p>Byte4</p>
+        </td>
+    </tr>
+    <tr>
+        <td>Binary</td>
+        <td>11010001</td>
+        <td>01010101</td>
+        <td>11100111</td>
+        <td>01101000</td>
+    </tr>
+    <tr>
+        <td>Decimal</td>
+        <td>209</td>
+        <td>85</td>
+        <td>231</td>
+        <td>104</td>
+    </tr>
+</table>
+<p>
+    Using the dot separated decimal notation provides a more human readable format of the address.
+</p>
+
+<h2>Network Prefixes and Host IDs</h2>
+<p>
+    The internet is divided into networks, each with a network prefix and a host identifier.  
+    The  network prefix is the left most group of bits of the address that all of the host on a network share in common.
+    The example in the figure below shows a network with a network address of 209.85.231.128, and three host 
+    computers inside this network. In this network seven (7) bits have been allocated to identify the hosts.
+</p>
+<figure>
+    <img src="/Content/images/articles/internet-protocol/network-prefix-host-computers.jpg" />
+    <figcaption>Example Network Prefix and Hosts</figcaption>
+</figure>
+<p>
+    To determine which part of the IP address is the prefix versus the host, the bit size of the network 
+    prefix must also be passed along  with the IP address.  Our IP address takes form 
+    209.85.231.104/25 where /25 indicates the number of bits used  by the network prefix. There are 32 
+    bits in an IPv4 address, so dedicating 25  for the network prefix leaves 7 for the host IDs as shown
+    in the figure above.  
+    However the network requires two dedicated dedicated addresses, leaving total of 2<sup>7</sup> – 2 possible 
+    addresses for hosts which is 126 host addresses.
+</p>
+<p>
+    The two addresses used by the network are the network address, and the network’s broadcast address. 
+    The network address is comprised  of the network prefix followed by all zeros, and is used to address 
+    the router that sits at the front of the network. The broadcast address is comprised of the network 
+    prefix followed by all ones, and is used to send messages to all  hosts of the network.
+</p>
+<figure>
+    <img src="/Content/images/articles/internet-protocol/broadcast.jpg" />
+    <figcaption>Example Broadcast to Entire Network</figcaption>
+</figure>
+<p>
+    When a host is transmitting a message to a single other host, it is known as a unicast
+    as shown below.
+</p>
+<figure>
+    <img src="/Content/images/articles/internet-protocol/unicast.jpg" />
+    <figcaption>Example Unicast to a single Host</figcaption>
+</figure>
+<p>
+    In our example 209.85.231.104/25 has a network address of 209.85.231.128, and a  broadcast 
+    address of 209.85.231.255. Which leaves the addresses 209.85.231.129 to 209.85.231.254 
+    free for host IDs.
+</p>
+
+<h2>IPv4 Headers</h2>
+
+<p>
+    In an IPv4 header, the field specifying the total length of the
+datagram is 16 bits long. However, the field with the fragment
+offset is only 13 bits long. Answer the following questions:
+i. Given the above, how does IP allow fragments with offsets
+larger than 213 bytes into the message to be identified?
+ii. Can a message be fragmented at any point along its length?
+iii. What is the maximum length of message data allowed for
+by the IPv4 specification in a datagram (in bytes)?
+</p>
+
+<h2>IPv6</h2>
+<p>
+    While IPv4 uses a 32-bit address, IPv6 uses a 128-bit addresses.  This allows for 
+    2<sup>128</sup>, or approximately 3.4×10<sup>38</sup> addresses. Based on the population
+    of the earth in 2012, there exists about one IPv4 address per person, however there
+    are 4.8×10<sup>28</sup> IPv6 address.  It is unlikely that we will ever run out of these
+    addresses.
+</p>
+<p>
+    An IPv6 address consists of eight groups of four hexadecimal digits separated by colons, 
+    for example <em>2001:0db8:85a3:0042:0000:8a2e:0370:7334</em>.
+</p>
+<p>
+    Included within the specification of IPv6 is 
+    <a href="http://en.wikipedia.org/wiki/Multicast" title="Multicasting" target="_blank">Multicasting</a>.
+    Multicasting allows for a host to transmit a packet to multiple destinations through
+    a single send operation. 
+
+    IPv6 does not implement traditional IP 
+    broadcast, i.e. the transmission of a packet to all hosts on the attached link using a
+     special broadcast address, and therefore does not define broadcast addresses.
+
+    In IPv6
+    , the same result can be achieved by sending a packet to the link-local all nodes multicast
+     group at address ff02::1, which is analogous to IPv4 multicast to address 224.0.0.1.
+</p>
+<p>
+    What do IPv6 anycast addresses allow you to do?
+    i. Explain the purpose of an anycast address
+ii. Explain the purpose of a multicast address
+iii. How does a router distinguish an anycast address from a multicast address?
+iv. How does a router distinguish an anycast address from a unicast address?
+    Specify the algorithm by which IPv6 clients establish the Path MTU prior to sending a datagram.
+</p>
+
+
+<p>Please leave some thoughts below and thanks for the read.</p>
+
+
+

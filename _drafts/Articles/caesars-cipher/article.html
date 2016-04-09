@@ -1,0 +1,26 @@
+<p>
+    Ceasar's Cipher (also known as Shift Cipher) is the easiest and most well known cipher in cryptography.
+     It uses substitution where each letter in the message is replaced by a letter some fixed number of 
+    positions away in the alphabet. For example, with a shift of 1, A would be replaced by B, B would become 
+    C, and so on. The method is named after Julius Caesar, who used it in his private correspondence.
+</p>
+<div id="caesar-cipher" class="form-horizontal">
+    <p>
+        <strong>Message to Encode</strong> &mdash; This message is first be converted to upper case letters A-Z,
+                and all non A-Z letters are discarded.
+    </p>
+    <textarea id="message" name="message" class="span7"></textarea>
+</div>
+<p><a href="#" class="btn btn-primary" id="encrypt">Encrypt</a></p>
+
+<div class="controls" id="all-results"></div>
+
+<h2>The Algorithm</h2>
+<p>
+    The following algorithm assumes the message has been preconditioned to 
+        remove any unwanted characters and covert to uppercase letters.
+</p>
+<pre>for (i = 0 to Message.length)
+    asciiNumber = Message.charCodeAt(i) - 65 + self.Shift;
+    Message[i] = String.fromCharCode(absolute(asciiNumber % 26) + 65);
+return Message</pre>

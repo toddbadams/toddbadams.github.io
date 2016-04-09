@@ -1,0 +1,4463 @@
+<?xml version="1.0"?>
+<ArrayOfArticle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <article>
+    <slug>caesars-cipher</slug>
+    <is-in-menu>false</is-in-menu>
+    <menu-title>Caesar's Cipher</menu-title>
+    <full-title>Caesar's Cipher</full-title>
+    <publish-date>Nov 17 2012</publish-date>
+    <summary>Ceasar's Cipher (also known as Shift Cipher) is the easiest and most well known cipher in cryptography.</summary>
+    <category>Cryptography</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    Ceasar's Cipher (also known as Shift Cipher) is the easiest and most well known cipher in cryptography.
+     It uses substitution where each letter in the message is replaced by a letter some fixed number of 
+    positions away in the alphabet. For example, with a shift of 1, A would be replaced by B, B would become 
+    C, and so on. The method is named after Julius Caesar, who used it in his private correspondence.
+&lt;/p&gt;
+&lt;div id="caesar-cipher" class="form-horizontal"&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Message to Encode&lt;/strong&gt; &amp;mdash; This message is first be converted to upper case letters A-Z,
+                and all non A-Z letters are discarded.
+    &lt;/p&gt;
+    &lt;textarea id="message" name="message" class="span7"&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;a href="#" class="btn btn-primary" id="encrypt"&gt;Encrypt&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class="controls" id="all-results"&gt;&lt;/div&gt;
+
+&lt;h2&gt;The Algorithm&lt;/h2&gt;
+&lt;p&gt;
+    The following algorithm assumes the message has been preconditioned to 
+        remove any unwanted characters and covert to uppercase letters.
+&lt;/p&gt;
+&lt;pre&gt;for (i = 0 to Message.length)
+    asciiNumber = Message.charCodeAt(i) - 65 + self.Shift;
+    Message[i] = String.fromCharCode(absolute(asciiNumber % 26) + 65);
+return Message&lt;/pre&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>four-functional-layers-of-the-internet</slug>
+    <is-in-menu>false</is-in-menu>
+    <menu-title>Four Functional Layers of the Internet</menu-title>
+    <full-title>Four Functional Layers of the Internet</full-title>
+    <publish-date>Oct 27 2012</publish-date>
+    <summary>to be done</summary>
+    <category>Internet</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;The Internet consists of four functional layers;&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;the Network Access Layer,&lt;/li&gt;
+        &lt;li&gt;the Internetwork Layer,&lt;/li&gt;
+        &lt;li&gt;the Host-to-Host Transportation Layer,&lt;/li&gt;
+        &lt;li&gt;and the Process/Application Layer.&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;p&gt;Each of these layers has several 
+    &lt;a href="http://en.wikipedia.org/wiki/Communications_protocol" title="wikipedia" target="blank"&gt;&lt;em&gt;protocols&lt;/em&gt;&lt;/a&gt;
+    which are sets of rules used to communicate on that layer.  The following figure shows each of the four layers,
+    and a few of the protocols used on each layer.
+&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src="/Content/images/articles/four-functional-layers-of-internet/Internet-Four-Functional-Layers.jpg"&gt;
+    &lt;figcaption&gt;The Four Functional Layers of the Internet&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;When transmitting a message each layer processes the message in turn starting with the 
+    Process/Application Layer and ending with the Network Access Layer. When receiving a 
+    message it is processed in reverse of transmitting, starting with the Network Access
+    Layer and ending with the Process/Application layer.
+&lt;/p&gt;
+
+&lt;h2&gt;The Network Access Layer&lt;/h2&gt;
+&lt;p&gt;
+    This layer (also known as the link layer) defines how to deliver data between the host and 
+    client on the same network. This layer describes the protocols used to describe the local 
+    network topology and the interfaces needed to effect transmission of Internet layer 
+    &lt;a href="http://en.wikipedia.org/wiki/Datagrams" title="wikipedia" target="blank"&gt;&lt;em&gt;datagrams&lt;/em&gt;&lt;/a&gt; (packets) 
+    to next-neighbour hosts.
+&lt;/p&gt;
+
+&lt;h2&gt;The Internetwork Layer&lt;/h2&gt;
+&lt;p&gt;
+    This layer (also known as the internet layer) defines how to route messages across networks.
+    It exchanges datagrams across network boundaries, and establishes internetworking, thus the
+    name the Internet. This layer defines the addressing and routing structures used for the 
+    TCP/IP protocol suite. The primary protocol in this scope is the Internet Protocol, which 
+    defines IP addresses. Its function in routing is to transport datagrams to the next IP router 
+    that has the connectivity to a network closer to the final data destination.
+&lt;/p&gt;
+
+&lt;h2&gt;The Host-to-Host Transportation Layer&lt;/h2&gt;
+&lt;p&gt;
+    This layer defines how to provide reliable communication, so that data will not be lost or corrupted
+    during the transport from host to client. The transport layer constitutes the networking regime 
+    between two network hosts, either on the local network or on remote networks separated by routers. 
+    The transport layer provides a uniform networking interface that hides the actual topology (layout) 
+    of the underlying network connections. This is where flow-control, error-correction, and connection 
+    protocols exist, such as TCP. This layer deals with opening and maintaining connections between 
+    Internet hosts.
+&lt;/p&gt;
+
+&lt;h2&gt;The Process/Application Layer&lt;/h2&gt;
+&lt;p&gt;
+    This layer defines how application requests are sent across the internet, using encryption, compression,
+    and ?? etc. This is the scope within which applications create user data and communicate this data to 
+    other processes or applications on another or the same host. The communications partners are often 
+    called peers. This is where the "higher level" protocols such as SMTP, FTP, SSH, HTTP, etc. operate.
+&lt;/p&gt;
+
+&lt;p&gt;Please leave some thoughts below and thanks for the read.&lt;/p&gt;
+
+&lt;p&gt;Enumerate the four main layers in the Internet reference model and give three reasons why it is important to arrange the protocols in layers.&lt;/p&gt;</is-in-index>
+  </article>
+  <article>
+    <slug>internet-protocol-ip</slug>
+    <is-in-menu>false</is-in-menu>
+    <menu-title>Internet Protocol (IP)</menu-title>
+    <full-title>Internet Protocol (IP)</full-title>
+    <publish-date>Oct 27 2012</publish-date>
+    <summary>The Internet Protocol (IP) is the messaging format used to relay datagrams on the Internetworking Layer</summary>
+    <category>Internet</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    The Internet Protocol (IP) is the messaging format used to relay 
+    &lt;a href="http://en.wikipedia.org/wiki/Datagrams" title="wikipedia" target="blank"&gt;&lt;em&gt;datagrams&lt;/em&gt;&lt;/a&gt; (packets) 
+    on the Internetworking Layer (see &lt;a href="/four-functional-layers-of-internet" title="Four Functional Layers of the Internet"&gt;"&lt;em&gt;Four Functional Layers of the Internet&lt;/em&gt;"&lt;/a&gt; ).
+    The Internetworking layer delivers datagrams from host to client solely based on addresses. 
+    IP defines the structure of the datagram which wraps the message being delivered. 
+    In addition IP defines the addressing methods used to denote the host and client.
+&lt;/p&gt;
+&lt;p&gt;
+    The first version of IP to be implemented on the Internet is Internet Protocol Version 4 (IPv4) and
+    is most widely deployed Internet Layer protocol. An IPv4 address is a sequence of 32 bits (4 bytes). 
+    The number of addresses is limited to 2&lt;sup&gt;32&lt;/sup&gt;, which is approximately 4.3 billion. 
+    &lt;a href="http://en.wikipedia.org/wiki/Datagrams" title="wikipedia" target="blank"&gt;&lt;em&gt;Internet Corporation for Assigned Names and Numbers&lt;/em&gt;&lt;/a&gt;  (ICANN)
+    is responsible for assigning IP numbers to organizations and only a limited number of IPv4 address 
+    remain to be assigned. As a result a new standard (IPv6) has been introduced and the Internet is in a 
+    transition to this new standard. 
+&lt;/p&gt;
+
+&lt;p&gt;
+    An IPv4 address is a binary number comprising of 32 bits, and is  often represented in 
+    &lt;a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing" title="wikipedia" target="blank"&gt;&lt;em&gt;Classless Inter-Domain Routing&lt;/em&gt;&lt;/a&gt;
+    (CIDR) dotted-decimal format. In this format the address is broken into four bytes, each 
+    of which is  converted to decimal.
+&lt;/p&gt;
+&lt;p&gt;
+    For example let's look at Google's IP Address, which is 209.85.231.104:
+&lt;/p&gt;
+&lt;table class="table table-bordered table-hover"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;&amp;nbsp;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;p&gt;Byte 1&lt;/p&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;p&gt;Byte1&lt;/p&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;p&gt;Byte 3&lt;/p&gt;
+        &lt;/td&gt;
+        &lt;td&gt;
+            &lt;p&gt;Byte4&lt;/p&gt;
+        &lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Binary&lt;/td&gt;
+        &lt;td&gt;11010001&lt;/td&gt;
+        &lt;td&gt;01010101&lt;/td&gt;
+        &lt;td&gt;11100111&lt;/td&gt;
+        &lt;td&gt;01101000&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Decimal&lt;/td&gt;
+        &lt;td&gt;209&lt;/td&gt;
+        &lt;td&gt;85&lt;/td&gt;
+        &lt;td&gt;231&lt;/td&gt;
+        &lt;td&gt;104&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;
+    Using the dot separated decimal notation provides a more human readable format of the address.
+&lt;/p&gt;
+
+&lt;h2&gt;Network Prefixes and Host IDs&lt;/h2&gt;
+&lt;p&gt;
+    The internet is divided into networks, each with a network prefix and a host identifier.  
+    The  network prefix is the left most group of bits of the address that all of the host on a network share in common.
+    The example in the figure below shows a network with a network address of 209.85.231.128, and three host 
+    computers inside this network. In this network seven (7) bits have been allocated to identify the hosts.
+&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src="/Content/images/articles/internet-protocol/network-prefix-host-computers.jpg"&gt;
+    &lt;figcaption&gt;Example Network Prefix and Hosts&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+    To determine which part of the IP address is the prefix versus the host, the bit size of the network 
+    prefix must also be passed along  with the IP address.  Our IP address takes form 
+    209.85.231.104/25 where /25 indicates the number of bits used  by the network prefix. There are 32 
+    bits in an IPv4 address, so dedicating 25  for the network prefix leaves 7 for the host IDs as shown
+    in the figure above.  
+    However the network requires two dedicated dedicated addresses, leaving total of 2&lt;sup&gt;7&lt;/sup&gt; – 2 possible 
+    addresses for hosts which is 126 host addresses.
+&lt;/p&gt;
+&lt;p&gt;
+    The two addresses used by the network are the network address, and the network’s broadcast address. 
+    The network address is comprised  of the network prefix followed by all zeros, and is used to address 
+    the router that sits at the front of the network. The broadcast address is comprised of the network 
+    prefix followed by all ones, and is used to send messages to all  hosts of the network.
+&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src="/Content/images/articles/internet-protocol/broadcast.jpg"&gt;
+    &lt;figcaption&gt;Example Broadcast to Entire Network&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+    When a host is transmitting a message to a single other host, it is known as a unicast
+    as shown below.
+&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src="/Content/images/articles/internet-protocol/unicast.jpg"&gt;
+    &lt;figcaption&gt;Example Unicast to a single Host&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+    In our example 209.85.231.104/25 has a network address of 209.85.231.128, and a  broadcast 
+    address of 209.85.231.255. Which leaves the addresses 209.85.231.129 to 209.85.231.254 
+    free for host IDs.
+&lt;/p&gt;
+
+&lt;h2&gt;IPv4 Headers&lt;/h2&gt;
+
+&lt;p&gt;
+    In an IPv4 header, the field specifying the total length of the
+datagram is 16 bits long. However, the field with the fragment
+offset is only 13 bits long. Answer the following questions:
+i. Given the above, how does IP allow fragments with offsets
+larger than 213 bytes into the message to be identified?
+ii. Can a message be fragmented at any point along its length?
+iii. What is the maximum length of message data allowed for
+by the IPv4 specification in a datagram (in bytes)?
+&lt;/p&gt;
+
+&lt;h2&gt;IPv6&lt;/h2&gt;
+&lt;p&gt;
+    While IPv4 uses a 32-bit address, IPv6 uses a 128-bit addresses.  This allows for 
+    2&lt;sup&gt;128&lt;/sup&gt;, or approximately 3.4×10&lt;sup&gt;38&lt;/sup&gt; addresses. Based on the population
+    of the earth in 2012, there exists about one IPv4 address per person, however there
+    are 4.8×10&lt;sup&gt;28&lt;/sup&gt; IPv6 address.  It is unlikely that we will ever run out of these
+    addresses.
+&lt;/p&gt;
+&lt;p&gt;
+    An IPv6 address consists of eight groups of four hexadecimal digits separated by colons, 
+    for example &lt;em&gt;2001:0db8:85a3:0042:0000:8a2e:0370:7334&lt;/em&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+    Included within the specification of IPv6 is 
+    &lt;a href="http://en.wikipedia.org/wiki/Multicast" title="Multicasting" target="_blank"&gt;Multicasting&lt;/a&gt;.
+    Multicasting allows for a host to transmit a packet to multiple destinations through
+    a single send operation. 
+
+    IPv6 does not implement traditional IP 
+    broadcast, i.e. the transmission of a packet to all hosts on the attached link using a
+     special broadcast address, and therefore does not define broadcast addresses.
+
+    In IPv6
+    , the same result can be achieved by sending a packet to the link-local all nodes multicast
+     group at address ff02::1, which is analogous to IPv4 multicast to address 224.0.0.1.
+&lt;/p&gt;
+&lt;p&gt;
+    What do IPv6 anycast addresses allow you to do?
+    i. Explain the purpose of an anycast address
+ii. Explain the purpose of a multicast address
+iii. How does a router distinguish an anycast address from a multicast address?
+iv. How does a router distinguish an anycast address from a unicast address?
+    Specify the algorithm by which IPv6 clients establish the Path MTU prior to sending a datagram.
+&lt;/p&gt;
+
+
+&lt;p&gt;Please leave some thoughts below and thanks for the read.&lt;/p&gt;
+
+
+
+</is-in-index>
+  </article>
+  <article>
+    <slug>building-a-domain-entity</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Building a Domain Entity</menu-title>
+    <full-title>Building a Domain Entity</full-title>
+    <publish-date>Aug 28 2012</publish-date>
+    <summary>In this article I discuss creating a domain entity.</summary>
+    <category>CMS</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    In the previous article 
+        &lt;a href="http://www.toddbadams.co.uk/html-page-as-c-sharp-object"&gt;&amp;ldquo;&lt;em&gt;HTML Page as a C# Object&lt;/em&gt;&amp;rdquo;&lt;/a&gt;
+    a C# object was developed to hold the settings of a website page. In this article 
+        we discuss creating a domain entity from this object.
+&lt;/p&gt;
+&lt;p&gt;
+    A domain entity is an object that is defined by its identity. Sometimes an object 
+        can be an entity in one system, but not in another; for example, and address. In 
+        an address book system each address needs to be uniquely identified and retrieved 
+        from the persistent storage, and therefore, it is an entity. In an invoice system, 
+        the address may represent properties in the invoice entity, therefore, the address 
+        is not an entity. The upshot of this example is that each object must be carefully 
+        designed to determine if it is an entity.
+&lt;/p&gt;
+&lt;p&gt;
+    In our CMS, the PageSettings object is indeed an entity and requires an identity to 
+        find it in the persistent storage. Rather than changing the properties of each of 
+        the entities in our application, I am going to use a 
+        &lt;a href="http://martinfowler.com/eaaCatalog/layerSupertype.html" target="_blank"&gt;Layered Supertype Pattern&lt;/a&gt;. 
+        This will encapsulate all of the domain entity properties and functionality in a 
+        single object. All of the objects in this layer (our domain entities) will inherit 
+        the newly created object.
+&lt;/p&gt;
+&lt;h2&gt;Test Driven Development&lt;/h2&gt;
+&lt;p&gt;
+    I am going to use a 
+        &lt;a href="http://en.wikipedia.org/wiki/Test-driven_development" target="_blank" class="wikipedia" title="Test-driven development"&gt;Test-driven development&lt;/a&gt;
+    (TDD) to build the CMS application. TDD is about writing the tests prior to the code. 
+        In fact it is the tests that drive the design and coding of the application. To 
+        start this process, first write down what we know about the new object.
+&lt;/p&gt;
+&lt;p&gt;The new object will be called EntityBase and;&lt;/p&gt;
+&lt;ol&gt;
+    &lt;li&gt;have the means to identify itself,&lt;/li&gt;
+    &lt;li&gt;needs to be able to check equality between two EntityBase objects,&lt;/li&gt;
+    &lt;li&gt;will be an abstract object, which is inherited by all entity objects in the 
+            application (this is the layered super type design pattern).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+    The following tests are written to fully specify the functionality of the object. 
+        Note that comments have been removed for brevity, the download has complete code.
+&lt;/p&gt;
+&lt;pre data-file="entitybaseunittests.txt"&gt;[TestClass()]
+public class EntityBaseTest
+{
+    private FakeEntityBase testEntity1;
+    private FakeEntityBase testEntity2;
+    private FakeEntityBase target;
+
+    [TestInitialize()]
+    public void TestInitialize()
+    {
+        testEntity1 = new FakeEntityBase { Id = 1 };
+        testEntity2 = new FakeEntityBase { Id = 2 };
+        target = new FakeEntityBase { Id = 1 };
+    }
+
+    [TestMethod()]
+    public void EqualsToBaseObjectTest()
+    {
+        Assert.IsTrue(target.Equals(testEntity1));
+        Assert.IsFalse(target.Equals(testEntity2));
+    }
+
+    [TestMethod()]
+    public void EqualsOperatorTest()
+    {
+        Assert.IsTrue((testEntity1 == target));
+        Assert.IsFalse((testEntity2 == target));
+    }
+
+    [TestMethod()]
+    public void NotEqualsOperatorTest()
+    {
+        Assert.IsTrue((testEntity2 != target));
+        Assert.IsFalse(testEntity1 != target);
+    }
+}&lt;/pre&gt;
+&lt;p class="caption"&gt;Unit tests for EntityBase&lt;/p&gt;
+&lt;p&gt;
+    I have initialized each test with three objects; testEntity1, testEntity2, target. 
+        TestEntity1 should be equal to target, while testEntity2 should not be equal. The first 
+        test EqualsToBaseObjectTest checks if a given object is equal to the base object. The 
+        second test EqualsOperatorTest checks if two objects are equal, and the final test 
+        NotEqualsOperatorTest checks if two objects are not equal.
+&lt;/p&gt;
+&lt;p&gt;
+    Because the EntityBase object is abstract, I create a fake object, called FakeEntityBase, 
+        which is concrete. Its purpose is to allow testing of the EntityBase object and does 
+        not have any production use. For more information on mocks, stubs, fakes, and dummies 
+        see &lt;a href="http://martinfowler.com/articles/mocksArentStubs.html" target="_blank" title="Mocks Aren't Stubs"&gt;&amp;ldquo;&lt;em&gt;Mocks Aren't Stubs&lt;/em&gt;&amp;rdquo;&lt;/a&gt;
+    by Martin Fowler.
+&lt;/p&gt;
+&lt;pre data-file="fakeentitybaseempty.txt"&gt;public class FakeEntityBase : EntityBase
+{
+}&lt;/pre&gt;
+&lt;p class="caption"&gt;The FakeEntityBase class&lt;/p&gt;
+&lt;p&gt;
+    The code below is the EntityBase object stripped of any functionality, instead each of 
+        the methods have been coded to substantially fail the written tests.
+&lt;/p&gt;
+&lt;pre data-file="entitybasesignature.txt"&gt;public abstract class EntityBase
+{
+    public int Id { get; set; }
+
+    public override bool Equals(object entity)
+    {
+        return false;
+    }
+
+    public static bool operator ==(EntityBase base1, EntityBase base2)
+    {
+        return false;
+    }
+
+    public static bool operator !=(EntityBase base1, EntityBase base2)
+    {
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return -1;
+    }
+}&lt;/pre&gt;
+&lt;p class="caption"&gt;The EntityBase class signature&lt;/p&gt;
+&lt;p&gt;
+    When the unit tests are run they fail, and it is at this point, I can start to write 
+        the code for each method, testing until each test passes. This is known as the red 
+        to green method, as the test results go from red (fail) to green (pass). The code 
+        below is EntityBase after it has been fully coded and passes all tests.
+&lt;/p&gt;
+&lt;pre data-file="entitybase.txt"&gt;public abstract class EntityBase
+{
+    public int Id { get; set; }
+
+    public override bool Equals(object entity)
+    {
+        if (entity == null || !(entity is EntityBase))
+        {
+            return false;
+        }
+
+        return (this == (EntityBase)entity);
+    }
+
+    public static bool operator ==(EntityBase base1, EntityBase base2)
+    {
+        if ((object)base1 == null &amp;&amp; (object)base2 == null)
+        {
+            return true;
+        }
+
+        if ((object)base1 == null || (object)base2 == null)
+        {
+            return false;
+        }
+
+        if (base1.Id != base2.Id)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static bool operator !=(EntityBase base1, EntityBase base2)
+    {
+        return (!(base1 == base2));
+    }
+
+    public override int GetHashCode()
+    {
+        return this.Id.GetHashCode();
+    }
+}&lt;/pre&gt;
+&lt;p class="caption"&gt;The Coded EntityBase object&lt;/p&gt;
+&lt;h2&gt;Other Entities and Next Steps&lt;/h2&gt;
+&lt;p&gt;
+    The PageSettings, Person, and Image objects developed in 
+        &lt;a href="http://www.toddbadams.co.uk/html-page-as-c-sharp-object"&gt;&amp;ldquo;&lt;em&gt;HTML Page as a C# Object&lt;/em&gt;&amp;rdquo;&lt;/a&gt;
+    each inherit the EntityBase object, and are now domain entities.  These entities can 
+        be stored in persistent storage. The next step is to create a repository pattern to 
+        create, read, update, and delete entities from our persistent storage.
+&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.toddbadams.co.uk/content/images/articles/building-a-domain-entity/classlibrary1.zip" class="zip" target="_blank"&gt;Download the Visual Studio 2010 Project for this article.&lt;/a&gt;&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>maximum-subsequence-sum-problem</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Maximum Subsequence Sum Problem</menu-title>
+    <full-title>Maximum Subsequence Sum Problem</full-title>
+    <publish-date>Oct 06 2012</publish-date>
+    <summary>An N complexity solution to the maximum subsequence sum problem.</summary>
+    <category>DataStructures</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;h3&gt;The Problem&lt;/h3&gt;
+&lt;p&gt;
+    Given a sequence of N integers A&lt;sub&gt;1&lt;/sub&gt;,A&lt;sub&gt;2&lt;/sub&gt;,&amp;hellip;A&lt;sub&gt;n&lt;/sub&gt;, 
+                Find the maximum value of: &amp;Sigma;&lt;sup&gt;j&lt;/sup&gt;&lt;sub&gt;k=i&lt;/sub&gt; A&lt;sub&gt;k&lt;/sub&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+    In simpler terms take any continuous subset of an array and sum each of its objects 
+                (in this case integers).  Perform this for each possible continuous subset of objects. 
+                The &lt;em&gt;Maximum Subsequence Sum&lt;/em&gt; is then the largest sum of the subset sums.
+&lt;/p&gt;
+&lt;h3&gt;Assumptions&lt;/h3&gt;
+&lt;p&gt;We will assume the maximum sum is 0, if all the integers in the subsequence are negative.&lt;/p&gt;
+&lt;h3&gt;Sample Problem&lt;/h3&gt;
+&lt;p&gt;We start with an array: A = [3, -4, 5, 2, -5]&lt;/p&gt;
+&lt;p&gt;The length of the array: N = 5&lt;/p&gt;
+&lt;p&gt;
+    We can visually look through the array and calculate the &lt;em&gt;Maximum Subsequence Sum&lt;/em&gt;
+    of &lt;strong&gt;7&lt;/strong&gt;.  But what if we have a much larger array?
+&lt;/p&gt;
+
+&lt;h3&gt;The Algorithm&lt;/h3&gt;
+&lt;p&gt;
+    I resisted the temptation to perform a Google search for the solution, instead I spent 
+                time playing around with an array of numbers in a spreadsheet program. The big ah-hah 
+                came when I noticed that when the running total fell below 0, the next cell became the 
+                start of the next possible subset. Below is the outline of the algorithm.
+&lt;/p&gt;
+&lt;ol&gt;
+    &lt;li&gt;When the running total falls below zero, the next cell is the start of the next possible subset.&lt;/li&gt;
+    &lt;li&gt;Set the current sum to zero, and continue.&lt;/li&gt;
+    &lt;li&gt;At each index, add the array value to the current sum and if greater than the maximum sum 
+                    set its value to the current sum.&lt;/li&gt;
+    &lt;li&gt;This algorithm requires only one loop through the array, which is a complexity of N. &lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;maxSum = 0
+sum = 0
+for i = 1 to N
+   sum += A[i]
+   if sum &lt; 0="" then="" sum="0" if="" sum=""&gt; maxSum then maxSum = sum&lt;/pre&gt;
+&lt;p class="caption"&gt;Algorithm in pseudo code&lt;/p&gt;
+&lt;pre&gt;public class MaxSubSumN : IAlgorithm
+    {
+        public MaxSubSumN(int[] data)
+        {
+            this.Data = data;
+        }
+
+        public int[] Data { get; private set; }
+
+        public int Calculate()
+        {
+            int maxSum = 0;
+            int sum = 0;
+            for (int i = 0; i &lt; this.data.length;="" i++)="" {="" sum="" +="this.Data[i];" if="" (sum=""&gt;&lt; 0)="" sum="0;" if="" (sum=""&gt; maxSum) maxSum = sum;
+            }
+            return maxSum;
+        }
+    }&lt;/pre&gt;
+&lt;p class="caption"&gt;Algorithm in c#&lt;/p&gt;
+&lt;pre&gt;public int Calculate(int[]&amp; A)
+{
+    int maxSum = 0;
+    int sum = 0;
+    for (int i = 0; i &lt; a.length;="" i++)="" {="" sum="" +="A[i];" if="" (sum=""&gt;&lt; 0)="" sum="0;" if="" (sum=""&gt; maxSum) maxSum = sum;
+    }
+    return maxSum;
+}&lt;/pre&gt;
+&lt;p class="caption"&gt;Algorithm in c++&lt;/p&gt;
+&lt;h2&gt;Calculate an Example&lt;/h2&gt;
+&lt;p&gt;
+    The following generates an array of integers given the length, minimum value, and maximum value.
+                When submitted the &lt;em&gt;Maximum Subsequence Sum&lt;/em&gt; is calculated, the array, and its result is presented.
+&lt;/p&gt;
+@* @using (Ajax.BeginForm("max-sub-sum-results", ajaxOptions))
+            {
+                *@
+            &lt;form action="/max-sub-sum-results" data-ajax="true" data-ajax-loading="#loading" data-ajax-loading-duration="1000" data-ajax-method="Post" data-ajax-mode="replace" data-ajax-update="#result" id="form0" method="post" class="form-horizontal"&gt;
+            &lt;div class="control-group"&gt;
+                &lt;label class="control-label" for="inputEmail"&gt;Length&lt;/label&gt;
+                &lt;div class="controls"&gt;
+                    &lt;input type="number" id="Length" name="Length"&gt;
+                    &lt;label class="error" for="Length" id="Length_error"&gt;This field is required.&lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="control-group"&gt;
+                &lt;label class="control-label" for="inputEmail"&gt;Max Value&lt;/label&gt;
+                &lt;div class="controls"&gt;
+                    &lt;input type="number" id="Max" name="Max"&gt;
+                    &lt;label class="error" for="Max" id="Max_error"&gt;This field is required.&lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="control-group"&gt;
+                &lt;label class="control-label" for="inputEmail"&gt;Min Value&lt;/label&gt;
+                &lt;div class="controls"&gt;
+                    &lt;input type="number" id="Min" name="Min"&gt;
+                    &lt;label class="error" for="Min" id="Min_error"&gt;This field is required.&lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="control-group"&gt;
+                &lt;div class="controls"&gt;
+                    &lt;button class="btn btn-primary calculate" type="submit"&gt;Calculate&lt;/button&gt;&lt;span id="loading" style="display: none;"&gt;loading...&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;/form&gt;
+
+&lt;div id="result"&gt;&lt;/div&gt;
+
+&lt;p&gt;
+    Please leave some thoughts below and thanks for the read.
+&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>civic-architects-website</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Civic Architects Website</menu-title>
+    <full-title>Civic Architects Website</full-title>
+    <publish-date>Feb 18 2012</publish-date>
+    <summary>A content management system (CMS) using .Net MVC3. Created several jQuery plugins for animation.</summary>
+    <category>Project</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    Created a customized version of an open source blogging software, Blogenine.Net. 
+    Programmed in HTML 5 with Aria for disabled reading and CSS3 for presentation. 
+    Developed jQuery plugins for animation and customized .aspx forms. 
+    &lt;a target="blank" href="http://www.civic.org.uk/" title="A New Website for Civic Architectects"&gt;&lt;span&gt;View this site…&lt;/span&gt;&lt;/a&gt;
+&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>richford-gate-medical-practice</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Richford Gate Medical Practice</menu-title>
+    <full-title>Richford Gate Medical Practice</full-title>
+    <publish-date>Apr 03 2012</publish-date>
+    <summary>Created a customized version of an open source Articleing software, Articleenine.Net.</summary>
+    <category>Project</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    Created a customized version of an open source blogging software, Blogenine.Net. 
+    Programmed in HTML 5 with Aria for disabled reading and CSS3 for presentation.
+    Developed jQuery plugins for animation and custom .aspx forms. 
+    &lt;a target="blank" href="http://www.richfordgate.org.uk/" title="A New Website for Richford Gate Medical Practice"&gt;&lt;span&gt;View this site…&lt;/span&gt;&lt;/a&gt;
+&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>jquery-slideshow-project</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>jQuery Slideshow Project</menu-title>
+    <full-title>jQuery Slideshow Project</full-title>
+    <publish-date>Jun 20 2012</publish-date>
+    <summary>A jQuery plugin for a slideshow animation, designed to work with a custom CMS.</summary>
+    <category>Project</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;Developed a jQuery plugin for slideshow animation. This plugin has been designed to work with a custom CMS, allowing for easy implementation on all of their websites. &lt;a target="blank" href="http://www.e3consulting.co.uk/" title="E3 Consutling"&gt;&lt;span&gt;View an example site…&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The project needed to be up and running quickly, but have hooks in place to allow for future upgrades.  I created a jQuery plugin with optional parameters passed via data- attributes inside the DOM element.  Currently many are not implemented, but allow the CMS providor a means to add in those parameters as part of the administration section.&lt;/p&gt;
+&lt;p&gt;The following is a copy of the version 1.0 of the plugin.&lt;/p&gt;
+&lt;pre data-file="tbaslider.txt"&gt;/*
+* tbaSlider - Version 1.0
+* June 14, 2012 - Developed structure with much of the functionality not working.
+*                 Further functionaly to be added in later versions.
+*
+* This jQuery plugin and its content is copyright of Wholething Ltd,
+* 5 Jupiter House, Calleva Park, Aldermaston, Reading, Berkshire, RG7 8NN
+* © Wholething Ltd 2012. All rights reserved.
+*
+* Any redistribution or reproduction of part or all of the contents in
+* any form is prohibited.
+*
+* http://www.wholething.co.uk/
+*/
+
+
+// A standard jQuery plugin, http://docs.jquery.com/Plugins/Authoring
+// designed and coded by Todd B Adams  http://www.toddbadams.co.uk/
+(function ($) {
+
+var methods = {
+init: function () {
+// store this object
+var self = this;
+
+// play status
+self.isPlaying = false;
+
+// merge data attributes with defaults
+self.settings = $.extend({
+'transition': 'fade',               // fade
+'textTransition': 'fade',           // fade
+'speed': 1500,                      // Slide transition speed (milliseconds)
+'delay': 4000,                      // length of time a slide shows (milliseconds)
+'startSlide': 0,                    // starting Slide (0 index, -1 for random)
+'autoStart': true,                  // start the slideshow is play mode
+'showNextPrev': true,               // Next &amp; Prev navigation (true, false)
+'showNextPrevOnHover': false,       // show prev/next on hover  (NON FUNCTIONAL)
+'prevButtonLabel': 'prev',          // label for previous naviation button  (NON FUNCTIONAL)
+'nextButtonLabel': 'next',          // label for next naviation button  (NON FUNCTIONAL)
+'playButtonLabel': 'play',          // label for the play button  (NON FUNCTIONAL)
+'pauseButtonLabel': 'pause',        // label for the pause button  (NON FUNCTIONAL)
+'showThumbs': false,                // show thumbnails for navigation  (NON FUNCTIONAL)
+'thumbDirection': 'horizontal',     // what direction to scroll thumbs (horizontal, verticle)  (NON FUNCTIONAL)
+'showCoins': false,                 // show coins (boxes, or circles) for navigation  (NON FUNCTIONAL)
+'showImageOnCoinHover': false,      // show a thumbnail image on hover of coin  (NON FUNCTIONAL)
+'childElement': 'li',               // the dom element that is a child slide of our slideshow
+'imageClass': 'thumbnail',          // the class of the image inside the child element  (NON FUNCTIONAL)
+'titleClass': 'title',              // the class of the title inside the child element  (NON FUNCTIONAL)
+'descriptionClass': 'description',   // the class of the description inside the child element  (NON FUNCTIONAL)
+'titleDescriptionClass': 'title_description', // wraps around the title and description
+'titleDescriptionInDelay': 1000,    // delay from start of image transition in to title/description transition
+'titleDescriptionInSpeed': 500,     // speed of title/description transition in
+'titleDescriptionOutDelay': 0,      // delay from start of image transition out to title/description transition
+'titleDescriptionOutSpeed': 500,    // speed of title/description transition out
+'titleDescriptionTransition': 'fade'// type of title/description transition
+}, {
+'transition': self.attr("data-transition"),
+'textTransition': self.attr("data-textTransition"),
+'speed': self.attr("data-speed"),
+'delay': self.attr("data-delay"),
+'startSlide': self.attr("data-startSlide"),
+'autoStart': self.attr("autoStart"),
+'showNextPrev': self.attr("data-showNextPrev"),
+'showNextPrevOnHover': self.attr("data-showNextPrevOnHover"),
+'prevButtonLabel': self.attr("data-prevButtonLabel"),
+'nextButtonLabel': self.attr("data-nextButtonLabel"),
+'playButtonLabel': self.attr("data-playButtonLabel"),
+'pauseButtonLabel': self.attr("data-pauseButtonLabel"),
+'showThumbs': self.attr("data-showThumbs"),
+'thumbDirection': self.attr("data-thumbDirection"),
+'showCoins': self.attr("data-showCoins"),
+'showImageOnCoinHover': self.attr("data-showImageOnCoinHover"),
+'childElement': self.attr("data-childElement"),
+'imageClass': self.attr("data-imageClass"),
+'titleClass': self.attr("data-titleClass"),
+'descriptionClass': self.attr("data-descriptionClass"),
+'titleDescriptionInDelay': self.attr("data-titleDescriptionInDelay"),
+'titleDescriptionInSpeed': self.attr("data-titleDescriptionInSpeed"),
+'titleDescriptionOutDelay': self.attr("data-titleDescriptionOutDelay"),
+'titleDescriptionOutSpeed': self.attr("data-titleDescriptionOutSpeed"),
+'titleDescriptionTransition': self.attr("data-titleDescriptionTransition")
+});
+
+// play button label
+self.playButtonLabel = self.settings.playButtonLabel;
+
+// find our slide elements
+self.$slides = self.find(self.settings.childElement);
+
+// current slide (-1 indicates random start)
+self.currentSlide = parseInt(self.settings.startSlide);
+self.nextSlide = self.currentSlide + 1;
+if (self.settings.startSlide &gt; -1) {
+if (self.settings.startSlide &gt;= self.$slides.length) {
+// setting value out of range use max value (NOT TESTED)
+self.currentSlide = self.$slides.length;
+}
+} else {
+// start at a random slide (NOT TESTED)
+self.currentSlide = Math.floor(Math.random() * (1 + self.$slides.length));
+}
+
+// place the current slide at the top of the z index
+$(self.$slides[self.currentSlide]).css('z-index', 3)
+
+// determine next slide number
+self.nextSlideNumber = function (slideshow) {
+return (slideshow.currentSlide &lt; slideshow.$slides.length="" -="" 1)="" slideshow.currentslide="" +="" 1="" :="" 0;="" }="" determine="" previous="" slide="" number="" self.prevslidenumber="function" (slideshow)="" {="" return="" (slideshow.currentslide=""&gt; 0) ? slideshow.currentSlide - 1 : slideshow.$slides.length;
+            }
+
+            // play next slide and loop while isPlaying is true
+            self.loopToNext = function (slideshow) {
+                setTimeout(function () {
+                    if (slideshow.isPlaying) {
+                        slideshow.next(slideshow);
+                        slideshow.loopToNext(slideshow);
+                    }
+                }, slideshow.settings.delay);
+            }
+
+            // Play
+            self.play = function (slideshow) {
+                // set a flag indicating the slide show is now playing
+                slideshow.isPlaying = true;
+
+                // set the text of the play button to pause
+                slideshow.playButtonLabel = slideshow.settings.pauseButtonLabel;
+
+                // loop and play
+                slideshow.loopToNext(slideshow);
+            }
+
+            // goto next slide
+            self.next = function (slideshow) {
+                // determine the next slide index
+                slideshow.nextSlide = slideshow.nextSlideNumber(slideshow);
+                // show the slide
+                slideshow.show(slideshow);
+            }
+
+            // goto prev slide (UNTESTED)
+            self.prev = function (slideshow) {
+                // determine the next slide index
+                slideshow.nextSlide = slideshow.prevSlideNumber(slideshow);
+                // show the slide
+                slideshow.show(slideshow);
+            }
+
+            // transition of the title/description
+            self.transitionTitleDescription = function (slideshow) {
+                switch (slideshow.settings.titleDescriptionTransition) {
+                    case 'fade':
+                        //outgoing
+                        $(slideshow.$slides[slideshow.currentSlide])
+                            .find('.' + slideshow.settings.titleDescriptionClass)
+                                .delay(slideshow.settings.titleDescriptionOutDelay)
+                                .fadeOut(slideshow.settings.titleDescriptionOutSpeed);
+
+                        //incomming
+                        $(slideshow.$slides[slideshow.nextSlide])
+                            .find('.' + slideshow.settings.titleDescriptionClass)
+                                .delay(slideshow.settings.titleDescriptionInDelay)
+                                .fadeIn(slideshow.settings.titleDescriptionInSpeed);
+
+                       break;
+                    default: // Random TO DO                 
+                }
+
+            }
+
+            // show a particular slide
+            self.show = function (slideshow) {
+                switch (slideshow.settings.transition) {
+                    case 'fade':
+                        // perform a simple cross fade
+                        // move the next image up the pile
+                        $(slideshow.$slides[slideshow.nextSlide]).css('z-index', 2).css('display', 'list-item');
+                        // transition of title/description
+                        slideshow.transitionTitleDescription(slideshow);
+                        //fade out the top image
+                        $(slideshow.$slides[self.currentSlide]).fadeOut(slideshow.settings.speed, function () {
+                            //make the next image the top one
+                            $(slideshow.$slides[slideshow.nextSlideNumber(self)]).css('z-index', 3);
+                            //reset the z-index and unhide the active image
+                            $(slideshow.$slides[slideshow.currentSlide]).css('z-index', 1).css('display', 'none');
+                            // set current slide to what was the next slide
+                            slideshow.currentSlide = slideshow.nextSlide;
+                        });
+                        break;
+                    default: // Random TO DO                 
+                }
+            }
+
+            // if auto start is set, run the play function
+            if (self.settings.autoStart == true) self.play(self);
+        }
+    };
+
+    $.fn.tbaSlider = function (method) {
+        // Method calling logic
+        if (methods[method]) {
+            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+        } else if (typeof method === 'object' || !method) {
+            return methods.init.apply(this, arguments);
+        } else {
+            $.error('Method ' + method + ' does not exist on jQuery.tbaSlider');
+        }
+    };
+})(jQuery);
+
+// On document read
+$(document).ready(function () {
+    /* find all tbaSlideshow */
+    $('.tbaSlideshow').tbaSlider();
+});
+&lt;/pre&gt;
+&lt;p class="caption"&gt;tbaSlider Plugin&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>building-a-cms-with-net-mvc</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Building a CMS with .Net MVC</menu-title>
+    <full-title>Building a CMS with .Net MVC</full-title>
+    <publish-date>Aug 14 2012</publish-date>
+    <summary>This is an introductory article on the process of designing and building a content management system using .Net MVC.</summary>
+    <category>CMS</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    This is an introductory article on the process of designing and building a 
+        content management system (CMS) using .Net MVC.
+&lt;/p&gt;
+&lt;h2&gt;Some Background&lt;/h2&gt;
+&lt;p&gt;
+    I have written a number of books on topics such as project management and 
+        the design of electronic systems for automated homes.  The writing process 
+        takes about one year and as soon as it is completed, there is a need for 
+        updates and additions.  This time I will take on the challenge of building 
+        a modern &lt;a href="http://en.wikipedia.org/wiki/Content_management_system" target="_blank" class="wikipedia"&gt;content management system (CMS)&lt;/a&gt;
+    using &lt;a href="http://en.wikipedia.org/wiki/ASP.NET_MVC_Framework" target="_blank" class="wikipedia"&gt;ASP.NET MVC Framework&lt;/a&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+    Writing this book as a series of online articles builds the basis of the 
+        content, and allows the reader to provide valuable input in terms of technology
+         and varied ideas and strategies.
+&lt;/p&gt;
+&lt;h2&gt;The CMS Mission &amp;amp; Stakeholders&lt;/h2&gt;
+&lt;p&gt;
+    Our CMS provides  a means to display content on the Internet for a small to 
+        mid-sized company, all of which is available for public view.  The content 
+        consists of articles, images, links, and videos, with the possibility of other 
+        types of content in the future.  All of the content has a very simple workflow, 
+        consisting of creating, editing, and  publishing.  Once published the content 
+        must stay stable for SEO purposes, meaning no changing URLs and minimal changes 
+        to the content.  The authors and editors of the public view content have very little 
+        knowledge of HTML, and therefore the creation of the content must be kept free of 
+        semantic markup.
+&lt;/p&gt;
+
+&lt;p&gt;
+    The &lt;a href="http://en.wikipedia.org/wiki/Project_stakeholder" target="_blank" class="wikipedia"&gt;project stakeholders&lt;/a&gt;
+    of the CMS can be divided into five categories:
+&lt;/p&gt;
+&lt;ol&gt;
+    &lt;li&gt;&lt;strong&gt;Public User&lt;/strong&gt; &amp;mdash; Consumers of the content.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Content Authors&lt;/strong&gt; &amp;mdash; One or more persons who create, edit, and publish the content.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Front End Developer&lt;/strong&gt; &amp;mdash; Person responsible for initial setup and administration of the CMS.  This person is responsible for the look and feel of the website, aka developing a theme, writing the semantic markup, planning the content presentation.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;PlugIn Developer&lt;/strong&gt; &amp;mdash; Person who adds functionality to the CMS in the form of plugins.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Core Developer&lt;/strong&gt; &amp;mdash; Person who creates all of the core functionality of the CMS.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;
+    The following figure shows visually how the various project stakeholders interact with 
+        the CMS and its top level design.
+&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src="/content/images/articles/building-a-cms-with-net-mvc/mvc-cms-design.jpg"&gt;
+    &lt;figcaption&gt;Design of our CMS&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;This is my &lt;a href="http://en.wikipedia.org/wiki/Big_Hairy_Audacious_Goal" target="_blank" class="wikipedia"&gt;Big Hairy Audacious Goal&lt;/a&gt;, so let's get started.&lt;/p&gt;
+&lt;h2&gt;Next Steps&lt;/h2&gt;
+&lt;p&gt;
+    The construction of a CMS is complex and requires substantial time and planning.  
+        The fastest way to get a product to market is to deliver the bare minimum, then 
+        allow customers (users) to determine the direction of the product. In the next 
+        article, I ask and answer &amp;ldquo;What is the minimum set of functionality that 
+        is required in a modern content management system?&amp;rdquo;  This serves as our 
+        minimum product delivery.
+&lt;/p&gt;</is-in-index>
+  </article>
+  <article>
+    <slug>cms-minimum-set-of-functionality</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>CMS Minimum Set of Functionality</menu-title>
+    <full-title>CMS Minimum Set of Functionality</full-title>
+    <publish-date>Aug 15 2012</publish-date>
+    <summary>This article asks the question: What is the minimum set of functionality that is required in a modern content management system?</summary>
+    <category>CMS</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    This article asks the question &amp;#8220;&lt;em&gt;What is the minimum set of functionality 
+    that is required in a modern content management system?&lt;/em&gt;&amp;#8221; The purpose 
+    of asking this question is to establish a starting point (version 1.0) in developing 
+    a CMS. From here a roadmap can then be developed to incorporate a prioritized list 
+    of other features to include in the CMS (but that is for a later article).
+&lt;/p&gt;
+&lt;h2&gt;1. Separation of Content and Presentation&lt;/h2&gt;
+&lt;p&gt;
+    The content within our CMS consists of  video, articles, and images. The presentation 
+    concerns itself with look of the content (colors, fonts, and placement). Separating 
+    these two in a CMS requires the implementation of themes, which handle the presentation, 
+    and an administration area where the content can be created, edited, and published.
+&lt;/p&gt;
+&lt;dl&gt;
+    &lt;dt&gt;Separation of presentation and content&lt;/dt&gt;
+    &lt;dd&gt;To make a distinction between the actual meaning of a document, and how this meaning 
+            is presented to its readers.&lt;cite&gt;&lt;a href="http://en.wikipedia.org/wiki/Separation_of_presentation_and_content" title="Separation of presentation and content" target="_blank"&gt;http://en.wikipedia.org/wiki/Separation_of_presentation_and_content&lt;/a&gt;&lt;/cite&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;figure class="thumblink"&gt;
+    &lt;a href="http://www.toddbadams.co.uk/uk-mobile-vs-desktop"&gt;
+        &lt;img src="http://www.toddbadams.co.uk/Content/Images/articles/cms-functionality/uk-mobile-vs-desktop-120x150.jpg" title="UK Mobile Vs Desktop Internet Usage Statistics"&gt;&lt;/a&gt; &lt;a href="http://www.toddbadams.co.uk/uk-mobile-vs-desktop"&gt;mobile vs desktop&lt;br&gt;
+            infographic&lt;/a&gt;
+&lt;/figure&gt;
+&lt;p&gt;While websites can be viewed on a wide range of platforms, desktop usage currently accounts for over 90% of usage. However, mobile and tablet platforms are quickly gaining popularity and should be part of a modern CMS. In looking at a minimal delivery of the CMS, the tablet and desktop platforms can be delivered with the same presentation. Mobile devices, however, require a unique presentation, using &lt;a href="http://en.wikipedia.org/wiki/Responsive_Web_Design" title="Responsive Web Design" target="_blank" class="wikipedia"&gt;responsive web design&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Separation of Content and Presentation Features&lt;/h3&gt;
+&lt;ul class="no-bullets"&gt;
+    &lt;li&gt;&lt;strong&gt;Themes&lt;/strong&gt; &amp;mdash; The CMS can apply a theme to a set of views, style sheets, and javascript across the public side of the CMS&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Administration of content&lt;/strong&gt; &amp;mdash; The CMS allows for the creation, editing, and publishing of content in an administration area.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Desktop/Mobile themes&lt;/strong&gt; &amp;mdash; The CMS can detect the platform and automatically select from either a mobile or desktop version of the current theme, providing separate views, style sheets, and javascript.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;2. Internationalization and Localization&lt;/h2&gt;
+&lt;dl&gt;
+    &lt;dt&gt;Internationalization and localization&lt;/dt&gt;
+    &lt;dd&gt;A means of adapting computer software to different languages, regional differences and technical requirements of a target market. Internationalization is the process of designing a software application so that it can be adapted to various languages and regions without engineering changes. Localization is the process of adapting internationalized software for a specific region or language by adding locale-specific components and translating text. &lt;cite&gt;&lt;a href="http://en.wikipedia.org/wiki/Internationalization_and_localization" title="Internationalization and localization" target="_blank"&gt;http://en.wikipedia.org/wiki/Internationalization_and_localization&lt;/a&gt;&lt;/cite&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;Internationalization can be divided into two separate problems. The first is how to communicate to users that the website is available in different languages. This is part of the presentation and thus part of the theme system. The second is how to communicate administration tasks on the administration side. This can be accomplished by providing a localization data store that holds field labels and help information. For example, the administration side of the CMS allows for editing of pages, each of which have a title. The localization file will hold the label &amp;quot;title&amp;quot; and any help information about the title in a separate data store.&lt;/p&gt;
+&lt;p&gt;In the baseline CMS, a single language will be implemented, then further languages are added as required. In order to accommodate multiple languages &lt;a href="http://en.wikipedia.org/wiki/Unicode" target="_blank" class="wikipedia" title="Unicode definition"&gt;Unicode&lt;/a&gt; character encoding is implemented. Any written language, whether it reads left-to-right (LTR) or right-to-left (RTL), can be implemented within the Unicode character encoding scheme. &lt;a href="http://en.wikipedia.org/wiki/Utf-8" title="UTF-8 definition" class="wikipedia" target="_blank"&gt;UTF-8&lt;/a&gt; is the most common character-encoding for Unicode, and it's a variable-length encoding that represents every character in the Unicode character set.&lt;/p&gt;
+&lt;h3&gt;Internationalization and Localization Features&lt;/h3&gt;
+&lt;ul class="no-bullets"&gt;
+    &lt;li&gt;&lt;strong&gt;Themes&lt;/strong&gt; &amp;mdash; For any given theme within the CMS a separate sub-theme should be presented based upon the users' selection of language/region.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Administration&lt;/strong&gt; &amp;mdash; Based upon the administration selection of language/region all administration field labels and help should be selected from a common language/region data store. Note that administration and the public user language/region selections can be different.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Unicode character encoding&lt;/strong&gt; &amp;mdash; UTF-8 encoding should be implemented on both the public and administration sides of the CMS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;3. User Management&lt;/h2&gt;
+&lt;p&gt;User Management is an authentication feature that provides CMS with the ability to identify the current user.  A key aspect to user management is roles, where each user belongs to one or more roles.  The following is a list of user roles as part of our CMS&lt;/p&gt;
+&lt;ul class="no-bullets"&gt;
+    &lt;li&gt;&lt;strong&gt;Administrator&lt;/strong&gt; &amp;mdash; Provides ability to manage website settings.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Author&lt;/strong&gt; &amp;mdash; Provides ability to add and edit content.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Editor&lt;/strong&gt; &amp;mdash; Provides ability to edit content.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Publisher&lt;/strong&gt; &amp;mdash; Provides ability to publish content.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The above list of users represents a very simple workflow of content.  In most cases a single person is the author, editor, and publisher.  In larger organization more roles may be required to fulfill the organizations workflow.  Our CMS must have the ability to create and edit users and their roles, yet come with administrator, author, editor, and publisher as a fixed administration side workflow. &lt;/p&gt;
+&lt;p&gt;On the public side of the website it is expected that the majority of the content is viewable by the world (unauthenticated users). However, some of the content may be viewable by only those in a specific role. Therefore, the CMS will need the ability to create and assign roles to users for the purpose of viewing content on the public side.&lt;/p&gt;
+&lt;h3&gt;User Management Features&lt;/h3&gt;
+&lt;ul class="no-bullets"&gt;
+    &lt;li&gt;&lt;strong&gt;Users&lt;/strong&gt; &amp;mdash; An administrator has the capability to create and edit a list of users.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Workflow&lt;/strong&gt; &amp;mdash; An administrator has the capability to create and edit roles that provide create/edit permissions to each type of content.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Content Access&lt;/strong&gt; &amp;mdash; A public user, when authenticated, is capable of viewing content that is assigned to his/her role(s).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;4. Menu System&lt;/h2&gt;
+&lt;p&gt;A menu system provides the ability for content publishers to place the content inside of a tree-like menu system. The technology chosen for this CMS allows for any URL to be assigned to any of the content pages, see why in SEO section. For each of the content pages, it has the ability to be added to the public side menu and be placed where the publisher feels it belongs. This provides a tree-like taxonomy for the website, which is independent of content type, or any of its information.&lt;/p&gt;
+&lt;h3&gt;Menu System Features&lt;/h3&gt;
+&lt;ul class="no-bullets"&gt;
+    &lt;li&gt;&lt;strong&gt;Menu&lt;/strong&gt; &amp;mdash; A publisher has the capability to add any content page anywhere in the public viewable menu.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Content Access&lt;/strong&gt; &amp;mdash; If the content page is restricted by role, then so are its menu items.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;h2&gt;5. Search Engine Optimization&lt;/h2&gt;
+&lt;p&gt;Think of the Internet as a very large library, and a website is a book within that library.  SEO is the methodology used to help readers find the book. &lt;/p&gt;
+&lt;dl&gt;
+    &lt;dt&gt;Search engine optimization (SEO)&lt;/dt&gt;
+    &lt;dd&gt;The process of improving the visibility of a website or a web page in a search engine's "natural," or un-paid ("organic" or "algorithmic"), search results. In general, the earlier (or higher ranked on the search results page), and more frequently a site appears in the search results list, the more visitors it will receive from the search engine's users. SEO may target different kinds of search, including image search, local search, and video search. &lt;cite&gt;&lt;a href="http://en.wikiquote.org/wiki/Academic_databases_and_search_engines" title="Search engine optimization" target="_blank"&gt;http://en.wikiquote.org/wiki/Academic_databases_and_search_engines&lt;/a&gt;&lt;/cite&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;p&gt;There is a fairly long list of rules and suggestions to improve a website's SEO. In designing our CMS, let's break these into two categories, content and presentation. When dealing with the presentation, each theme needs to have the ability to provide clean and modern semantic markup. To accomplish this, for each piece of content, a designer needs the ability to create a view of the content in HTML. For example a designer can edit a file that deals with the presentation of a summary view of a blog entry. This then get's folded into a list view of many blog entries.&lt;/p&gt;
+&lt;p&gt;As far as the content side is concerned it is best to leave as much HTML out of the content as possible. Each type of content can be stored in a wide range of granularity. For example, a page that stores information about a project can be a single field with just HTML, which has very little granularity. If the data store has a lot of granularity it will have many fields describing information like project location, budget, etc. Having more granularity aids in the SEO capabilities in that it allows the designer to decide the semantic markup of the content, rather than the author, who is typically not an expert in the area of SEO.&lt;/p&gt;
+&lt;p&gt;SEO Features&lt;/p&gt;
+&lt;ul class="no-bullets"&gt;
+    &lt;li&gt;&lt;strong&gt;Theme&lt;/strong&gt; &amp;mdash; As much of the semantic markup as possible is created within the themes.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Content &lt;/strong&gt;&amp;mdash; Each content piece is broken into a level of granularity that has little to no HTML (semantic markup).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;6. Extensibility&lt;/h2&gt;
+&lt;p&gt;A CMS is more of a framework than it is an application. Yes, it runs like an application, but the core of the CMS contains only minimal functionality. Only those functional items that are required to add extensions (aka plugins) are contained within the core. The plugin can be broken into three categories; those that add new content types (called domain), those that add new features, and those that provide a view of the content (called a widget).&lt;/p&gt;
+&lt;dl&gt;
+    &lt;dt&gt;Extensibility&lt;/dt&gt;
+    &lt;dd&gt;A system designed to include hooks and mechanisms for expanding/enhancing the system with anticipated capabilities without having to make major changes to the system infrastructure. A good architecture provides the design principles to ensure this—a roadmap for that portion of the road yet to be built. &lt;cite&gt;&lt;a href="http://en.wikipedia.org/wiki/Extensibility" title="Extensibility" target="_blank"&gt;ATP://en.wikipedia.org/wiki/Extensibility&lt;/a&gt;&lt;/cite&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h3&gt;Extensibility Features&lt;/h3&gt;
+&lt;ul class="no-bullets"&gt;
+
+    &lt;li&gt;&lt;strong&gt;Domain&lt;/strong&gt; &amp;mdash; A new type of feature within the data store. The base infrastructure should contain a web page type, and this can be extended into specific types of web pages, such as an about page or blog article.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Feature&lt;/strong&gt; &amp;mdash; A variety of features, such as logging into the CMS via Facebook.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Widget&lt;/strong&gt; &amp;mdash; A view of the content, such as recent blog entries.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Next Steps&lt;/h2&gt;
+&lt;p&gt;We now have a reasonable start on functionality for our CMS.  So the next step is to design the application architecture. &lt;/p&gt;
+&lt;p&gt;Is there anything missing?  If so, please add your comments below.&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>net-mvc-cms-proposed-architecture</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>.Net MVC CMS Proposed Architecture</menu-title>
+    <full-title>.Net MVC CMS Proposed Architecture</full-title>
+    <publish-date>Aug 17 2012</publish-date>
+    <summary>Overview of the content management system architecture.</summary>
+    <category>CMS</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    Many years ago I attended a management conference where we played a game. 
+    The idea was to get your team across a desert while retaining the most 
+    pieces of gold. Along the way there were numerous paths, each with its own 
+    traps, costs, and advantages.  Of course you don't really know those until 
+    you've gone down a particular path.  At the start of the race each team has 
+    the option of staying behind for a day to chat with an old man, who has lived 
+    in the desert his entire life. The moral of this game is to seek advice, as 
+    no matter how smart or careful the teams were, no one beat the advice given 
+    by a simple old man.
+&lt;/p&gt;
+&lt;p&gt;
+    What does this have to do with architecture?  In deciding how best to design 
+    the application, I looked at other .Net MVC CMS applications and what frameworks
+    were utilized.  The following is a list of researched applications and the 
+    developer choice for &lt;a href="http://en.wikipedia.org/wiki/Persistent_data_structure" class="wikipedia" title="Persistent data structure" target="_blank"&gt;Persistent data structure&lt;/a&gt;
+    and &lt;a href="http://en.wikipedia.org/wiki/Inversion_of_control" class="wikipedia" title="Inversion of control" target="_blank"&gt;Inversion of control&lt;/a&gt;.
+&lt;/p&gt;
+&lt;figure&gt;
+    &lt;table class="table table-bordered table-hover" width="550px"&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Application&lt;/th&gt;
+            &lt;th&gt;Data Persistence&lt;/th&gt;
+            &lt;th&gt;Inversion of Control&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;a href="http://www.orchardproject.net/" target="_blank"&gt;Orchard&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;NHibernate&amp;nbsp; &lt;/td&gt;
+            &lt;td&gt;AutoFac&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;a href="http://n2cms.com/" target="_blank"&gt;N2&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;NHibernate&amp;nbsp; &lt;/td&gt;
+            &lt;td&gt;Castle Windsor &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;a href="http://www.nopcommerce.com/" target="_blank"&gt;nopCommerce&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;Entity Framework&lt;/td&gt;
+            &lt;td&gt;AutoFac&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;a href="http://www.funnelweblog.com/" target="_blank"&gt;FunnelWeb&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;NHibernate&amp;nbsp;&lt;/td&gt;
+            &lt;td&gt;AutoFac&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;a href="http://atomiccms.codeplex.com/" target="_blank"&gt;Atomic CMS&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;NHibernate&amp;nbsp;&lt;/td&gt;
+            &lt;td&gt;Castle&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;a href="http://www.mvccms.com/" target="_blank"&gt;MVC CMS&lt;/a&gt;&lt;/td&gt;
+            &lt;td&gt;Entity Framework&lt;/td&gt;
+            &lt;td&gt;Castle Windsor&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;figcaption&gt;.Net MVC Applications and their usage of frameworks&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;
+    Based on what my research found, I chose  NHibernate, for data persistence and AutoFac  for 
+    inversion of control. Like the desert game, the reasons for this path may not be clear at 
+    this point, other than that's what the old man has advised. As we move forward with the 
+    project and investigate how best to utilize these frameworks, we can truly see if they fit.
+&lt;/p&gt;
+&lt;p&gt;
+    If designed properly, each of these choices of frameworks should be replaceable. As the 
+    libraries are built to accommodate data persistence and inversion of control, it will 
+    be a good learning exercise to test more than one framework. If nothing else it will 
+    validate our library design. I suspect there will be some trade-offs between performance 
+    and flexibility, but let's see what happens.
+&lt;/p&gt;
+&lt;h2&gt;The CMS Architecture&lt;/h2&gt;
+&lt;p&gt;
+    The CMS is broken into two websites, administration and public. The administration side 
+    allows for creation, editing, and publishing of content as well as setting various 
+    parameters of the public website. The public website allows viewing of the content. The 
+    core libraries are the foundation of the CMS, which is more of a framework than an application. 
+    The plugins can be thought of as mini applications that sit on the framework, making the CMS 
+    change to suit the needs of the website owners.
+&lt;/p&gt;
+&lt;figure&gt;
+    &lt;table class="table table-bordered table-hover" width="550px"&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;td colspan="3"&gt;Administration Website&lt;/td&gt;
+                &lt;td colspan="4"&gt;Public Website&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan="7"&gt;Plugins&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan="7"&gt;Core Libraries&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td rowspan="2" colspan="2"&gt;MVC 3&lt;/td&gt;
+                &lt;td colspan="2"&gt;NHibernate&lt;/td&gt;
+                &lt;td rowspan="2"&gt;Log4Net&lt;/td&gt;
+                &lt;td rowspan="2" colspan="2"&gt;Autofac&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan="2"&gt;SQL Compact&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan="7"&gt;ASP.NET&lt;/td&gt;
+            &lt;/tr&gt;
+            &lt;tr&gt;
+                &lt;td colspan="7"&gt;.NET&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;figcaption&gt;Top level architecture of our CMS&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;h2&gt;Foundation Frameworks&lt;/h2&gt;
+&lt;p&gt;
+    Much of the heavy lifting within the application is performed by a set of existing open 
+    source frameworks.  The big advantage of an open source is they are supported by a community 
+    of developers, who come together to create a solution to a common problem. Since there is 
+    typically no profit driven company behind the framework, it may stop being supported, which 
+    leads to designing our core libraries to allow for interchangeable frameworks.
+&lt;/p&gt;
+&lt;p&gt;The frameworks used in our CMS  are:&lt;/p&gt;
+&lt;ul class="no-bullets"&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href="http://www.asp.net/mvc" target="_blank"&gt;ASP.NET MVC 3&lt;/a&gt;&lt;/strong&gt; &amp;mdash; A web application framework that implements the model-view-controller (MVC) pattern.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href="http://nhforge.org/" target="_blank"&gt;NHibernate&lt;/a&gt;&lt;/strong&gt; &amp;mdash; An object-relational mapper for the .NET framework.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href="http://code.google.com/p/autofac/" target="_blank"&gt;Autofac&lt;/a&gt;&lt;/strong&gt; &amp;mdash; An IoC container for Microsoft .NET. It manages the dependencies between classes so that applications stay easy to change as they grow in size and complexity.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href="http://msdn.microsoft.com/en-us/data/ff687142.aspx" target="_blank"&gt;SQL Compact&lt;/a&gt;&lt;/strong&gt; &amp;mdash;  A compact relational database produced by Microsoft for applications that run on mobile devices and desktops.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;&lt;a href="http://logging.apache.org/log4net/" target="_blank"&gt;Log4Net&lt;/a&gt;&lt;/strong&gt; &amp;mdash; The Apache log4net library is a tool to help the programmer output log statements to a variety of output targets.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Next Steps&lt;/h2&gt;
+&lt;p&gt;
+    From here we will look at the core libraries of our project and roughly determine how to 
+    break the libraries into dlls. Questions, thoughts?  Just add a comment below and thanks for reading.
+&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>domain-driven-design</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Domain Driven Design</menu-title>
+    <full-title>Domain Driven Design</full-title>
+    <publish-date>Aug 21 2012</publish-date>
+    <summary>In order to create software an understanding of software is required, but also an understanding of the domain of the business solution is required.</summary>
+    <category>CMS</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;Only in trivial cases can a programmer just sit at a computer and start writing software. In order to create good software, not only an understanding of software is required, but also an understanding of the domain of the business solution is required. Think of the domain as the knowledge of the entire business in which the software operates. This approach to software development is known as &lt;a href="http://en.wikipedia.org/wiki/Domain-driven_design" class="wikipeida" title="Domain driven design" target="_blank"&gt;Domain driven design&lt;/a&gt;, is accomplished by making the software conform to the domain rather than making the domain conform the software.&lt;/p&gt;
+&lt;p&gt;It is the day-to-day web developer who understands all of the rules, issues, and needs of a modern CMS. The entire purpose of our CMS is to ease the job of the web developer in his/her efforts to build and support a website. In the article &lt;a href="http://www.toddbadams.co.uk/cms-functionality" title="CMS Minimum Set of Functionality"&gt;&amp;ldquo;&lt;em&gt;CMS Minimum Set of Functionality&lt;/em&gt;&amp;rdquo;&lt;/a&gt; the functionality of the CMS is discussed, which is the start of understanding the domain of knowledge required for the software to be developed.&lt;/p&gt;
+&lt;p&gt;In the following articles &lt;a href="http://en.wikipedia.org/wiki/Domain_model" title="Domain model" class="wikipedia" target="_blank"&gt;Domain models&lt;/a&gt; are explored   to illustrate the vocabulary and key concepts of the CMS domain. The domain model separates the business logic from the properties of the model. While this creates extra work during the development process it allows for improved maintainability and flexibility. The separation of business logic from properties of the model means the domain models have no methods, just properties. This creates a simplified data-layer, without any verification steps. The data-layer simply creates, reads, updates, and deletes the domain models from the persistent data store. &lt;/p&gt;
+&lt;p&gt;The first step in creating a domain model is to build an &lt;a href="http://en.wikipedia.org/wiki/Abstraction_principle_(computer_programming)" class="wikipedia" title="Abstraction principle (computer programming)" target="_blank"&gt;abstraction&lt;/a&gt; of the domain, which is always incomplete, but evolves through continuous improvement. In our CMS, content can be of any type, articles, images, video, recipes, etc. Some of the content fits into the confines of a page and some does not. As an example, an article is, in essence, a page on a website. However, an image does not sit on a page by itself. Yes, an image can be displayed on a page, but its main purpose is to reside inside an article, which is on a page. Both the image and the article need to be stored in a persistent data store.&lt;/p&gt;
+&lt;p&gt;The article can be abstracted into a page, which in turn can be abstracted into a persistent data entity. The image can be abstracted into a non page that in turn can be abstracted into the persistent data entity. Each of these objects have properties. In the case of page content, it will have a title, author, and other properties that describe the page. The persistent data entity will have an identity so it can be found in the data store.&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src="http://www.toddbadams.co.uk/content/images/articles/domain-driven-design/page-domain-model.jpg" alt="page domain model"&gt;
+    &lt;figcaption&gt;Page and non page domain models&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;What about the non page content? Are there any properties that are associated with all non page objects? As of now I cannot think of any, but I will leave the object in place for now, allowing properties to be added later in the design phase. Design is an iterative process after all.&lt;/p&gt;
+&lt;p&gt;Through the process of abstracting the domain, a language is developed to describe the domain. This language, known as ubiquitous language, is used to communicate to the project stakeholders an understanding of the problem at hand (our domain).&lt;/p&gt;
+&lt;p&gt;It is difficult, perhaps impossible to come up with a complete solution to our CMS, so instead I will formulate a core set of requirements and build an infrastructure that allows for continual improvement of the solution. This continual improvement takes its form of our plugin architecture. The negative side of this is that moving quickly leads to a solution that is not well thought out. Balance in design, and where to draw those lines is the art to any engineered solution.&lt;/p&gt;
+&lt;p&gt;I have not developed a CMS before and will be taking a road untraveled, making choices along the way. Speed to market is a priority, so decisions will be made and recorded. Later as the software evolves we will have a fuller understanding of which choices supported the project. Good design will accelerate the coding of project, and feedback from stakeholders will further improve the design.&lt;/p&gt;
+&lt;h2&gt;Next Steps&lt;/h2&gt;
+&lt;p&gt;Certain categories of domain objects include a specific identity; each identity is known as an entity in domain driven design. These objects are kept in a persistent data store, and it is the object’s identity that is used to interact with the data store. One of the CMS's content types is a &lt;a href="http://en.wikipedia.org/wiki/URL" class="wikipedia" title="Uniform resource locator" target="_blank"&gt;URL&lt;/a&gt;, which can be displayed as part of a page. These URLs need to be kept as part of the persistent data store and retrieved when required. Throughout the system the URL is referenced by its identity.&lt;/p&gt;
+&lt;p&gt;In the next step, we will look at developing entity models for the content of our CMS. Questions? Thoughts? Please add your opinion in the comments below.&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>developing-a-ubiquitous-language</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Developing a Ubiquitous Language</menu-title>
+    <full-title>Developing a Ubiquitous Language</full-title>
+    <publish-date>Aug 24 2012</publish-date>
+    <summary>Before designing the domain model of the CMS, it makes sense to fully understand the HTML page.</summary>
+    <category>CMS</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    At the core of  a CMS, a URL is entered into a browser and up comes an HTML page.  OK,  
+                there are some things that go on behind the request, such as  determining if the user 
+                has permission to see the page, does the page  exist, selecting a presentation theme, etc.  
+                However, in the simplest  form a URL translates to an HTML page.
+&lt;/p&gt;
+&lt;p&gt;
+    Before designing the domain model of the CMS, it makes sense to fully understand the  HTML 
+                page. A start to understanding can be found  with the 
+                &lt;a href="http://www.w3.org/TR/2010/WD-html5-20100624/" target="_blank"&gt;HTML 5 specification&lt;/a&gt;; 
+                however, the specification does  not tell a story about industry best practices.  For this,
+                 we can look  at projects like &lt;a href="http://html5boilerplate.com/" target="_blank"&gt;HTML5 Boilerplate,&lt;/a&gt;
+    which has four years of refinement of best practices with regards  to HTML5, CSS3, and JavaScript. 
+                From here forward, when referring to HTML, I am referring to both the HTML 5 specification and HTML 5 
+                best practices. I will reiterate to emphasize what our application does.
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;strong&gt;When a URL is entered in the browser, our CMS  output is an  HTML page, and that page 
+                follows both the HTML5 specification and  best practices from HTML5 boilerplate.&lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+    The article &lt;a href="http://www.toddbadams.co.uk/domain-driven-design"&gt;Domain Driven Design&lt;/a&gt;
+    discusses the importance of developing a model of the domain. To develop a domain model of our 
+                CMS a full understanding of the HTML 5 specification and best practices is  required.  Through 
+                this understanding, a language is developed. This language is known as 
+                &lt;strong&gt;Ubiquitous Language,&lt;/strong&gt; which is structured around the domain model and used by 
+                all team  members to connect all the activities of the team with the software. 
+                (see &lt;a href="http://en.wikipedia.org/wiki/Domain-driven_design"&gt;http://en.wikipedia.org/wiki/Domain-driven_design&lt;/a&gt;). In other words, if we are going to build a software program to help front-end developers build a website, the team needs to have a common language and understanding of domain.
+&lt;/p&gt;
+&lt;h2&gt;The HTML5 page&lt;/h2&gt;
+&lt;p&gt;In its most basic form, an html page consists of:&lt;/p&gt;
+&lt;pre&gt;&amp;lt;!DOCTYPE HTML/&amp;gt;
+&amp;lt;html&amp;gt;
+&amp;lt;head&amp;gt;&amp;lt;/head&amp;gt;
+&amp;lt;body&amp;gt;&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;&lt;/pre&gt;
+&lt;p&gt;The HTML page has a document type, and  a root.  The root has a head and a body. The head contains information about the page, its language, a  brief description, files to load prior to loading the body content,  and more. The body contains the document's content. The following are the definitions of the head and body tags from W3C.&lt;/p&gt;
+&lt;dl&gt;
+    &lt;dt&gt;HEAD&lt;/dt&gt;
+    &lt;dd&gt;The HEAD element  contains information about the current document, such as its title,  keywords that may be useful to search engines, and other data that is  not considered document content. User agents do not generally render  elements that appear in the HEAD as  content. They may, however, make information in the HEAD available  to users through other mechanisms.
+                    &lt;br&gt;
+        W3C &amp;mdash; &lt;a href="http://www.w3.org/TR/html401/struct/global.html#h-7.4.1"&gt;http://www.w3.org/TR/html401/struct/global.html#h-7.4.1&lt;/a&gt;&lt;/dd&gt;
+    &lt;dt&gt;BODY&lt;/dt&gt;
+    &lt;dd&gt;The  body of a document contains the document's content. The content may  be presented by a user agent in a variety of ways. For example, for  visual browsers, you can think of the body as a canvas where the  content appears: text, images, colors, graphics, etc. For audio user  agents, the same content may be spoken. 
+                    &lt;br&gt;
+        W3C &amp;mdash; 
+  &lt;a href="http://www.w3.org/TR/html401/struct/global.html#h-7.5.1"&gt;http://www.w3.org/TR/html401/struct/global.html#h-7.5.1&lt;/a&gt;&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;h2&gt;Next Steps&lt;/h2&gt;
+&lt;p&gt;This article discusses the need to create a ubiquitous language, which  describes the domain. The domain in this context the specification and best practices of an HTML 5 page. In the next two articles the  &amp;lt;HEAD&amp;gt; and &amp;lt;BODY&amp;gt; elements are discussed in detail.&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>html-page-as-a-c-object</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>HTML Page as a C# Object</menu-title>
+    <full-title>HTML Page as a C# Object</full-title>
+    <publish-date>Aug 27 2012</publish-date>
+    <summary>This article describes how to create a c# object from a website page.</summary>
+    <category>CMS</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    In the previous article 
+        &lt;a href="http://www.toddbadams.co.uk/html-page-as-c-sharp-object"&gt;&amp;ldquo;&lt;em&gt;HTML Page as a C# Object&lt;/em&gt;&amp;rdquo;&lt;/a&gt;
+    a C# object was developed to hold the settings of a website page. In this article 
+        we discuss creating a domain entity from this object.
+&lt;/p&gt;
+&lt;p&gt;
+    A domain entity is an object that is defined by its identity. Sometimes an object 
+        can be an entity in one system, but not in another; for example, and address. In 
+        an address book system each address needs to be uniquely identified and retrieved 
+        from the persistent storage, and therefore, it is an entity. In an invoice system, 
+        the address may represent properties in the invoice entity, therefore, the address 
+        is not an entity. The upshot of this example is that each object must be carefully 
+        designed to determine if it is an entity.
+&lt;/p&gt;
+&lt;p&gt;
+    In our CMS, the PageSettings object is indeed an entity and requires an identity to 
+        find it in the persistent storage. Rather than changing the properties of each of 
+        the entities in our application, I am going to use a 
+        &lt;a href="http://martinfowler.com/eaaCatalog/layerSupertype.html" target="_blank"&gt;Layered Supertype Pattern&lt;/a&gt;. 
+        This will encapsulate all of the domain entity properties and functionality in a 
+        single object. All of the objects in this layer (our domain entities) will inherit 
+        the newly created object.
+&lt;/p&gt;
+&lt;h2&gt;Test Driven Development&lt;/h2&gt;
+&lt;p&gt;
+    I am going to use a 
+        &lt;a href="http://en.wikipedia.org/wiki/Test-driven_development" target="_blank" class="wikipedia" title="Test-driven development"&gt;Test-driven development&lt;/a&gt;
+    (TDD) to build the CMS application. TDD is about writing the tests prior to the code. 
+        In fact it is the tests that drive the design and coding of the application. To 
+        start this process, first write down what we know about the new object.
+&lt;/p&gt;
+&lt;p&gt;The new object will be called EntityBase and;&lt;/p&gt;
+&lt;ol&gt;
+    &lt;li&gt;have the means to identify itself,&lt;/li&gt;
+    &lt;li&gt;needs to be able to check equality between two EntityBase objects,&lt;/li&gt;
+    &lt;li&gt;will be an abstract object, which is inherited by all entity objects in the 
+            application (this is the layered super type design pattern).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+    The following tests are written to fully specify the functionality of the object. 
+        Note that comments have been removed for brevity, the download has complete code.
+&lt;/p&gt;
+&lt;code data-file="entitybaseunittests.cs" data-caption="Unit tests for EntityBase"&gt;&lt;/code&gt;
+&lt;p&gt;
+    I have initialized each test with three objects; testEntity1, testEntity2, target. 
+        TestEntity1 should be equal to target, while testEntity2 should not be equal. The first 
+        test EqualsToBaseObjectTest checks if a given object is equal to the base object. The 
+        second test EqualsOperatorTest checks if two objects are equal, and the final test 
+        NotEqualsOperatorTest checks if two objects are not equal.
+&lt;/p&gt;
+&lt;p&gt;
+    Because the EntityBase object is abstract, I create a fake object, called FakeEntityBase, 
+        which is concrete. Its purpose is to allow testing of the EntityBase object and does 
+        not have any production use. For more information on mocks, stubs, fakes, and dummies 
+        see &lt;a href="http://martinfowler.com/articles/mocksArentStubs.html" target="_blank" title="Mocks Aren't Stubs"&gt;&amp;ldquo;&lt;em&gt;Mocks Aren't Stubs&lt;/em&gt;&amp;rdquo;&lt;/a&gt;
+    by Martin Fowler.
+&lt;/p&gt;
+&lt;code data-file="fakeentitybaseempty.cs" data-caption="The FakeEntityBase class"&gt;&lt;/code&gt;
+&lt;p&gt;
+    The code below is the EntityBase object stripped of any functionality, instead each of 
+        the methods have been coded to substantially fail the written tests.
+&lt;/p&gt;
+&lt;code data-file="entitybasesignature.cs" data-caption="The EntityBase class signature"&gt;&lt;/code&gt;
+&lt;p class="caption"&gt;The EntityBase object&lt;/p&gt;
+&lt;p&gt;
+    When the unit tests are run they fail, and it is at this point, I can start to write 
+        the code for each method, testing until each test passes. This is known as the red 
+        to green method, as the test results go from red (fail) to green (pass). The code 
+        below is EntityBase after it has been fully coded and passes all tests.
+&lt;/p&gt;
+&lt;code file="entitybase.cs" caption="The Coded EntityBase object"&gt;&lt;/code&gt;
+&lt;h2&gt;Other Entities and Next Steps&lt;/h2&gt;
+&lt;p&gt;
+    The PageSettings, Person, and Image objects developed in 
+        &lt;a href="http://www.toddbadams.co.uk/html-page-as-c-sharp-object"&gt;&amp;ldquo;&lt;em&gt;HTML Page as a C# Object&lt;/em&gt;&amp;rdquo;&lt;/a&gt;
+    each inherit the EntityBase object, and are now domain entities.  These entities can 
+        be stored in persistent storage. The next step is to create a repository pattern to 
+        create, read, update, and delete entities from our persistent storage.
+&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.toddbadams.co.uk/content/images/articles/building-a-domain-entity/classlibrary1.zip" class="zip" target="_blank"&gt;Download the Visual Studio 2010 Project for this article.&lt;/a&gt;&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>domain-entity-lifecycle</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Domain Entity Lifecycle</menu-title>
+    <full-title>Domain Entity Lifecycle</full-title>
+    <publish-date>Sep 04 2012</publish-date>
+    <category>CMS</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    &lt;img src="http://www.toddbadams.co.uk/content/images/articles/domain-entity-lifecycle/DDD-Entity-Lifecycle.jpg" title="Domain Entity Lifecycle"&gt;
+&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>cookies-use-and-programming</slug>
+    <is-in-menu>false</is-in-menu>
+    <menu-title>Cookies Use and Programming</menu-title>
+    <full-title>Cookies Use and Programming</full-title>
+    <publish-date>Nov 17 2012</publish-date>
+    <category>Internet</category>
+    <controller>CookiesUse</controller>
+    <action>CookiesUseProgramming</action>
+    <is-in-index>&lt;h2&gt;Introduction to Cookies&lt;/h2&gt;
+&lt;p&gt;
+    A cookie is a text only string (less than 4KB) that is sent from a web server to 
+                a client’s hard drive via the browser. This text only string is sent and stored 
+                as a name-value pair. For example if the web server wants to track the number of 
+                visits the name may be “visits” and the value is set to 1 on the first visit, and 
+                incremented on subsequent visits. This data is stored for a given website based 
+                on its root URL, and can be retrieved at a later time by the website. This allows 
+                user preferences or user state to be saved without the need to log into the website.
+&lt;/p&gt;
+&lt;h3&gt;A few facts:&lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt;Cookies are only data, not program code.&lt;/li&gt;
+    &lt;li&gt;Cookies cannot erase or read information from the user's computer.&lt;/li&gt;
+    &lt;li&gt;Cookies are usually anonymous (do not contain personal information).&lt;/li&gt;
+    &lt;li&gt;Cookies CAN be used to track your viewing habits on a particular site.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2&gt;How to View Your Cookies&lt;/h2&gt;
+&lt;p&gt;
+    In Google Chrome go to the &lt;a href="https://chrome.google.com/webstore/category/home" title="Chrome web store"&gt;Chrome web store&lt;/a&gt; and search for &amp;#8220;&lt;strong&gt;cookies&lt;/strong&gt;&amp;#8221;.  
+                You will find apps like &amp;#8220;&lt;strong&gt;Edit This Cookie&lt;/strong&gt;&amp;#8221;, which can 
+                be downloaded and used to view/edit/delete cookies.
+&lt;/p&gt;
+
+&lt;h2&gt;Personalization&lt;/h2&gt;
+&lt;p&gt;
+    Cookies allow a user to set personalization settings on a website for unauthorized users, 
+                which are users that have not yet logged into the website. A movie show times website may
+                ask your current postal code in order to show cinemas close by. These preferences can be
+                stored in cookie in one of the three following ways.
+&lt;/p&gt;
+
+&lt;h3&gt;Plain Text Example &amp;mdash; not secure&lt;/h3&gt;
+&lt;p&gt;
+    In the following example the website requests the users' favourite colour.  Because this 
+                information does not contain any sensitive information it is stored as a plain text cookie.
+                The information on the form below is passed to the web server which stores it as a cookie 
+                with the name &amp;#8220;&lt;em&gt;favourite-colour&lt;/em&gt;&amp;#8221;. The server then refreshes this page 
+                which reads the cookie and displays it below.
+&lt;/p&gt;
+&lt;div class="row-fluid"&gt;
+    &lt;div class="span4 well"&gt;
+        @if (Model.FavoriteColor == string.Empty)
+                    {
+                        &lt;p&gt;&amp;#8220;&lt;em&gt;favourite-colour&lt;/em&gt;&amp;#8221; cookie does not exist.&lt;/p&gt;
+        }
+                    else
+                    {
+                        &lt;p&gt;cookie name = favourite-colour&lt;/p&gt;
+        &lt;p&gt;cookie value = @Model.FavoriteColor&lt;/p&gt;
+        }
+    &lt;/div&gt;
+    &lt;!--/span--&gt;
+    &lt;div class="span4"&gt;
+        &lt;form action="/cookies/save-favourite-color" method="post"&gt;
+        &lt;fieldset&gt;
+            &lt;legend&gt;What is your favourite colour?&lt;/legend&gt;
+            &lt;input type="text" name="color"&gt;
+            &lt;input type="submit" value="Save" class="btn btn-primary"&gt;
+        &lt;/fieldset&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;Try using a browser add-on to edit the cookie, then refresh the page. What happens?&lt;/p&gt;
+
+&lt;h3&gt;A Hashed Example &amp;mdash; somewhat secure&lt;/h3&gt;
+&lt;p&gt;
+    In the example above the user can edit the cookie using a cookie add-on tool inside of 
+                the browser. There are cases where this can cause issues.  For example the website may 4
+                taking an unauthenticated user (someone who is not logged in) through a survey that 
+                provides a bonus offer at the end. In this case it is advantageous to store the current 
+                survey page in a cookie, but we want the user to get through all of the pages of the 
+                survey.  If the cookie is changed inside a cookie editor add-on, the user could potentially 
+                skip a few (or all) of the pages.
+&lt;/p&gt;
+&lt;p&gt;
+    The solution is to utilize a hash function.  A hash function can be though of as a one-way 
+                function. A string is passed to the hash which converts it to a unique fixed length string.  
+                It is not feasible to get the original string from just the of the hash function, however 
+                if both the input string and the returned hashed value are stored in a cookie, then upon 
+                read the two can be validated by entering the input string from the cookie into the value 
+                to check if it creates the same hash value that is stored in the cookie.
+&lt;/p&gt;
+&lt;p&gt;
+    Enter your favourite number below, and it will be saved into a cookie along with it's hash.  
+                The page then refreshes and shows your favourite number if it can be verified. Which means  
+                the web sever is going to run the favourite number from the cookie into the hash function 
+                and compare it to the hash value also stored in the cookie. If the favourite number cannot 
+                be verified the server defaults to no favourite number. Try changing the favourite number 
+                in a cookie editor add-on and see what happens.
+&lt;/p&gt;
+&lt;div class="row-fluid"&gt;
+    &lt;div class=" well"&gt;
+        @if (Model.FavoriteNumber == string.Empty)
+                    {
+                        &lt;p&gt;&amp;#8220;&lt;em&gt;favourite-number&lt;/em&gt;&amp;#8221; cookie does not exist.&lt;/p&gt;
+        }
+                    else
+                    {
+                        &lt;p&gt;cookie name = favourite-number&lt;/p&gt;
+        &lt;p&gt;cookie value = @Model.FavoriteNumberCookieValue&lt;/p&gt;
+        &lt;p&gt;favourite number = @Model.FavoriteNumber&lt;/p&gt;
+        &lt;p&gt;hash value = @Model.FavoriteNumberCookieValue.Substring(Model.FavoriteNumber.Length + 1)&lt;/p&gt;
+        }
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row-fluid"&gt;
+    &lt;form action="/cookies/save-favourite-number" method="post"&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;What is your favourite number?&lt;/legend&gt;
+        &lt;input type="text" name="number"&gt;
+        &lt;input type="submit" value="Save" class="btn btn-primary"&gt;
+    &lt;/fieldset&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+&lt;p&gt;Try using a browser add-on to edit the cookie, then refresh the page. What happens?&lt;/p&gt;
+&lt;h3&gt;A Hashed and Salted Example &amp;mdash; very secure&lt;/h3&gt;
+&lt;p&gt;
+    In the above example we have provided a means to verify that the value has not changed in the 
+    cookie by means of a hash.  However, people are cleaver, and can try to create the same hash 
+    from an online service.  Go to &lt;a href="http://www.xorbin.com/tools/sha256-hash-calculator" target="_blank"&gt;Xorbin&lt;/a&gt;
+    and enter the same favourite number and compare it to the hash stored in the cookie.  They 
+    are the same.  This is because both use identical hash functions.  Now enter a  new favourite 
+    number at &lt;a href="http://www.xorbin.com/tools/sha256-hash-calculator" target="_blank"&gt;Xorbin&lt;/a&gt;
+    and build your own cookie value in a text editor and paste it into this website's cookie.  If you 
+     are careful you can fool the website. Not Good!
+&lt;/p&gt;
+&lt;p&gt;
+    The work around for this is to add salt to the value before it enters the hash function.  A salt 
+    is any random text that is added to the input string of the hash function. Remember a hash returns 
+    a consistent size string, regardless of the input size. For example, the server can have a secret 
+    salt of &amp;#8220;foobar&amp;#8221; and add this to the input value.  It uses this same secret salt during 
+    the  verification process.  Since the salt is kept on the server, the intrepid hacker cannot create 
+    a new hash value.
+&lt;/p&gt;
+&lt;div class="row-fluid"&gt;
+    &lt;div class=" well"&gt;
+        @if (Model.FavoriteFood == string.Empty)
+                    {
+                        &lt;p&gt;&amp;#8220;&lt;em&gt;favourite-food&lt;/em&gt;&amp;#8221; cookie does not exist.&lt;/p&gt;
+        }
+                    else
+                    {
+                        &lt;p&gt;cookie name = favourite-food&lt;/p&gt;
+        &lt;p&gt;cookie value = @Model.FavoriteFoodCookieValue&lt;/p&gt;
+        &lt;p&gt;favourite food = @Model.FavoriteFood&lt;/p&gt;
+        &lt;p&gt;hash value = @Model.FavoriteFoodCookieValue.Substring(Model.FavoriteFood.Length + 1)&lt;/p&gt;
+        }
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="row-fluid"&gt;
+    &lt;form action="/cookies/save-favourite-food" method="post"&gt;
+    &lt;fieldset&gt;
+        &lt;legend&gt;What is your favourite food?&lt;/legend&gt;
+        &lt;input type="text" name="food"&gt;
+        &lt;input type="submit" value="Save" class="btn btn-primary"&gt;
+    &lt;/fieldset&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+&lt;p&gt;
+    Try using a browser add-on to edit the cookie, then refresh the page. What happens? Even if you try 
+    to use a hash service without knowing what the salt used for the hashing function, it is unfeasible
+    to determine the correct hash for a given favourite food value.
+&lt;/p&gt;
+&lt;h3&gt;Session Management&lt;/h3&gt;
+&lt;p&gt;
+    Session management is the process of tracking a user's activity while visiting a website. Let's look 
+    at a couple of examples:
+&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;User authentication&lt;/strong&gt; &amp;mdash; Start by viewing the current cookies for this website.  
+        Then &lt;a href="/account/register"&gt;register&lt;/a&gt; for this website.  The registration 
+        utilizes Microsoft's .Net authorization mechanism, which stores your registration information in 
+        a local database. You are automatically logged into the website, and at the top of the page you 
+        will now see an option to logoff the website.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;A web cart application&lt;/strong&gt; &amp;mdash; &lt;/li&gt;
+&lt;/ul&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>how-we-measure</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>How We Measure</menu-title>
+    <full-title>How We Measure</full-title>
+    <publish-date>Oct 08 2012</publish-date>
+    <summary>This article discusses the properties and scales of measurement.</summary>
+    <category>SoftwareMeasurement</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    In this article measurement of data is discussed. In particular the properties of 
+                measurement and how these properties comprise a scale of measurement.
+&lt;/p&gt;
+
+&lt;h2&gt;Definition of Measurement &lt;/h2&gt;
+&lt;p&gt;
+    Let's first start by defining measurement. 
+&lt;/p&gt;
+&lt;blockquote&gt;
+    Measurement is the process of empirical objective assignment of numbers to 
+                entities, in order to characterise a specific  attribute.&lt;cite&gt;Norman Fenton, Shari 
+                Lawrence Pfleeger. (1997). In: Software  metrics: a rigorous and practical 
+                approach. Boston, MA, USA: PWS Publishing Co.&lt;/cite&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+    In terms of this definition and our discussion, we define an entity as an object or 
+                event and an attribute is defined as a property or feature of the entity. In order 
+                to measure we need an object or event, which has a property or feature. Let's look 
+                at attributes and how they impact a measurement. 
+&lt;/p&gt;
+&lt;h2&gt;Measurement of Attributes&lt;/h2&gt;
+&lt;p&gt;
+    Because it is the attributes of an entity that are measured,  it follows that each attribute must 
+                first be defined in a measureable way.  Further the attribute must be meaningful as a  
+                means of describing the entity.
+&lt;/p&gt;
+&lt;p&gt;
+    For  example we can say the software has 1000 lines of code. Is this meaningful?  
+                Let's look at our two criteria:
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;strong&gt;Definition&lt;/strong&gt; &amp;mdash;  What is a line of code?  
+                In order to count the number of lines of code  we first need to define what is 
+                included and what is not.  On way to define it is to simply count the  number 
+                of carriage returns.
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;strong&gt;Meaningful&lt;/strong&gt; &amp;mdash; Does the  concept of measuring 
+                the lines of code really matter in describing a  program?  Does a computer program 
+                with  2000 lines have more complexity, time spent, cost, authority, etc. than does a  
+                program with only 1000 lines?  In this  case it is not feasible to make statements 
+                about the complexity, time spent,  etc. of a program with regards to the lines of code.  
+                Therefore the conclusion is the attribute is not a meaningful measure of entity.
+&lt;/p&gt;
+&lt;p&gt;
+    Let's look at an example of a meaningful attribute. The weight of rocks. 
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;strong&gt;Definition&lt;/strong&gt; &amp;mdash;  This can be done in one of several  
+                        units, but each describes the same measurement. A lighter rock will 
+                        always have  a smaller value than a heavier rock.
+&lt;/p&gt;
+&lt;p&gt;
+    &lt;strong&gt;Meaningful&lt;/strong&gt; &amp;mdash; Is weight meaningful to describe a 
+                        rock? Sure, knowing the weight provides insight into the properties of the rock. 
+&lt;/p&gt;
+
+&lt;h2&gt;Properties of Measurement&lt;/h2&gt;
+&lt;p&gt;
+    It is the attributes of an entity that are measured, but  what are the properties 
+                of a measurement. Let's look at four properties.
+&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;Identity&lt;/strong&gt; is what defines an entity and makes it recognizable.  
+                    For example we are all humans, which defines us separately from other animals 
+                     and thus allows humans to be recognized separately from other animals.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Magnitude&lt;/strong&gt; provides a means to categorize an entity as  being 
+                    bigger or smaller than another entity.   For example the magnitude of size of 
+                    the earth is larger than that of the moon. This property allows entities to 
+                    be ordered.&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Equal Intervals&lt;/strong&gt; can be found along a scale where the  difference 
+                    from one to the next is consistent.   
+                    &lt;p&gt;
+                        For example the difference between 5 and 6 is the same as between 89 and 90. 
+                        An example of non-equal intervals can be found in a rating system as part of 
+                        a survey:
+                    &lt;/p&gt;
+        &lt;p&gt;&lt;em&gt;Please rate your satisfaction in our product: Excellent, good, fair, poor&lt;/em&gt;&lt;/p&gt;
+        &lt;p&gt;
+            While the ratings do express magnitude of satisfaction, the  difference 
+                        between the ratings is undefined.   Sometimes this can be expressed as a 
+                        number, but don't be fooled.
+        &lt;/p&gt;
+        &lt;p&gt;
+            &lt;em&gt;Please rate your satisfaction in our product from 1 to 4  with 4 being the 
+                        most satisfied:&lt;/em&gt;
+        &lt;/p&gt;
+        &lt;p&gt;
+            While the difference in the numbers is the same throughout the scale, the 
+                        purpose of this is only for ranking and does not express equal intervals.
+        &lt;/p&gt;
+    &lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;Absolute Zero&lt;/strong&gt; is present in a scale when the zero value represents 
+                    an empty state of measurement.  For  example a height of zero actually means there
+                    is no height present. However a  temperature of zero degrees Celsius does not 
+                    represent the absence of  temperature, after all it can get colder than zero.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Scales of Measurement&lt;/h2&gt;
+&lt;p&gt;
+    Now that we have an understanding of the properties of measurement, we can define 
+                measurement in terms of scales. There are four scales of measurement, each having one or 
+                more of the properties of measurement than the prior scale. The table below lists the 
+                scales of measurement and the properties associated with each.
+&lt;/p&gt;
+&lt;table class="table table-bordered table-hover"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Scale of Measurement &lt;/td&gt;
+        &lt;td&gt;Identity&lt;/td&gt;
+        &lt;td&gt;Magnitude&lt;/td&gt;
+        &lt;td&gt;Equal Intervals&lt;/td&gt;
+        &lt;td&gt;Absolute Zero&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Nominal&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Ordinal&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Interval&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Ratio&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;
+    An attribute measurement can be categorized into one of the four scales of measurement.  This is done by
+                checking which properties of measurement apply to the attribute. Here are a few examples of 
+                properties that can be measured.
+&lt;/p&gt;
+&lt;table class="table table-bordered table-hover"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Example &lt;/td&gt;
+        &lt;td&gt;Identity&lt;/td&gt;
+        &lt;td&gt;Magnitude&lt;/td&gt;
+        &lt;td&gt;Equal Intervals&lt;/td&gt;
+        &lt;td&gt;Absolute Zero&lt;/td&gt;
+        &lt;td&gt;Scale&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Fred has blood type B&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;Nominal&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Fred is 172 cm tall&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;Ratio&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Fred weights 85 Kg&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;Ratio&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Fred is Male&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;Nominal&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Fred is taller than Sally&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;Ordinal&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;It is 23 degrees C outside&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;X&lt;/td&gt;
+        &lt;td&gt;&amp;nbsp;&lt;/td&gt;
+        &lt;td&gt;Interval&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+&lt;h2&gt;A Method to Determine the Scale of Measurement of Data&lt;/h2&gt;
+&lt;p&gt;
+    The figure below illustrates the decision process involved in determining which scale to use in
+                measuring data.
+&lt;/p&gt;
+&lt;figure&gt;
+    &lt;img src="/Content/images/articles/how-we-measure/measurement-flowchart.jpg" alt="data measurement flowchart"&gt;
+    &lt;figcaption&gt;Data measurement flowchart&lt;/figcaption&gt;
+&lt;/figure&gt;
+&lt;p&gt;
+    We start with our data, and ask are these data quantitative or qualitative?
+&lt;/p&gt;
+&lt;p&gt;
+    Qualitative means the data are measurements of category, such as make, model, or rating.  
+                Sometimes numbers can be used to categorize, such as ranking from one to ten. Within categorical  
+                data we ask: &amp;quot;&lt;em&gt;Can these data be sorted?&lt;/em&gt;&amp;quot; Examples of this are rankings.  If  
+                the data can be sorted, it is measured with the ordinal scale, if not, then it is measured with 
+                the nominal scale.
+&lt;/p&gt;
+&lt;p&gt;
+    Quantitative means it has some unit of measure, such as length, weight, time, temperature. 
+                Within quantitative data we ask: &amp;quot;&lt;em&gt;Does this unit of measure have an absolute zero?&lt;/em&gt;&amp;quot;
+                If the  answer is yes, then the data are measured using the Ratio scale, if not, then the data are
+                measured using the Interval scale.  Most units of measure have an absolute zero such as weight 
+                and length.  However there are a few that do not such as time. After all when was time of zero?
+&lt;/p&gt;
+
+&lt;h2&gt;Why Do Scales of Measurement Matter&lt;/h2&gt;
+&lt;p&gt;
+    Why do these scales of measurement matter to a programmer? The answer lies in testing.  When a piece
+                of code is written is needs to be tested. During that test process, an assertion is made, and it is
+                here where the scales come into play. When we test, we are measuring, and we must first understand
+                the properties of measurement and how they relate to the data under test.
+&lt;/p&gt;
+&lt;p&gt;
+    Please leave some thoughts below and thanks for the read.
+&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>subnetting-in-ipv4</slug>
+    <is-in-menu>false</is-in-menu>
+    <menu-title>Subnetting in IPv4</menu-title>
+    <full-title>Subnetting in IPv4</full-title>
+    <publish-date>Nov 05 2012</publish-date>
+    <summary>This article looks at how  IPv4 is implemented to transmit and receive messages between a client and a given host.</summary>
+    <category>Internet</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    The Internet consists of four functional layers, the Network Access Layer, the Internet Layer, the 
+                Transportation layer, and the Application Layer.  Each of these layers has several 
+                &lt;a href="http://en.wikipedia.org/wiki/Communications_protocol" title="wikipedia" target="blank"&gt;&lt;em&gt;protocols&lt;/em&gt;&lt;/a&gt;
+    which are sets of rules used to communicate on that layer.  This article looks at how the
+                &lt;a href="http://en.wikipedia.org/wiki/Datagrams" title="wikipedia" target="blank"&gt;&lt;em&gt;Internet Protocol Version 4&lt;/em&gt;&lt;/a&gt; (IPv4)
+                is implemented to transmit and receive messages between a client and a host.  Where the client is
+                a person sitting at their computer typing in a website address, and the host is the computer that
+                holds that website.  The following figure shows each of the four layers, and a few of the protocols used on
+                each layer.
+&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src="/Content/images/articles/subnetting-in-ipv4/Internet-Four-Functional-Layers.jpg"&gt;
+    &lt;figcaption&gt;The Four Functional Layers of the Internet&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;
+    The &lt;a href="http://en.wikipedia.org/wiki/Internet_Layer" title="wikipedia" target="blank"&gt;&lt;em&gt;Internet Layer&lt;/em&gt;&lt;/a&gt;
+    is a group of methods, protocols, and  specifications used to transmit 
+                &lt;a href="http://en.wikipedia.org/wiki/Datagrams" title="wikipedia" target="blank"&gt;&lt;em&gt;datagrams&lt;/em&gt;&lt;/a&gt; (packets) 
+                between computers on the Internet. IPv4 is the most widely deployed Internet Layer protocol. An IPv4 address is a 
+                sequence of 32 bits (4 bytes). The number of addresses is limited to 2&lt;sup&gt;32&lt;/sup&gt;, which is 
+                approximately 4.3 billion. 
+                &lt;a href="http://en.wikipedia.org/wiki/Datagrams" title="wikipedia" target="blank"&gt;&lt;em&gt;Internet Corporation for Assigned Names and Numbers&lt;/em&gt;&lt;/a&gt;  (ICANN)
+                is responsible for assigning IP numbers to organizations and only a limited number of IPv4 address remain to be assigned.
+                As a result a new standard (IPv6) has been introduced and we are in a transition to this new standard. While this
+                article discusses IPv4, all of the discussed methodology applies to to IPv6.
+&lt;/p&gt;
+
+
+
+&lt;h2&gt;Subnets&lt;/h2&gt;
+&lt;p&gt;
+    Often each network is broken into sub networks, called  subnets. The subnet provides a group of 
+                hosts that sit inside the network.  The network then becomes a group of groups.
+&lt;/p&gt;
+&lt;p&gt;
+    In our example address 209.85.231.104/25 results in a network address of 209.85.231.128. The subnets 
+                can then be specified 75.24.16.145/24 where each subnet prefix runs from an 
+                address of  75.24.1 to 75.24.254. The hosts then take the address using the last 8 bits. Our  subnet 
+                address is 75.24.16.0 with a broadcast of 75.24.16.255, and it has hosts  of 75.24.16.1 to 75.24.16.254,
+                 which means 254 host ids
+&lt;/p&gt;
+&lt;p&gt;
+    A subnet mask is created for each subnet, which is a series  of 1’s for the address.  For our example  
+                subnet’s IP address of 75.24.16.145/24 the mask is comprised of 24 1’s followed  by 8 0’s, which is 255.255.255.0.
+&lt;/p&gt;
+
+
+
+&lt;h2&gt;A Sample Subnet Assignment Problem&lt;/h2&gt;
+&lt;p&gt;
+    A medium size company was given the network block 137.73.0.0/16. The block needs to be divided into 6 subnets
+                 with the following capacities:
+&lt;/p&gt;
+&lt;ol&gt;
+    &lt;li&gt;Two large subnets with capacity for 8,000 hosts each&lt;/li&gt;
+    &lt;li&gt;Three smaller subnets with capacity for 4,000 hosts each&lt;/li&gt;
+    &lt;li&gt;A very large subnet with capacity for 20,000 addresses&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+    Provide a division of the network block to meet the above requirements and give addresses for each one of the 
+                subnets. If there is a spare block of addresses left, please indicate so.
+&lt;/p&gt;
+&lt;h3&gt;Algorithm&lt;/h3&gt;
+&lt;ul&gt;
+    &lt;li&gt;For each subnet:&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Determine the required bits for each subnet from capacity.
+                        &lt;br&gt;
+            &lt;em&gt;Required Bits&lt;/em&gt; = RoundUp( LOG&lt;sub&gt;2&lt;/sub&gt;(Capacity))&lt;/li&gt;
+        &lt;li&gt;Determine subnet address prefix
+            &lt;br&gt;
+            &lt;em&gt;Prefix Bits&lt;/em&gt; = 32 - Required Bits
+        &lt;/li&gt;
+    &lt;/ol&gt;
+    &lt;li&gt;The maximum value of &lt;em&gt;Prefix Bits&lt;/em&gt; must be at least one less than 
+                    the number of bits required for the network prefix bits. If not the network
+                    does not support the subnets, exit.
+        &lt;br&gt;
+        IF ( MAX(all &lt;em&gt;Prefix Bits&lt;/em&gt;) &gt; &lt;em&gt;Network Prefix Bits&lt;/em&gt; THEN EXIT
+    &lt;/li&gt;
+    &lt;li&gt;Order the subnets from largest to smallest &lt;em&gt;Prefix Bits&lt;/em&gt;&lt;/li&gt;
+    &lt;li&gt;Create a bit array of size from the largest &lt;em&gt;Prefix Bits&lt;/em&gt; to the smallest,
+        &lt;br&gt;
+        &lt;em&gt;Subnet Bit Array&lt;/em&gt; = new Array(Largest &lt;em&gt;Prefix Bits&lt;/em&gt; - Smallest &lt;em&gt;Prefix Bits&lt;/em&gt;)
+    &lt;/li&gt;
+    &lt;li&gt;The bit array &lt;em&gt;Subnet Bit Array&lt;/em&gt; must be large enough to accommodate all requested
+                    subnets, if not the network does not support all of the subnets, exit.&lt;br&gt;
+        IF ( Length of &lt;em&gt;Subnet Bit Array&lt;/em&gt; &lt;&gt;&lt;sub&gt;2&lt;/sub&gt; Number of Subnets) THEN EXIT
+    &lt;/li&gt;
+    &lt;li&gt;For each subnet:&lt;/li&gt;
+    &lt;ol&gt;
+        &lt;li&gt;Set the most significant bit to 1&lt;/li&gt;
+
+    &lt;/ol&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;The Solution&lt;/h3&gt;
+&lt;table class="table table-bordered table-hover"&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Subnet &lt;/td&gt;
+        &lt;td&gt;Capacity&lt;/td&gt;
+        &lt;td&gt;Bits Required&lt;/td&gt;
+        &lt;td&gt;Subnet Bit Array&lt;/td&gt;
+        &lt;td&gt;Subnet Decimal Address&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;A&lt;/td&gt;
+        &lt;td&gt;20000&lt;/td&gt;
+        &lt;td&gt;15&lt;/td&gt;
+        &lt;td&gt;&lt;strong&gt;1&lt;/strong&gt;000&lt;/td&gt;
+        &lt;td&gt;137.73.128.0/17&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;B&lt;/td&gt;
+        &lt;td&gt;8000&lt;/td&gt;
+        &lt;td&gt;13&lt;/td&gt;
+        &lt;td&gt;&lt;strong&gt;011&lt;/strong&gt;0&lt;/td&gt;
+        &lt;td&gt;137.73.96.0/19&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;C&lt;/td&gt;
+        &lt;td&gt;8000&lt;/td&gt;
+        &lt;td&gt;13&lt;/td&gt;
+        &lt;td&gt;&lt;strong&gt;010&lt;/strong&gt;0&lt;/td&gt;
+        &lt;td&gt;137.73.64.0/19&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;D&lt;/td&gt;
+        &lt;td&gt;4000&lt;/td&gt;
+        &lt;td&gt;12&lt;/td&gt;
+        &lt;td&gt;&lt;strong&gt;0011&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt;137.73.48.0/20&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;E&lt;/td&gt;
+        &lt;td&gt;4000&lt;/td&gt;
+        &lt;td&gt;12&lt;/td&gt;
+        &lt;td&gt;&lt;strong&gt;0010&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt;137.73.32.0/20&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;F&lt;/td&gt;
+        &lt;td&gt;4000&lt;/td&gt;
+        &lt;td&gt;12&lt;/td&gt;
+        &lt;td&gt;&lt;strong&gt;0001&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt;137.73.16.0/20&lt;/td&gt;
+    &lt;/tr&gt;
+
+&lt;/table&gt;
+
+</is-in-index>
+  </article>
+  <article>
+    <slug>pointers-and-references-in-c</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Pointers and References in C++</menu-title>
+    <full-title>Pointers and References in C++</full-title>
+    <publish-date>Oct 16 2012</publish-date>
+    <summary>This article summarizes the differences betweens these two types.</summary>
+    <category>DataStructures</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    One area of confusion in c++ programming is when to implement a reference and when to implement a
+                pointer. The following table summarizes the differences between these two types.
+&lt;/p&gt;
+
+&lt;table class="table table-bordered table-hover"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Description&lt;/th&gt;
+            &lt;th class="span3"&gt;Pointer&lt;/th&gt;
+            &lt;th class="span3"&gt;Reference&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;&lt;/td&gt;
+            &lt;td&gt;A variable holding an address&lt;/td&gt;
+            &lt;td&gt;An alias to another variable&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;sample declaration&lt;/td&gt;
+            &lt;td&gt;int* pi = &amp;i;&lt;/td&gt;
+            &lt;td&gt;int&amp; ri = i;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;sample value assignment&lt;/td&gt;
+            &lt;td&gt;*pi = 2;&lt;/td&gt;
+            &lt;td&gt;ri = 2;&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Address increment&lt;/td&gt;
+            &lt;td&gt;pi++;&lt;/td&gt;
+            &lt;td&gt;not available&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;initialization&lt;/td&gt;
+            &lt;td&gt;anytime&lt;/td&gt;
+            &lt;td&gt;declaration only&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;null allowed&lt;/td&gt;
+            &lt;td&gt;yes&lt;/td&gt;
+            &lt;td&gt;no&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;reassignment&lt;/td&gt;
+            &lt;td&gt;anytime&lt;/td&gt;
+            &lt;td&gt;not allowed&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;pointer math&lt;/td&gt;
+            &lt;td&gt;yes&lt;/td&gt;
+            &lt;td&gt;no&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;point to another pointer&lt;/td&gt;
+            &lt;td&gt;yes&lt;/td&gt;
+            &lt;td&gt;no&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Array of &lt;/td&gt;
+            &lt;td&gt;yes&lt;/td&gt;
+            &lt;td&gt;no&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;sample function parameter&lt;/td&gt;
+            &lt;td&gt;void foo(int* i)&lt;/td&gt;
+            &lt;td&gt;void foo(int&amp; i)&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;sample function calling&lt;/td&gt;
+            &lt;td&gt;foo(&amp;a)&lt;/td&gt;
+            &lt;td&gt;foo(a)&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;when to use&lt;/td&gt;
+            &lt;td&gt;to implement algorithms and data structures&lt;/td&gt;
+            &lt;td&gt;in function parameters and return types to define attractive interfaces&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+    Please leave some thoughts below and thanks for the read.
+&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>quick-unit-testing-in-c</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Quick Unit Testing in C++</menu-title>
+    <full-title>Quick Unit Testing in C++</full-title>
+    <publish-date>Oct 17 2012</publish-date>
+    <summary>A quick method for unit testing c++ classes is discussed.</summary>
+    <category>DataStructures</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    While there exist several c++ unit test frameworks, at times it is best
+                to develop a quick method to unit test a class in c++.  This method saves 
+                the time required to setup and learn a new framework.  It is quick and 
+                dirty and should not be implemented on larger projects.
+&lt;/p&gt;
+
+&lt;p&gt;
+    The code below is an example of a c++ class that needs to be tested.
+&lt;/p&gt;
+&lt;pre data-file="FooAdder.txt"&gt;class FooAdder
+{
+  public:
+  // Constructor
+  FooAdder(void)
+  {
+    Result = 0;
+  }
+
+  // The result of adds
+  int Result;
+
+  // Add - Adds passed value to result
+  void Add(int val)
+  {
+    Result += val;
+  }
+};&lt;/pre&gt;
+&lt;p class="caption"&gt;FooAdder class requiring unit tests&lt;/p&gt;
+&lt;h2&gt;The Console Application&lt;/h2&gt;
+&lt;p&gt;
+    To test the unit functionality a console application is created, shown below. This 
+                application creates an object of class &lt;em&gt;FooAdderUnitTest&lt;/em&gt;, which is constructed to 
+                hold all of the tests for the class &lt;em&gt;FooAdder&lt;/em&gt;. Once created the &lt;em&gt;Run&lt;/em&gt; method is invoked 
+                and returns a string holding all of the test results, which are sent to the console.
+&lt;/p&gt;
+&lt;pre data-file="FooAddrConsole.txt"&gt;int _tmain(int argc, _TCHAR* argv[])
+{
+  int dummy;
+  FooAdderUnitTest* fooAdderUnitTest = new FooAdderUnitTest();
+  
+  std::cout &lt; "unit="" tests"=""&gt;&lt; std::endl;="" std::cout=""&gt;&lt; fooadderunittest-=""&gt;Run().c_str() &lt; std::endl;="" std::cin=""&gt;&gt; dummy;
+
+  delete fooAdderUnitTest;
+  return 0;
+}&lt;/pre&gt;
+&lt;p class="caption"&gt;Unit test application&lt;/p&gt;
+&lt;h2&gt;The Unit Test Class&lt;/h2&gt;
+&lt;p&gt;
+    The  &lt;em&gt;FooAdderUnitTest&lt;/em&gt; (shown below) holds all of the individual tests and inherits 
+                &lt;em&gt;UnitTest&lt;/em&gt;. The class has a single public method Run(), which invokes a series of 
+                three private methods, which hold each unit test. All of the unit test functions have the 
+                same template, following the typical "arrange, act, assert" methodology of unit testing.
+&lt;/p&gt;
+&lt;p&gt;
+    The first test, &lt;em&gt;CanCreateFooAdder()&lt;/em&gt;, invokes for the &lt;em&gt;TestInitialize()&lt;/em&gt; method, which sets 
+                up the test by initializing &lt;em&gt;fooAdder&lt;/em&gt;. Because it is the constructor that is being tested, 
+                the Arrange and Act are one in the same. Next an &lt;em&gt;Assert()&lt;/em&gt; method is invoked, which is 
+                part of the base class &lt;em&gt;UnitTest&lt;/em&gt;. Finally the test is disposed.
+&lt;/p&gt;
+&lt;pre data-file="FooAdderUnitTest.txt"&gt;class FooAdderUnitTest :
+  public UnitTest
+{
+public:
+  FooAdderUnitTest(void): UnitTest(&amp;quot;FooAdder&amp;quot;) 
+  {
+  }
+  ~FooAdderUnitTest(void) { }
+
+  // Public Tests
+  string Run()
+  {
+    CanCreateFooAdder();
+    FooAdderHasZeroResultOnCreate();
+    FooAdderCanAdd();
+
+    Totals();
+    return Results;
+  }
+
+private:
+  FooAdder* fooAdder;
+
+  void TestInitialize()
+  {
+    fooAdder = new FooAdder();
+  }
+
+  void TestDispose()
+  {
+    delete fooAdder;
+  }
+
+  void CanCreateFooAdder()
+  {    
+    // Arrange
+    TestInitialize();
+
+    // Act
+
+    // Assert
+    Assert(&amp;quot;CanCreateFooAdder&amp;quot;,fooAdder!=nullptr);
+
+    // Dispose
+    TestDispose();
+  }
+
+  void FooAdderHasZeroResultOnCreate()
+  {    
+    // Arrange
+    TestInitialize();
+
+    // Act
+
+    // Assert
+    Assert(&amp;quot;FooAdderHasZeroResultOnCreate&amp;quot;,fooAdder-&amp;gt;Result == 0);
+
+    // Dispose
+    TestDispose();
+  }
+
+  void FooAdderCanAdd()
+  {    
+    // Arrange
+    TestInitialize();
+    int valueToAdd = 4;
+
+    // Act
+    fooAdder-&amp;gt;Add(valueToAdd);
+
+    // Assert
+    Assert(&amp;quot;FooAdderCanAdd&amp;quot;, fooAdder-&amp;gt;Result == 4);
+
+    // Dispose
+    TestDispose();
+  }
+};&lt;/pre&gt;
+&lt;p class="caption"&gt;FooAdder unit test class&lt;/p&gt;
+&lt;h2&gt;The UnitTest Class&lt;/h2&gt;
+&lt;p&gt;
+    The &lt;em&gt;UnitTest&lt;/em&gt; base class holds the results and processes the &lt;em&gt;Assert()&lt;/em&gt;
+    methods. The code is not very elegant, but is quick to code, and gets the job done.
+&lt;/p&gt;
+&lt;pre data-file="UnitTest.txt"&gt;#pragma once
+#include &lt;sstream&gt;
+using namespace std;
+
+class UnitTest
+{
+public:
+	// Constructor
+	UnitTest(string testName) 
+	{ 
+		TestsAsserted = 0; 
+		Passes = 0;
+		Fails = 0;
+		TestName = testName;
+		Results = "Unit Tests for " + testName + "\n" +
+			"============================================\n";
+	}
+
+private:
+	string TestName;
+	int TestsAsserted;
+	int Passes;
+	int Fails;
+
+	string IntToString(int&amp; value)
+	{
+		stringstream ss;
+		ss &lt; value;="" return="" ss.str();="" }="" protected:="" string="" results;="" void="" assert(string="" testname,="" bool="" ispass)="" {="" results="" +="IntToString(++TestsAsserted)" +="" ".="" "="" +="" testname;="" if="" (ispass)="" {="" results="" +=" PASS\n\r" ;="" passes="" ++;="" }="" else="" {="" results="" +=" FAIL\n\r" ;="" fails="" ++;="" }="" }="" void="" totals()="" {="" if="" (fails=""&gt;0)
+			Results += IntToString(Fails) + 
+			" FAILURES\n" +
+			"============================================\n";
+		else
+			Results += IntToString(Passes) + 
+			" of " + IntToString(TestsAsserted) + " PASSED\n" +
+			"============================================\n";
+	}
+};
+
+&lt;/sstream&gt;&lt;/pre&gt;
+&lt;p class="caption"&gt;UnitTest class&lt;/p&gt;
+&lt;h2&gt;The Results&lt;/h2&gt;
+&lt;p&gt;
+    Running the console application produces the following results. The results 
+                contain the name of the class tested, a list of tests, PASS or FAIL for each 
+                test, and a set of totals at the end.
+
+&lt;/p&gt;
+&lt;pre&gt;Unit Tests for FooAdder
+1. CanCreateFooAdder PASS
+2. FooAdderHasZeroResultOnCreate PASS
+3. FooAdderCanAdd PASS
+Totals for FooAdder
+Tests Failed: 0
+Tests Passed: 3
+Total Tests: 3&lt;/pre&gt;
+&lt;p class="caption"&gt;Results of unit tests&lt;/p&gt;
+
+&lt;p&gt;
+    Please leave some thoughts below and thanks for the read.
+&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>array-based-linear-list-in-c</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Array Based Linear List in C++</menu-title>
+    <full-title>Array Based Linear List in C++</full-title>
+    <publish-date>Oct 18 2012</publish-date>
+    <summary>This article discusses the implementation of an array based linear list as coded in c++.</summary>
+    <category>DataStructures</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    This article discusses the implementation of an array based linear list as coded in c++.
+&lt;/p&gt;
+
+&lt;h2&gt;Unit Tests&lt;/h2&gt;
+&lt;p&gt;
+    The following code is the unit tests developed for the array based linear list.  
+        See &lt;a href="http://www.toddbadams.co.uk/quick-unit-testing-in-cpp" title="Quick Unit Testing in c++"&gt;Quick Unit Testing in c++&lt;/a&gt;
+    for an article on how the unit test code was developed.  
+&lt;/p&gt;
+&lt;pre data-file="ListUnitTests.txt"&gt;#pragma once
+
+#include "UnitTest.h"
+#include "../tbaADT/List.h"
+using namespace std;
+
+class ListUnitTests : public UnitTest
+{
+public:
+// Constructor
+ListUnitTests(void) : UnitTest("List")
+{
+listSize=5;
+testElements = new int[listSize+1];
+testElements[0] = 1;
+testElements[1] = 2;
+testElements[2] = 3;
+testElements[3] = 4;
+testElements[4] = 5;
+testElements[5] = 6;
+}
+// Destructor
+~ListUnitTests(void) { }
+
+// Public Tests
+string Run()
+{
+CanCreateList();
+ListHasCapacity();
+ListHasCountZeroOnCreate();
+ListCanAdd();
+ListHasIndexOf();
+ListCanGetByIndex();
+ListHasLastIndexOf();
+ListCanInsertAt();
+ListCanRemoveAt();
+ListCanRemoveAll();
+ListDoublesCapacityWhenOutofMemory();
+ListCanCreateArrayFromList();
+ListCanTrimExcess();
+
+Totals();
+return Results;
+}
+
+private:
+tbaADT::List&lt;int&gt;
+  * list;
+  int listSize;
+  int* testElements;
+
+  void TestInitialize()
+  {
+  list = new tbaADT::List&lt;int&gt;(listSize);
+	}
+
+	void TestDispose()
+	{
+		delete list;
+	}
+
+	void CanCreateList()
+	{		
+		// Arrange &amp; Act
+		TestInitialize();
+
+		// Assert
+		Assert("CanCreateList",list!=nullptr);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListHasCapacity()
+	{		
+		// Arrange &amp; Act
+		TestInitialize();
+
+		// Assert
+		Assert("ListHasCapacity",
+			list-&gt;GetCapacity() == listSize);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListHasCountZeroOnCreate()
+	{		
+		// Arrange &amp; Act
+		TestInitialize();
+
+		// Assert
+		Assert("ListHasCountZeroOnCreate", 
+			list-&gt;GetCount() == 0);
+
+		// Dispose
+		TestDispose();
+	}	
+
+	void ListCanAdd()
+	{		
+		// Arrange
+		TestInitialize();
+
+		// Act
+		list-&gt;Add(testElements[0]);
+
+		// Assert
+		Assert("ListCanAdd", list-&gt;GetCount() == 1);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListHasIndexOf()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Add(testElements[0]);
+		list-&gt;Add(testElements[1]);
+		list-&gt;Add(testElements[2]);
+
+		// Act
+		int result = list-&gt;IndexOf(testElements[1]);
+
+		// Assert
+		Assert("ListHasIndexOf", result == 1);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListCanGetByIndex()
+	{
+		// Arrange
+		TestInitialize();
+		list-&gt;Add(testElements[0]);
+		list-&gt;Add(testElements[1]);
+		list-&gt;Add(testElements[2]);
+
+		// Act
+		int result = list-&gt;Item(1);
+
+		// Assert
+		Assert("ListCanGetByIndex", result == testElements[1]);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListHasLastIndexOf()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Add(testElements[0]);
+		list-&gt;Add(testElements[1]);
+		list-&gt;Add(testElements[0]);
+		list-&gt;Add(testElements[3]);
+		int expected = 2;
+
+		// Act 
+		int result = list-&gt;LastIndexOf(testElements[0]);
+
+		// Assert
+		Assert("ListHasLastIndexOf", result == expected);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListCanInsertAt()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Add(testElements[0]);
+		list-&gt;Add(testElements[2]);
+		list-&gt;Add(testElements[3]);
+		list-&gt;Add(testElements[4]);
+
+		// Act - 0th and 2nd are same value
+		list-&gt;InsertAt(1,testElements[1]);
+
+		// Assert
+		Assert("ListCanInsertAt", 
+			list-&gt;GetCount() == 5 &amp;&amp;
+			list-&gt;Contains(testElements[1]));
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListCanRemoveAt()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Add(testElements[0]);
+		list-&gt;Add(testElements[1]);
+		list-&gt;Add(testElements[2]);
+		list-&gt;Add(testElements[3]);
+
+		// Act - 0th and 2nd are same value
+		list-&gt;RemoveAt(1); 
+
+		// Assert
+		Assert("ListCanRemoveAt", 
+			!list-&gt;Contains(testElements[1]) &amp;&amp;
+			list-&gt;GetCount() == 3);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListCanRemoveAll()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Add(testElements[0]);
+		list-&gt;Add(testElements[1]);
+		list-&gt;Add(testElements[0]);
+		list-&gt;Add(testElements[3]);
+
+		// Act - 0th and 2nd are same value
+		list-&gt;RemoveAll(testElements[0]); 
+
+		// Assert
+		Assert("ListCanRemoveAll", 
+			list-&gt;GetCount() == 2);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListDoublesCapacityWhenOutofMemory()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Add(testElements[0]);
+		list-&gt;Add(testElements[1]);
+		list-&gt;Add(testElements[2]);
+		list-&gt;Add(testElements[3]);
+		list-&gt;Add(testElements[4]);
+
+		// Act - test element 5 exceeds capacity
+		list-&gt;Add(testElements[5]);  
+
+		// Assert
+		Assert("ListCanRemoveAt",
+			list-&gt;GetCapacity() == 2*listSize);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListCanCreateArrayFromList()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Add(testElements[0]);
+		list-&gt;Add(testElements[1]);
+		list-&gt;Add(testElements[2]);
+		list-&gt;Add(testElements[3]);
+		list-&gt;Add(testElements[4]);
+
+		// Act	
+		int* results = list-&gt;ToArray();  
+
+		// Assert
+		Assert("ListCanCreateArrayFromList",
+			(results[0]==testElements[0]) &amp;&amp;
+			(results[1]==testElements[1]) &amp;&amp;
+			(results[2]==testElements[2]) &amp;&amp;
+			(results[3]==testElements[3]) &amp;&amp;
+			(results[4]==testElements[4]) &amp;&amp;
+			(results != testElements) );
+
+		// Dispose
+		TestDispose();
+	}
+	
+	void ListCanTrimExcess()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Add(testElements[0]);
+		list-&gt;Add(testElements[1]);
+		list-&gt;Add(testElements[2]);
+
+		// Act	
+		list-&gt;TrimExcess();  
+
+		// Assert			
+		int* results = list-&gt;ToArray();  
+		Assert("ListCanTrimExcess", 
+			(results[0]==testElements[0]) &amp;&amp;
+			(results[1]==testElements[1]) &amp;&amp;
+			(results[2]==testElements[2]) &amp;&amp;
+			(list-&gt;GetCount() == 3) &amp;&amp;
+			(list-&gt;GetCapacity() == 3));
+
+		// Dispose
+		TestDispose();
+	}
+	
+};
+
+&lt;/int&gt;&lt;/int&gt;&lt;/pre&gt;
+&lt;p class="caption"&gt;Unit test class for array based linear list&lt;/p&gt;
+&lt;p&gt;
+    The big take away from developing the unit tests first is to create the 
+                &lt;a href="http://en.wikipedia.org/wiki/API" title="Application programming interface"&gt;API&lt;/a&gt;
+    for the class to be developed. This is accomplished in the Act section of each unit test.
+                By writing the Act section first, an understanding of how the class is to be implemented by 
+                the client software is formalized.
+&lt;/p&gt;
+&lt;p&gt;
+    The following code snippet is from the &lt;em&gt;ListCanAdd&lt;/em&gt; test.  This line of code
+                is exactly as the class will be used by the client program.  Once this test is written
+                the signature of the array based linear list class can be designed, and finally the code.
+&lt;/p&gt;
+&lt;pre&gt;// Act
+List-&gt;Add(testElements[0]);&lt;/pre&gt;
+&lt;p class="caption"&gt;Code Snippet from ListUnitTests class&lt;/p&gt;
+&lt;h2&gt;The List Class&lt;/h2&gt;
+&lt;p&gt;The following code was developed to meet the unit tests described in &lt;em&gt;ListUnitTests&lt;/em&gt;.&lt;/p&gt;
+&lt;pre data-file="List.txt"&gt;#pragma once
+
+namespace tbaADT {
+template&lt;class t=""&gt;
+  class List
+  {
+  public:
+  // Constructor/Destructor
+  List(int);
+  ~List(void);
+
+  // Read Only Properties
+  int GetCapacity();
+  int GetCount();
+
+  // Methods
+  void Add(T&amp;);
+  void Clear();
+  bool Contains(T&amp;);
+  int IndexOf(T&amp;);
+  void InsertAt(int index, T&amp;);
+  T Item(int);
+  int LastIndexOf(T&amp;);
+  void MoveTo(int,int);
+  void Remove(T&amp;);
+  void RemoveAt(int);
+  void RemoveAll(T&amp;);
+  T* ToArray();
+  void TrimExcess();
+
+  protected:
+  int capacity;
+  int count;
+  T *elements; // dynamic 1D array
+  void CheckBounds(int index);
+  void CheckMemory();
+  };
+
+  // Constructor
+  template&lt;class t=""&gt;
+    tbaADT::List&lt;t&gt;
+      ::List(int Capacity)
+      {
+      capacity = Capacity;
+      elements = new T[capacity];
+      count = 0;
+      }
+
+      // Destructor
+      template&lt;class t=""&gt;
+        tbaADT::List&lt;t&gt;
+          ::~List()
+          {
+          delete [] elements;
+          }
+
+          // Add and element to the end of list
+          template&lt;class t=""&gt;
+            void tbaADT::List&lt;t&gt;
+              ::Add(T&amp; element)
+              {
+              CheckMemory();
+
+              elements[count] = element;
+              count ++;
+              }
+
+              // Empty the list
+              template&lt;class t=""&gt;
+                void tbaADT::List&lt;t&gt;
+                  ::Clear()
+                  {
+                  count = 0;
+                  }
+
+                  // Returns true if this list contain the element, else returns false
+                  template&lt;class t=""&gt;
+                    bool tbaADT::List&lt;t&gt;
+                      ::Contains(T&amp; element)
+                      {
+                      for (int i = 0; i&lt;count; i="" {="" if="" (elements="" [i="" ]="=" element="" )="" return="" true="" }="" return="" false="" ;="" }="" ready="" only="" capacity="" attribute=""&gt;&lt;/count;&gt;&lt;class t=""&gt;
+                        int tbaADT::List&lt;t&gt;
+                          ::GetCapacity()
+                          {
+                          return capacity;
+                          }
+
+                          // Ready Only count attribute
+                          template&lt;class t=""&gt;
+                            int tbaADT::List&lt;t&gt;
+                              ::GetCount()
+                              {
+                              return count;
+                              }
+
+                              // Get the first index of element
+                              template&lt;class t=""&gt;
+                                int  tbaADT::List&lt;t&gt;
+                                  ::IndexOf(T&amp; element)
+                                  {
+                                  for (int i = 0; i&lt;count; i="" {="" if="" (elements="" [i="" ]="=" element="" )="" return="" i="" }="" return="" -1="" ;="" }="" insert="" at="" position="" index=""&gt;&lt;/count;&gt;&lt;class t=""&gt;
+                                    void tbaADT::List&lt;t&gt;
+                                      ::InsertAt(int index, T&amp; element)
+                                      {
+                                      CheckBounds(index);
+                                      CheckMemory();
+
+                                      for(int i = count; i&gt;index; i--)
+                                      {
+                                      elements[i] = elements[i-1];
+                                      }
+                                      elements[index] = element;
+                                      count++;
+                                      }
+
+                                      template&lt;class t=""&gt;
+                                        T tbaADT::List&lt;t&gt;
+                                          ::Item(int index)
+                                          {
+                                          return elements[index];
+                                          }
+
+                                          // Get the last index of the element
+                                          template&lt;class t=""&gt;
+                                            int  tbaADT::List&lt;t&gt;
+                                              ::LastIndexOf(T&amp; element)
+                                              {
+                                              for (int i = count-1; i&gt;-1; i--)
+                                              {
+                                              if (elements[i] == element) return i;
+                                              }
+                                              return -1;
+                                              }
+
+                                              // move element from index2 to index1
+                                              template&lt;class t=""&gt;
+                                                void List&lt;t&gt;
+                                                  ::MoveTo(int indexTo, int indexFrom)
+                                                  {
+                                                  elements[indexTo] = elements[indexFrom];
+                                                  }
+
+                                                  // Remove the first occurrence of element
+                                                  template&lt;class t=""&gt;
+                                                    void tbaADT::List&lt;t&gt;
+                                                      ::Remove(T&amp; element)
+                                                      {
+                                                      int index = IndexOf(element);
+                                                      if (index &gt; -1)
+                                                      {
+                                                      RemoveAt(index);
+                                                      }
+                                                      }
+
+                                                      // Remove at position index
+                                                      template&lt;class t=""&gt;
+                                                        void tbaADT::List&lt;t&gt;
+                                                          ::RemoveAt(int index)
+                                                          {
+                                                          CheckBounds(index);
+
+                                                          for(int i = index; i&lt;count; i="" {="" elements="" [i="" ]="elements=""[i=""+1=""" }="" count--="" ;="" }="" remove="" all="" occurrences="" of="" element="" from="" the="" list=""&gt;&lt;/count;&gt;&lt;class t=""&gt;
+                                                            void tbaADT::List&lt;t&gt;
+                                                              ::RemoveAll(T&amp; element)
+                                                              {
+                                                              for(int i = 0; i &lt; count;="" i++)="" {="" if="" (elements[i]="=element)" {="" for="" (int="" j="i;"&gt;&lt;count-2; j="" {="" elements="" [j="" ]="elements=""[j=""+1=""" }="" count="" --="" ;="" }="" }="" }="" create="" an="" array="" copy="" of="" this="" list=""&gt;&lt;/count-2;&gt;&lt;class t=""&gt;
+                                                                T* tbaADT::List&lt;t&gt;
+                                                                  ::ToArray()
+                                                                  {
+                                                                  T* newArr = new T[count];
+                                                                  memcpy( newArr, elements, count * sizeof(T) );
+                                                                  return newArr;
+                                                                  }
+
+                                                                  // Resize the array to the current count
+                                                                  template&lt;class t=""&gt;
+                                                                    void  List&lt;t&gt;
+                                                                      ::TrimExcess()
+                                                                      {
+                                                                      capacity = count;
+                                                                      T* newArr = new T[capacity];
+                                                                      memcpy( newArr, elements, capacity * sizeof(T) );
+                                                                      delete [] elements;
+                                                                      elements = newArr;
+                                                                      }
+
+                                                                      //
+                                                                      // Private Methods
+                                                                      //
+
+                                                                      // if index is out of bounds of capacity throw and exception
+                                                                      template&lt;class t=""&gt;
+                                                                        void tbaADT::List&lt;t&gt;
+                                                                          ::CheckBounds(int index)
+                                                                          {
+                                                                          if (index &gt; count-1 || index&lt;0) index="0" ;="" }="" if="" index="" exceeds="" memory="" bounds="" of="" capacity="" then="" double="" capacity=""&gt;&lt;/0)&gt;&lt;class t=""&gt;
+                                                                            void tbaADT::List&lt;t&gt;::CheckMemory()
+	{
+		if (count&gt;capacity-2)
+		{
+			capacity *= 2;
+			T* newArr = new T[capacity];
+			memcpy( newArr, elements, capacity * sizeof(T) );
+			delete [] elements;
+			elements = newArr;
+		}
+	}
+}
+&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/class&gt;&lt;/pre&gt;
+&lt;p class="caption"&gt;List class"&lt;/p&gt;
+&lt;h2&gt;Algorithm Complexity&lt;/h2&gt;
+&lt;p&gt;
+    The following is a list of methods within the &lt;em&gt;List&lt;/em&gt; class and their respective
+                complexity.
+&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;void Add(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void Clear()&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;bool Contains(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;int IndexOf(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;int LastIndexOf(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void Remove(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void RemoveAll(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;T* ToArray()&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void TrimExcess()&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+    Please leave some thoughts below and thanks for the read.
+&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>decimal-to-binary-calculator</slug>
+    <is-in-menu>false</is-in-menu>
+    <menu-title>Decimal To Binary Calculator</menu-title>
+    <full-title>Decimal To Binary Calculator</full-title>
+    <publish-date>Dec 31 2012</publish-date>
+    <summary>This article contains a decimal to binary calculator, as well as an algorithm for the conversion.</summary>
+    <category>Internet</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;h2&gt;The Calculator&lt;/h2&gt;
+&lt;form action="/internet/decimal-to-binary-results" data-ajax="true" data-ajax-loading="#loading" data-ajax-loading-duration="1000" data-ajax-method="Post" data-ajax-mode="replace" data-ajax-update="#result" id="form0" method="post" class="form-horizontal"&gt;
+&lt;div class="control-group"&gt;
+    &lt;label class="control-label" for="dec"&gt;Decimal&lt;/label&gt;
+    &lt;div class="controls"&gt;
+        &lt;input type="number" id="dec" name="dec"&gt;
+        &lt;label class="error" for="dec" id="dec_error"&gt;This field is required.&lt;/label&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="control-group"&gt;
+    &lt;div class="controls"&gt;
+        &lt;button class="btn btn-primary calculate" type="submit"&gt;Calculate&lt;/button&gt;&lt;span id="loading" style="display: none;"&gt;loading...&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/form&gt;
+
+&lt;div id="result"&gt;&lt;/div&gt;
+
+&lt;h2&gt;The Algorithm&lt;/h2&gt;
+
+&lt;pre&gt;Length = RoundUp(log 2 ( decimal ) )
+Bits = new Array[Length]
+For (i = 0 to Length-1)
+If  ( decimal &gt;= 2^ (Length-i) )
+	Bits[i]  =  1
+	Decimal = decimal - 2^ (Length-i)
+Else
+	Bits[i] = 0&lt;/pre&gt;
+&lt;p class="caption"&gt;An algorithm to convert decimal to binary.&lt;/p&gt;
+
+&lt;h2&gt;An Example&lt;/h2&gt;
+
+&lt;p&gt;In this example our input &lt;em&gt;Decimal&lt;/em&gt; = 10.&lt;/p&gt;
+&lt;p&gt;Length = RoundUp( log 2( 10 ) ) = 4&lt;/p&gt;
+&lt;p&gt;Bits = new Array[4]&lt;/p&gt;
+&lt;table class="table table-bordered table-hover"&gt;
+    &lt;caption&gt;For i Loop&lt;/caption&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th class="span1"&gt;i&lt;/th&gt;
+            &lt;th class="span1"&gt;2^(4-i)&lt;/th&gt;
+            &lt;th class="span1"&gt;Is decimal &gt;= 2^(4-i)&lt;/th&gt;
+            &lt;th class="span1"&gt;decimal&lt;/th&gt;
+            &lt;th class="span1"&gt;Bit[i]&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;0&lt;/td&gt;
+            &lt;td&gt;8&lt;/td&gt;
+            &lt;td&gt;yes&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td&gt;no&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;0&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;no&lt;/td&gt;
+            &lt;td&gt;0&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;yes&lt;/td&gt;
+            &lt;td&gt;0&lt;/td&gt;
+            &lt;td&gt;0&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;
+    Please leave some thoughts below and thanks for the read.
+&lt;/p&gt;</is-in-index>
+  </article>
+  <article>
+    <slug>array-based-stack-in-c</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Array Based Stack in C++</menu-title>
+    <full-title>Array Based Stack in C++</full-title>
+    <publish-date>Oct 23 2012</publish-date>
+    <summary>This article discusses the implementation of an array based stack as coded in c++.</summary>
+    <category>DataStructures</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;This article discusses the implementation of an array based stack as coded in c++.&lt;/p&gt;
+&lt;h2&gt;Unit Tests&lt;/h2&gt;
+&lt;p&gt;
+    The following code is the unit tests developed for the array based stack.  
+     See &lt;a href="http://www.toddbadams.co.uk/quick-unit-testing-in-cpp" title="Quick Unit Testing in c++"&gt;Quick Unit Testing in c++&lt;/a&gt;
+    for an article on how the unit test code was developed.  
+&lt;/p&gt;
+&lt;pre data-file="stackUnitTests.txt"&gt;#pragma once
+#include "../tbaADT/Stack.h"
+#include "UnitTest.h"
+#include &lt;iostream&gt;
+  using namespace std;
+
+  class StackUnitTests : public UnitTest
+  {
+  public:
+  // Constructor
+  StackUnitTests(void) : UnitTest("Stack")
+  {
+  listSize=5;
+  testElements = new int[listSize+1];
+  testElements[0] = 1;
+  testElements[1] = 2;
+  testElements[2] = 3;
+  testElements[3] = 4;
+  testElements[4] = 5;
+  testElements[5] = 6;
+  }
+  // Destructor
+  ~StackUnitTests(void) { }
+
+  // Public Tests
+  string Run()
+  {
+  StackCanCreate();
+  StackHasCapacity();
+  StackHasCountZeroOnCreate();
+  StackCanPush();
+  StackCanPop();
+  StackCanPeek();
+  StackDoublesCapacityWhenOutofMemory();
+  StackCanCreateArrayFromList();
+  StackCanTrimExcess();
+
+  Totals();
+  return Results;
+  }
+
+  private:
+  tbaADT::Stack&lt;int&gt;
+    * list;
+    int listSize;
+    int* testElements;
+
+    void TestInitialize()
+    {
+    list = new tbaADT::Stack&lt;int&gt;(listSize);		
+	}
+
+	void TestDispose()
+	{
+		//delete list;
+	}
+
+	void StackCanCreate()
+	{		
+		// Arrange &amp; Act
+		TestInitialize();
+
+		// Assert
+		Assert("StackCanCreate",list!=nullptr);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void StackHasCapacity()
+	{		
+		// Arrange &amp; Act
+		TestInitialize();
+
+		// Assert
+		Assert("StackHasCapacity",
+			list-&gt;GetCapacity() == listSize);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void StackHasCountZeroOnCreate()
+	{		
+		// Arrange &amp; Act
+		TestInitialize();
+
+		// Assert
+		Assert("StackHasCountZeroOnCreate", 
+			list-&gt;GetCount() == 0);
+
+		// Dispose
+		TestDispose();
+	}	
+
+	void StackCanPush()
+	{		
+		// Arrange
+		TestInitialize();
+
+		// Act
+		list-&gt;Push(testElements[0]);
+
+		// Assert
+		Assert("StackCanPush", list-&gt;GetCount() == 1);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void StackCanPop()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Push(testElements[0]);
+		list-&gt;Push(testElements[1]);
+		list-&gt;Push(testElements[2]);
+
+		// Act
+		int result = list-&gt;Pop();
+
+		// Assert
+		Assert("StackCanPop", 
+			result == testElements[2] &amp;&amp;
+			list-&gt;GetCount() == 2);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void StackCanPeek()
+	{
+		// Arrange
+		TestInitialize();
+		list-&gt;Push(testElements[0]);
+		list-&gt;Push(testElements[1]);
+		list-&gt;Push(testElements[2]);
+
+		// Act
+		int result = list-&gt;Peek(); 
+
+		// Assert
+		Assert("StackCanPeek", 
+			result == testElements[2] &amp;&amp;
+			list-&gt;GetCount() == 3);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void StackDoublesCapacityWhenOutofMemory()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Push(testElements[0]);
+		list-&gt;Push(testElements[1]);
+		list-&gt;Push(testElements[2]);
+		list-&gt;Push(testElements[3]);
+		list-&gt;Push(testElements[4]);
+
+		// Act - test element 5 exceeds capacity
+		list-&gt;Push(testElements[5]);  
+
+		// Assert
+		Assert("StackDoublesCapacityWhenOutofMemory",
+			list-&gt;GetCapacity() == 2*listSize);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void StackCanCreateArrayFromList()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Push(testElements[0]);
+		list-&gt;Push(testElements[1]);
+		list-&gt;Push(testElements[2]);
+		list-&gt;Push(testElements[3]);
+		list-&gt;Push(testElements[4]);
+
+		// Act	
+		int* results = list-&gt;ToArray();  
+
+		// Assert
+		Assert("StackCanCreateArrayFromList",
+			(results[0]==testElements[4]) &amp;&amp;
+			(results[1]==testElements[3]) &amp;&amp;
+			(results[2]==testElements[2]) &amp;&amp;
+			(results[3]==testElements[1]) &amp;&amp;
+			(results[4]==testElements[0]) );
+
+		// Dispose
+		TestDispose();
+	}
+	
+	void StackCanTrimExcess()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Push(testElements[0]);
+		list-&gt;Push(testElements[1]);
+		list-&gt;Push(testElements[2]);
+
+		// Act	
+		list-&gt;TrimExcess();  
+
+		// Assert			
+		Assert("StackCanTrimExcess", 
+			(list-&gt;GetCount() == 3) &amp;&amp;
+			(list-&gt;GetCapacity() == 3));
+
+		// Dispose
+		TestDispose();
+	}
+	
+};&lt;/int&gt;&lt;/int&gt;&lt;/iostream&gt;&lt;/pre&gt;
+&lt;p class="caption"&gt;Unit test class for array based stack&lt;/p&gt;
+&lt;h2&gt;The ArrayList Class&lt;/h2&gt;
+&lt;p&gt;The following code was developed to meet the unit tests described in &lt;em&gt;StackUnitTests&lt;/em&gt;.&lt;/p&gt;
+&lt;pre data-file="stack.txt"&gt;#pragma once
+#include "list.h"
+
+namespace tbaADT {
+template&lt;class t=""&gt;
+  class Stack
+  {
+  public:
+  // Constructor/Destructor
+  Stack(int);
+  ~Stack(void);
+
+  // Read Only Properties
+  int GetCapacity();
+  int GetCount();
+
+  // Methods
+  void Clear();
+  T Peek();
+  T Pop();
+  void Push(T&amp; element);
+  T* ToArray();
+  void TrimExcess();
+
+  protected:
+  List&lt;t&gt;
+    * list;
+    };
+
+    // Constructor
+    template&lt;class t=""&gt;
+      tbaADT::Stack&lt;t&gt;
+        ::Stack(int Capacity)
+        {
+        list = new List&lt;t&gt;
+          (Capacity);
+          }
+
+          // Destructor
+          template&lt;class t=""&gt;
+            tbaADT::Stack&lt;t&gt;
+              ::~Stack()
+              {
+              delete [] list;
+              }
+
+              // Empty the list
+              template&lt;class t=""&gt;
+                void tbaADT::Stack&lt;t&gt;
+                  ::Clear()
+                  {
+                  list-&gt;Clear();
+                  }
+
+                  // Ready Only capacity attribute
+                  template&lt;class t=""&gt;
+                    int tbaADT::Stack&lt;t&gt;
+                      ::GetCapacity()
+                      {
+                      return list-&gt;GetCapacity();
+                      }
+
+                      // Ready Only count attribute
+                      template&lt;class t=""&gt;
+                        int tbaADT::Stack&lt;t&gt;
+                          ::GetCount()
+                          {
+                          return list-&gt;GetCount();
+                          }
+
+                          // Returns the value at the top of the list
+                          template&lt;class t=""&gt;
+                            T tbaADT::Stack&lt;t&gt;
+                              ::Peek()
+                              {
+                              if (list-&gt;GetCount()&gt;0)
+                              return list-&gt;Item(list-&gt;GetCount()-1);
+                              else
+                              {
+                              T foo;
+                              return foo;
+                              }
+
+                              }
+
+                              // Returns the value at the top of the list and removes it from the list
+                              template&lt;class t=""&gt;
+                                T tbaADT::Stack&lt;t&gt;
+                                  ::Pop()
+                                  {
+                                  if (list-&gt;GetCount()&gt;0)
+                                  {
+                                  T value = list-&gt;Item(list-&gt;GetCount()-1);
+                                  list-&gt;RemoveAt(list-&gt;GetCount()-1);
+                                  return value;
+                                  }
+                                  else
+                                  {
+                                  T foo;
+                                  return foo;
+                                  }
+                                  }
+
+                                  // Add an element to the top of stack
+                                  template&lt;class t=""&gt;
+                                    void tbaADT::Stack&lt;t&gt;
+                                      ::Push(T&amp; value)
+                                      {
+                                      list-&gt;Add(value);
+                                      }
+
+                                      // Create an array copy of this list
+                                      template&lt;class t=""&gt;
+                                        T* tbaADT::Stack&lt;t&gt;
+                                          ::ToArray()
+                                          {
+                                          T* newArr = new T[list-&gt;GetCount()];
+                                          for (int i=0; i &lt; list-=""&gt;GetCount(); i++)
+		{
+			newArr[list-&gt;GetCount()-1-i] = list-&gt;Item(i);
+		}
+		return newArr;
+	}
+
+	// Resize the array to the current count
+	template&lt;class t=""&gt;
+                                            void  tbaADT::Stack&lt;t&gt;::TrimExcess()
+	{
+		list-&gt;TrimExcess();
+	}
+
+}&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/pre&gt;
+&lt;p class="caption"&gt;Stack class&lt;/p&gt;
+&lt;h2&gt;Algorithm Complexity&lt;/h2&gt;
+&lt;p&gt;The following is a list of methods within the &lt;em&gt;Stack&lt;/em&gt; class and their respective complexity.&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;void Push(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void Clear()&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;T Peek()&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;T Pop()&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;T* ToArray()&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void TrimExcess()&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;
+    Please leave some thoughts below and thanks for the read.
+&lt;/p&gt;
+</is-in-index>
+  </article>
+  <article>
+    <slug>array-based-queue-in-c</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Array Based Queue in C++</menu-title>
+    <full-title>Array Based Queue in C++</full-title>
+    <publish-date>Oct 24 2012</publish-date>
+    <summary>This article discusses the implementation of an array based queue as coded in c++.</summary>
+    <category>DataStructures</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;
+    This article discusses the implementation of an array based queue as coded in c++.
+&lt;/p&gt;
+&lt;h2&gt;Unit Tests&lt;/h2&gt;
+&lt;p&gt;
+    The following code is the unit tests developed for the array based queue.  
+                See &lt;a href="http://www.toddbadams.co.uk/quick-unit-testing-in-cpp" title="Quick Unit Testing in c++"&gt;Quick Unit Testing in c++&lt;/a&gt;
+    for an article on how the unit test code was developed.  
+&lt;/p&gt;
+&lt;pre data-file="QueueUnitTests.txt"&gt;#pragma once
+#include "../tbaADT/Queue.h"
+#include "UnitTest.h"
+#include &lt;iostream&gt;
+  using namespace std;
+
+  class QueueUnitTests : public UnitTest
+  {
+  public:
+  // Constructor
+  QueueUnitTests(void) : UnitTest("Queue")
+  {
+  listSize=5;
+  }
+  // Destructor
+  ~QueueUnitTests(void) { }
+
+  // Public Tests
+  string Run()
+  {
+  QueueCanCreate();
+  QueueHasCapacity();
+  QueueHasCountZeroOnCreate();
+  QueueCanEnqueue();
+  QueueCanDequeue();
+  QueueCanPeek();
+  QueueDoublesCapacityWhenOutofMemory();
+  QueueCanCreateArrayFromList();
+  QueueCanTrimExcess();
+
+  Totals();
+  return Results;
+  }
+
+  private:
+  tbaADT::Queue&lt;int&gt;
+    * list;
+    int listSize;
+    int* testElements;
+
+    void TestInitialize()
+    {
+    list = new tbaADT::Queue&lt;int&gt;(listSize);
+		testElements = new int[listSize+1];
+		testElements[0] = 1;
+		testElements[1] = 2;
+		testElements[2] = 3;
+		testElements[3] = 4;
+		testElements[4] = 5;
+		testElements[5] = 6;
+	}
+
+	void TestDispose()
+	{
+		//delete list;
+	}
+
+	void QueueCanCreate()
+	{		
+		// Arrange &amp; Act
+		TestInitialize();
+
+		// Assert
+		Assert("QueueCanCreate", list!=nullptr);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void QueueHasCapacity()
+	{		
+		// Arrange &amp; Act
+		TestInitialize();
+
+		// Assert
+		Assert("QueueHasCapacity",
+			list-&gt;GetCapacity() == listSize);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void QueueHasCountZeroOnCreate()
+	{		
+		// Arrange &amp; Act
+		TestInitialize();
+
+		// Assert
+		Assert("QueueHasCountZeroOnCreate", 
+			list-&gt;GetCount() == 0);
+
+		// Dispose
+		TestDispose();
+	}	
+
+	void QueueCanEnqueue()
+	{		
+		// Arrange
+		TestInitialize();
+
+		// Act
+		list-&gt;Enqueue(testElements[0]);
+
+		// Assert
+		Assert("QueueCanEnqueue", list-&gt;GetCount() == 1);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void QueueCanDequeue()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Enqueue(testElements[0]);
+		list-&gt;Enqueue(testElements[1]);
+		list-&gt;Enqueue(testElements[2]);
+
+		// Act
+		int result = list-&gt;Dequeue();
+
+		// Assert
+		Assert("QueueCanDequeue", 
+			result == testElements[0] &amp;&amp;
+			list-&gt;GetCount() == 2);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void QueueCanPeek()
+	{
+		// Arrange
+		TestInitialize();
+		list-&gt;Enqueue(testElements[0]);
+		list-&gt;Enqueue(testElements[1]);
+		list-&gt;Enqueue(testElements[2]);
+
+		// Act
+		int result = list-&gt;Peek(); 
+
+		// Assert
+		Assert("QueueCanPeek", 
+			result == testElements[0] &amp;&amp;
+			list-&gt;GetCount() == 3);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void QueueDoublesCapacityWhenOutofMemory()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Enqueue(testElements[0]);
+		list-&gt;Enqueue(testElements[1]);
+		list-&gt;Enqueue(testElements[2]);
+		list-&gt;Enqueue(testElements[3]);
+		list-&gt;Enqueue(testElements[4]);
+
+		// Act - test element 5 exceeds capacity
+		list-&gt;Enqueue(testElements[5]);  
+
+		// Assert
+		Assert("QueueDoublesCapacityWhenOutofMemory",
+			list-&gt;GetCapacity() == 2*listSize);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void QueueCanCreateArrayFromList()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Enqueue(testElements[0]);
+		list-&gt;Enqueue(testElements[1]);
+		list-&gt;Enqueue(testElements[2]);
+		list-&gt;Enqueue(testElements[3]);
+		list-&gt;Enqueue(testElements[4]);
+
+		// Act	
+		int* results = list-&gt;ToArray();  
+
+		// Assert
+		Assert("QueueCanCreateArrayFromList",
+			(results[0]==testElements[0]) &amp;&amp;
+			(results[1]==testElements[1]) &amp;&amp;
+			(results[2]==testElements[2]) &amp;&amp;
+			(results[3]==testElements[3]) &amp;&amp;
+			(results[4]==testElements[4]) );
+
+		// Dispose
+		TestDispose();
+	}
+	
+	void QueueCanTrimExcess()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;Enqueue(testElements[0]);
+		list-&gt;Enqueue(testElements[1]);
+		list-&gt;Enqueue(testElements[2]);
+
+		// Act	
+		list-&gt;TrimExcess();  
+
+		// Assert			
+		int* results = list-&gt;ToArray();  
+		Assert("QueueCanTrimExcess", 
+			(results[0]==testElements[0]) &amp;&amp;
+			(results[1]==testElements[1]) &amp;&amp;
+			(results[2]==testElements[2]) &amp;&amp;
+			(list-&gt;GetCount() == 3) &amp;&amp;
+			(list-&gt;GetCapacity() == 3));
+
+		// Dispose
+		TestDispose();
+	}
+};&lt;/int&gt;&lt;/int&gt;&lt;/iostream&gt;&lt;/pre&gt;
+&lt;p class="caption"&gt;Unit test class for array based queue&lt;/p&gt;
+&lt;h2&gt;The Queue Class&lt;/h2&gt;
+&lt;p&gt;The following code was developed to meet the unit tests described in &lt;em&gt;QueueUnitTests&lt;/em&gt;.&lt;/p&gt;
+&lt;pre data-file="Queue.txt"&gt;#pragma once
+#include "list.h"
+
+namespace tbaADT {
+	template&lt;class t=""&gt;
+	class Queue 
+	{
+	public:
+		// Constructor
+		Queue(int);
+		~Queue(void);
+
+		// Read Only Properties
+		int GetCapacity();
+		int GetCount();
+
+		// Methods
+		void Clear();
+		T Dequeue();
+		void Enqueue(T&amp; element);
+		T Peek();
+		T* ToArray();
+		void TrimExcess();
+
+	protected:
+		List&lt;t&gt;* list;
+	};
+
+	// Constructor
+	template&lt;class t=""&gt;
+	tbaADT::Queue&lt;t&gt;::Queue(int Capacity)
+	{ 
+		list = new List&lt;t&gt;(Capacity);
+	}
+
+	// Destructor
+	template&lt;class t=""&gt;
+	tbaADT::Queue&lt;t&gt;::~Queue()
+	{ 
+		delete [] list;
+	}
+
+
+	// Empty the list
+	template&lt;class t=""&gt;
+	void tbaADT::Queue&lt;t&gt;::Clear()
+	{
+		list-&gt;Clear();
+	}
+
+		
+	// Ready Only capacity attribute
+	template&lt;class t=""&gt;
+	int tbaADT::Queue&lt;t&gt;::GetCapacity()
+	{
+		return list-&gt;GetCapacity();
+	}
+
+	// Ready Only count attribute
+	template&lt;class t=""&gt;
+	int tbaADT::Queue&lt;t&gt;::GetCount()
+	{
+		return list-&gt;GetCount();
+	}
+
+
+	// Returns the value at the top of the list
+	template&lt;class t=""&gt;
+	T tbaADT::Queue&lt;t&gt;::Peek()
+	{
+		if (list-&gt;GetCount()&gt;0) 
+			return list-&gt;Item(0);
+		else
+		{
+			T foo;
+			return foo;
+		}
+
+	}
+
+	// Returns the value at the top of the list and removes it from the list
+	template&lt;class t=""&gt;
+	T tbaADT::Queue&lt;t&gt;::Dequeue()
+	{
+		if (list-&gt;GetCount()&gt;0) 
+		{
+			T value = list-&gt;Item(0);
+			list-&gt;RemoveAt(0);
+			return value;
+		}
+		else
+		{
+			T foo;
+			return foo;
+		}
+	}
+
+
+	// Add an element to the bottom of Queue
+	template&lt;class t=""&gt;
+	void tbaADT::Queue&lt;t&gt;::Enqueue(T&amp; value)
+	{
+		list-&gt;Add(value);
+	}
+
+	// Create an array copy of this list
+	template&lt;class t=""&gt;
+	T* tbaADT::Queue&lt;t&gt;::ToArray()
+	{
+		return list-&gt;ToArray();
+	}
+
+	// Resize the array to the current count
+	template&lt;class t=""&gt;
+	void  tbaADT::Queue&lt;t&gt;::TrimExcess()
+	{
+		list-&gt;TrimExcess();
+	}
+}&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/pre&gt;
+&lt;p class="caption"&gt;Queue class&lt;/p&gt;
+&lt;h2&gt;Algorithm Complexity&lt;/h2&gt;
+&lt;p&gt;
+    The following is a list of methods within the &lt;em&gt;Queue&lt;/em&gt; class and their respective
+                complexity.
+&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;void Add(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void Clear()&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;T Dequeue()&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;T Enqueue()&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;T Peek()&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;T* ToArray()&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void TrimExcess()&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please leave some thoughts below and thanks for the read.&lt;/p&gt;</is-in-index>
+  </article>
+  <article>
+    <slug>link-based-linear-list-in-c</slug>
+    <is-in-menu>true</is-in-menu>
+    <menu-title>Link Based Linear List in C++</menu-title>
+    <full-title>Link Based Linear List in C++</full-title>
+    <publish-date>Oct 24 2012</publish-date>
+    <summary>This article discusses the implementation of an link based linear list as coded in c++.</summary>
+    <category>DataStructures</category>
+    <controller>Article</controller>
+    <action>Index</action>
+    <is-in-index>&lt;p&gt;This article discusses the implementation of an link based linear list as coded in c++.&lt;/p&gt;
+&lt;h2&gt;Unit Tests&lt;/h2&gt;
+&lt;p&gt;
+    The following code is the unit tests developed for the link based linear list.  
+     See &lt;a href="http://www.toddbadams.co.uk/quick-unit-testing-in-cpp" title="Quick Unit Testing in c++"&gt;Quick Unit Testing in c++&lt;/a&gt;
+    for an article on how the unit test code was developed.  
+&lt;/p&gt;
+&lt;pre data-file="LinkListUnitTests.txt"&gt;#pragma once
+
+#include "UnitTest.h"
+#include "../tbaADT/DoubleLinkNode.h"
+#include "../tbaADT/LinkList.h"
+#include &lt;iostream&gt;
+  using namespace std;
+  using namespace tbaADT;
+
+  class LinkListUnitTests : public UnitTest
+  {
+  public:
+  // Constructor
+  LinkListUnitTests(void) : UnitTest("LinkList")
+  {
+  listSize=5;
+  testElements = new int[listSize+1];
+  testElements[0] = 1;
+  testElements[1] = 2;
+  testElements[2] = 3;
+  testElements[3] = 4;
+  testElements[4] = 5;
+  testElements[5] = 6;
+  }
+
+  // Destructor
+  ~LinkListUnitTests(void) { }
+
+  // Public Tests
+  string Run()
+  {
+  //DoubleLinkNodeCanCreate();
+  LinkListCanCreate();
+  LinkListHasCountZeroOnCreate();
+  LinkListCanAddFirst();
+  LinkListCanAddLast();
+  LinkListHasContains();
+  LinkListCanClear();
+  LinkListCanFind();
+  LinkListReturnsNullWhenNotFound();
+  LinkListCanFindLast();
+  LinkListCanGetFirst();
+  LinkListCanGetLast();
+  LinkListCanRemoveByValue();
+  LinkListCanRemoveByNode();
+  LinkListCanRemoveFirst();
+  LinkListCanRemoveLast();
+  LinkListCanRemoveAll();
+  LinkListCanCreateArrayFromList();
+
+  Totals();
+  return Results;
+  }
+
+  private:
+  LinkList&lt;int&gt;
+    * list;
+    int listSize;
+    int* testElements;
+
+    void TestInitialize()
+    {
+    list = new LinkList&lt;int&gt;
+      ();
+      }
+
+      void TestDispose()
+      {
+      delete list;
+      }
+
+      void DoubleLinkNodeCanCreate()
+      {
+      // Arrange &amp; Act
+      DoubleLinkNode&lt;int&gt;
+        * node = new DoubleLinkNode&lt;int&gt;
+          ();
+
+          // Assert
+          Assert("DoubleLinkNodeCanCreate",node!=nullptr);
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListCanCreate()
+          {
+          // Arrange &amp; Act
+          TestInitialize();
+
+          // Assert
+          Assert("LinkListCanCreate",list!=nullptr);
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListHasCountZeroOnCreate()
+          {
+          // Arrange &amp; Act
+          TestInitialize();
+
+          // Assert
+          Assert("LinkListHasCountZeroOnCreate",
+          list-&gt;GetCount() == 0);
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListCanAddFirst()
+          {
+          // Arrange
+          TestInitialize();
+
+          // Act
+          list-&gt;AddFirst(testElements[0]);
+
+          // Assert
+          Assert("LinkListCanAddFirst", list-&gt;GetCount() == 1);
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListCanAddLast()
+          {
+          // Arrange
+          TestInitialize();
+
+          // Act
+          list-&gt;AddLast(testElements[0]);
+          list-&gt;AddLast(testElements[1]);
+
+          // Assert
+          Assert("LinkListCanAddLast", list-&gt;GetCount() == 2);
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListHasContains()
+          {
+          // Arrange
+          TestInitialize();
+          list-&gt;AddLast(testElements[0]);
+          list-&gt;AddLast(testElements[1]);
+          list-&gt;AddLast(testElements[2]);
+
+          // Act
+          bool result1 = list-&gt;Contains(testElements[1]);
+          bool result2 = list-&gt;Contains(testElements[3]);
+
+          // Assert
+          Assert("LinkListHasContains", result1 &amp;&amp; !result2);
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListCanClear()
+          {
+          // Arrange
+          TestInitialize();
+          list-&gt;AddLast(testElements[0]);
+          list-&gt;AddLast(testElements[1]);
+          list-&gt;AddLast(testElements[2]);
+
+          // Act
+          list-&gt;Clear();
+
+          // Assert
+          Assert("LinkListHasContains",
+          list-&gt;GetCount() == 0 &amp;&amp;
+          !list-&gt;Contains(testElements[2]));
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListCanFind()
+          {
+          // Arrange
+          TestInitialize();
+          list-&gt;AddLast(testElements[0]);
+          list-&gt;AddLast(testElements[1]);
+          list-&gt;AddLast(testElements[2]);
+
+          // Act
+          DoubleLinkNode&lt;int&gt;
+            * result = list-&gt;Find(testElements[1]);
+
+            // Assert
+            Assert("LinkListCanFind", result-&gt;Value == testElements[1]);
+
+            // Dispose
+            TestDispose();
+            }
+
+            void LinkListReturnsNullWhenNotFound()
+            {
+            // Arrange
+            TestInitialize();
+            list-&gt;AddLast(testElements[0]);
+            list-&gt;AddLast(testElements[1]);
+            list-&gt;AddLast(testElements[2]);
+
+            // Act
+            DoubleLinkNode&lt;int&gt;
+              * result = list-&gt;Find(testElements[3]);
+
+              // Assert
+              Assert("LinkListReturnsNullWhenNotFound", result == nullptr);
+
+              // Dispose
+              TestDispose();
+              }
+
+              void LinkListCanFindLast()
+              {
+              // Arrange
+              TestInitialize();
+              list-&gt;AddLast(testElements[0]);
+              list-&gt;AddLast(testElements[1]);
+              list-&gt;AddLast(testElements[2]);
+              list-&gt;AddLast(testElements[1]);
+              list-&gt;AddLast(testElements[3]);
+              list-&gt;AddLast(testElements[4]);
+
+              // Act
+              DoubleLinkNode&lt;int&gt;
+                * result = list-&gt;FindLast(testElements[1]);
+
+                // Assert
+                Assert("LinkListCanFindLast", result-&gt;Value == testElements[1]);
+
+                // Dispose
+                TestDispose();
+                }
+
+                void LinkListCanGetFirst()
+                {
+                // Arrange
+                TestInitialize();
+                list-&gt;AddLast(testElements[0]);
+                list-&gt;AddLast(testElements[1]);
+                list-&gt;AddLast(testElements[2]);
+                list-&gt;AddLast(testElements[3]);
+
+                // Act
+                DoubleLinkNode&lt;int&gt;
+                  * result = list-&gt;GetFirst();
+
+                  // Assert
+                  Assert("LinkListCanGetFirst", result-&gt;Value == testElements[0]);
+
+                  // Dispose
+                  TestDispose();
+                  }
+
+                  void LinkListCanGetLast()
+                  {
+                  // Arrange
+                  TestInitialize();
+                  list-&gt;AddLast(testElements[0]);
+                  list-&gt;AddLast(testElements[1]);
+                  list-&gt;AddLast(testElements[2]);
+                  list-&gt;AddLast(testElements[3]);
+
+                  // Act
+                  DoubleLinkNode&lt;int&gt;
+                    * result = list-&gt;GetLast();
+
+                    // Assert
+                    Assert("LinkListCanGetLast", result-&gt;Value == testElements[3]);
+
+                    // Dispose
+                    TestDispose();
+                    }
+
+                    void LinkListCanRemoveByValue()
+                    {
+                    // Arrange
+                    TestInitialize();
+                    list-&gt;AddLast(testElements[0]);
+                    list-&gt;AddLast(testElements[1]);
+                    list-&gt;AddLast(testElements[2]);
+                    list-&gt;AddLast(testElements[0]);
+                    list-&gt;AddLast(testElements[3]);
+
+                    // Act
+                    list-&gt;Remove(testElements[0]);
+                    DoubleLinkNode&lt;int&gt;
+                      * node = list-&gt;Find(testElements[0]);
+
+                      // Assert
+                      Assert("LinkListCanRemoveByValue",
+                      list-&gt;GetCount() == 4 &amp;&amp;
+                      node-&gt;Next-&gt;Value == testElements[3]);
+
+                      // Dispose
+                      TestDispose();
+                      }
+
+                      void LinkListCanRemoveByNode()
+                      {
+                      // Arrange
+                      TestInitialize();
+                      list-&gt;AddLast(testElements[0]);
+                      list-&gt;AddLast(testElements[1]);
+                      list-&gt;AddLast(testElements[2]);
+                      list-&gt;AddLast(testElements[0]);
+                      list-&gt;AddLast(testElements[3]);
+                      DoubleLinkNode&lt;int&gt;
+                        * node = list-&gt;Find(testElements[0]);
+
+                        // Act
+                        list-&gt;RemoveNode(node);
+
+                        // Assert
+                        Assert("LinkListCanRemoveByNode",
+                        list-&gt;GetCount() == 4);
+
+                        // Dispose
+                        TestDispose();
+                        }
+
+                        void LinkListCanRemoveFirst()
+                        {
+                        // Arrange
+                        TestInitialize();
+                        list-&gt;AddLast(testElements[0]);
+                        list-&gt;AddLast(testElements[1]);
+                        list-&gt;AddLast(testElements[2]);
+
+                        // Act
+                        list-&gt;RemoveFirst();
+                        DoubleLinkNode&lt;int&gt;
+                          * node = list-&gt;GetFirst();
+
+                          // Assert
+                          Assert("LinkListCanRemoveFirst",
+                          list-&gt;GetCount() == 2 &amp;&amp;
+                          node-&gt;Value == testElements[1]);
+
+                          // Dispose
+                          TestDispose();
+                          }
+
+                          void LinkListCanRemoveLast()
+                          {
+                          // Arrange
+                          TestInitialize();
+                          list-&gt;AddLast(testElements[0]);
+                          list-&gt;AddLast(testElements[1]);
+                          list-&gt;AddLast(testElements[2]);
+
+                          // Act
+                          list-&gt;RemoveLast();
+                          DoubleLinkNode&lt;int&gt;* node = list-&gt;GetLast();
+
+		// Assert
+		Assert("LinkListCanRemoveLast",
+			list-&gt;GetCount() == 2 &amp;&amp;
+			node-&gt;Value == testElements[1]);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void LinkListCanRemoveAll()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;AddLast(testElements[0]);
+		list-&gt;AddLast(testElements[1]);
+		list-&gt;AddLast(testElements[0]);
+		list-&gt;AddLast(testElements[2]);
+		list-&gt;AddLast(testElements[0]);
+
+		// Act 
+		list-&gt;RemoveAll(testElements[0]);  
+
+		// Assert
+		Assert("LinkListCanRemoveAll",
+			list-&gt;GetCount() == 2);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void LinkListCanCreateArrayFromList()
+	{		
+		// Arrange
+		TestInitialize();
+		list-&gt;AddLast(testElements[0]);
+		list-&gt;AddLast(testElements[1]);
+		list-&gt;AddLast(testElements[2]);
+		list-&gt;AddLast(testElements[3]);
+		list-&gt;AddLast(testElements[4]);
+
+		// Act	
+		int* results = list-&gt;ToArray();  
+
+		// Assert
+		Assert("LinkListCanCreateArrayFromList",
+			(results[0]==testElements[0]) &amp;&amp;
+			(results[1]==testElements[1]) &amp;&amp;
+			(results[2]==testElements[2]) &amp;&amp;
+			(results[3]==testElements[3]) &amp;&amp;
+			(results[4]==testElements[4]) );
+
+		// Dispose
+		TestDispose();
+	}
+	
+	
+};
+
+&lt;/int&gt;&lt;/int&gt;&lt;/int&gt;&lt;/int&gt;&lt;/int&gt;&lt;/int&gt;&lt;/int&gt;&lt;/int&gt;&lt;/int&gt;&lt;/int&gt;&lt;/int&gt;&lt;/int&gt;&lt;/int&gt;&lt;/iostream&gt;&lt;/pre&gt; 
+&lt;p class="caption"&gt;Unit test class for link based linear list&lt;/p&gt;
+&lt;h2&gt;The LinkList Class&lt;/h2&gt;
+&lt;p&gt;The following code was developed to meet the unit tests described in &lt;em&gt;LinkListUnitTests&lt;/em&gt;.&lt;/p&gt;
+&lt;pre data-file="LinkList.txt"&gt;#pragma once
+#include "DoubleLinkNode.h"
+
+namespace tbaADT {
+	template&lt;class t=""&gt;
+	class LinkList 
+	{
+	public:
+		// Constructor/Destructor
+		LinkList(void);
+		~LinkList(void);
+
+		// Read Only Properties
+		int GetCount();
+		DoubleLinkNode&lt;t&gt;* GetFirst(); 
+		DoubleLinkNode&lt;t&gt;* GetLast();
+
+		// Methods
+		void AddFirst(T&amp;);
+		void AddLast(T&amp;);
+		void Clear();
+		bool Contains(T&amp;);
+		DoubleLinkNode&lt;t&gt;* Find(T&amp;);
+		DoubleLinkNode&lt;t&gt;* FindLast(T&amp;);
+		void Remove(T&amp; element);
+		void RemoveNode(DoubleLinkNode&lt;t&gt;*);
+		void RemoveAll(T&amp; element);
+		void RemoveFirst();
+		void RemoveLast();
+		T* ToArray();
+
+	protected:
+		int count;
+		DoubleLinkNode&lt;t&gt;* first;
+		DoubleLinkNode&lt;t&gt;* last;
+	};
+
+	// Constructor
+	template&lt;class t=""&gt;
+	tbaADT::LinkList&lt;t&gt;::LinkList()
+	{ 
+		first = new DoubleLinkNode&lt;t&gt;();
+		last = new DoubleLinkNode&lt;t&gt;(first);
+		first-&gt;Next = last;
+		count = 0;
+	}
+
+	// Destructor
+	template&lt;class t=""&gt;
+	tbaADT::LinkList&lt;t&gt;::~LinkList()
+	{ 
+		/*DoubleLinkNode&lt;t&gt;* element = first;
+		DoubleLinkNode&lt;t&gt;* temp;
+		while (element != nullptr)
+		{
+		temp = element-&gt;Next;
+		delete element;
+		element = temp;
+		}*/
+	}
+
+	// Add and element to the end of list
+	template&lt;class t=""&gt;
+	void LinkList&lt;t&gt;::AddFirst(T&amp; value)
+	{
+		DoubleLinkNode&lt;t&gt;* node = new DoubleLinkNode&lt;t&gt;(first, first-&gt;Next, value);
+		first-&gt;Next-&gt;Previous = node;
+		first-&gt;Next = node;
+		count ++;
+	}
+
+	// Add and element to the end of list
+	template&lt;class t=""&gt;
+	void LinkList&lt;t&gt;::AddLast(T&amp; value)
+	{
+		DoubleLinkNode&lt;t&gt;* node = new DoubleLinkNode&lt;t&gt;(last-&gt;Previous, last, value);
+		last-&gt;Previous-&gt;Next = node;
+		last-&gt;Previous = node;
+		count ++;
+	}
+
+	// Empty the list
+	template&lt;class t=""&gt;
+	void LinkList&lt;t&gt;::Clear()
+	{
+		count = 0;
+		DoubleLinkNode&lt;t&gt;* node = first-&gt;Next;
+		DoubleLinkNode&lt;t&gt;* temp;
+		while (node != last)
+		{
+			temp = node-&gt;Next;
+			delete [] node;
+			node = temp;
+		}
+		first-&gt;Next = last;
+		last-&gt;Previous = first;
+	}
+
+	// Returns true if this list contain the element, else returns false
+	template&lt;class t=""&gt;
+	bool LinkList&lt;t&gt;::Contains(T&amp; value)
+	{
+		DoubleLinkNode&lt;t&gt;* node = first-&gt;Next;
+		while (node-&gt;Value != value &amp;&amp; node != last)
+		{
+			node = node-&gt;Next;
+		}
+		if (node == last)
+			return false;
+		else
+			return true;
+	}
+
+	// Get the first index of element
+	template&lt;class t=""&gt;
+	DoubleLinkNode&lt;t&gt;* LinkList&lt;t&gt;::Find(T&amp; value)
+	{
+		DoubleLinkNode&lt;t&gt;* node = first-&gt;Next;
+		while (node-&gt;Value != value &amp;&amp; node != last)
+		{
+			node = node-&gt;Next;
+		}
+		if (node == last)
+			return nullptr;
+		else
+			return node;
+	}
+
+	// Get the first index of element
+	template&lt;class t=""&gt;
+	DoubleLinkNode&lt;t&gt;* LinkList&lt;t&gt;::FindLast(T&amp; value)
+	{
+		DoubleLinkNode&lt;t&gt;* node = last-&gt;Previous;
+		while (node-&gt;Value != value &amp;&amp; node != first)
+		{
+			node = node-&gt;Previous;
+		}
+		if (node == first)
+			return nullptr;
+		else
+			return node;
+	}
+
+	// Ready Only count attribute
+	template&lt;class t=""&gt;
+	int LinkList&lt;t&gt;::GetCount()
+	{
+		return count;
+	}
+
+	// return the first node if it exists otherwise return a null
+	template&lt;class t=""&gt;
+	DoubleLinkNode&lt;t&gt;* LinkList&lt;t&gt;::GetFirst()
+	{ 
+		if (first-&gt;Next == last) 
+			return nullptr;
+		else
+			return first-&gt;Next;
+	}
+
+	// return the last node if it exists otherwise return a null
+	template&lt;class t=""&gt;
+	DoubleLinkNode&lt;t&gt;* LinkList&lt;t&gt;::GetLast()
+	{
+		if (last-&gt;Previous == first)
+			return nullptr;
+		else
+			return last-&gt;Previous;
+	}
+
+	// Remove the first occurrence of element
+	template&lt;class t=""&gt;
+	void LinkList&lt;t&gt;::Remove(T&amp; value)
+	{
+		DoubleLinkNode&lt;t&gt;* node = Find(value);
+		if (node != nullptr)
+		{
+			RemoveNode(node);
+		}		
+	}
+
+	// Remove the first occurrence of element
+	template&lt;class t=""&gt;
+	void LinkList&lt;t&gt;::RemoveNode(DoubleLinkNode&lt;t&gt;* node)
+	{
+		node-&gt;Previous-&gt;Next = node-&gt;Next;
+		node-&gt;Next-&gt;Previous = node-&gt;Previous;
+		delete [] node;
+		count--;
+	}
+
+	// Remove all occurrences of element from the list
+	template&lt;class t=""&gt;
+	void LinkList&lt;t&gt;::RemoveAll(T&amp; value)
+	{
+		DoubleLinkNode&lt;t&gt;* node = first-&gt;Next;
+		DoubleLinkNode&lt;t&gt;* temp;
+		while (node != last)
+		{
+			if (node-&gt;Value == value) 
+			{
+				temp = node-&gt;Next;
+				RemoveNode(node);
+				node = temp;
+			}
+			else
+			{
+				node = node-&gt;Next;
+			}
+		}
+	}
+
+	// Remove first node from the list
+	template&lt;class t=""&gt;
+	void LinkList&lt;t&gt;::RemoveFirst()
+	{
+		if (first-&gt;Next != last)
+			RemoveNode(first-&gt;Next);
+	}
+
+	// Remove last node from the list
+	template&lt;class t=""&gt;
+	void tbaADT::LinkList&lt;t&gt;::RemoveLast()
+	{
+		if (last-&gt;Previous != first)
+			RemoveNode(last-&gt;Previous);
+	}
+
+	// Create an array copy of this list
+	template&lt;class t=""&gt;
+	T* tbaADT::LinkList&lt;t&gt;::ToArray()
+	{
+		T* newArr = new T[count];
+		int i = 0;
+		DoubleLinkNode&lt;t&gt;* node = first-&gt;Next;
+		while (node != last &amp;&amp; i&lt;count) {="" newarr[i++]="node-"&gt;Value;
+			node = node-&gt;Next;
+		}
+		return newArr;
+	}
+}
+&lt;/count)&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/t&gt;&lt;/class&gt;&lt;/pre&gt; 
+&lt;p class="caption"&gt;Link based linear list&lt;/p&gt;
+&lt;h2&gt;Algorithm Complexity&lt;/h2&gt;
+&lt;p&gt;
+    The following is a list of methods within the &lt;em&gt;LinkList&lt;/em&gt; class and their respective
+                complexity.
+&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;&lt;strong&gt;void AddFirst(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void AddLast(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void Clear()&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;bool Contains(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;DoubleLinkNode&lt;t&gt;* Find(T&amp; element);&lt;/t&gt;&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;DoubleLinkNode&lt;t&gt;* FindLast(T&amp; element);&lt;/t&gt;&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;int LastIndexOf(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void Remove(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void RemoveNode(DoubleLinkNode&lt;t&gt;* node)&lt;/t&gt;&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void RemoveAll(T&amp;amp; element)&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void RemoveFirst()&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;void RemoveLast()&lt;/strong&gt; &amp;mdash; O(1)&lt;/li&gt;
+    &lt;li&gt;&lt;strong&gt;T* ToArray()&lt;/strong&gt; &amp;mdash; O(n)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Please leave some thoughts below and thanks for the read.&lt;/p&gt;</is-in-index>
+  </article>
+</ArrayOfArticle>

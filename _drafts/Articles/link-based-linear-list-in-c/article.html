@@ -1,0 +1,34 @@
+﻿<p>This article discusses the implementation of an link based linear list as coded in c++.</p>
+<h2>Unit Tests</h2>
+<p>
+    The following code is the unit tests developed for the link based linear list.  
+     See <a href="http://www.toddbadams.co.uk/quick-unit-testing-in-cpp" title="Quick Unit Testing in c++">Quick Unit Testing in c++</a>
+    for an article on how the unit test code was developed.  
+</p>
+<pre data-file="LinkListUnitTests.txt"></pre> 
+<p class="caption">Unit test class for link based linear list</p>
+<h2>The LinkList Class</h2>
+<p>The following code was developed to meet the unit tests described in <em>LinkListUnitTests</em>.</p>
+<pre data-file="LinkList.txt"></pre> 
+<p class="caption">Link based linear list</p>
+<h2>Algorithm Complexity</h2>
+<p>
+    The following is a list of methods within the <em>LinkList</em> class and their respective
+                complexity.
+</p>
+<ul>
+    <li><strong>void AddFirst(T&amp; element)</strong> &mdash; O(1)</li>
+    <li><strong>void AddLast(T&amp; element)</strong> &mdash; O(1)</li>
+    <li><strong>void Clear()</strong> &mdash; O(n)</li>
+    <li><strong>bool Contains(T&amp; element)</strong> &mdash; O(n)</li>
+    <li><strong>DoubleLinkNode<t>* Find(T& element);</strong> &mdash; O(n)</li>
+    <li><strong>DoubleLinkNode<t>* FindLast(T& element);</strong> &mdash; O(n)</li>
+    <li><strong>int LastIndexOf(T&amp; element)</strong> &mdash; O(n)</li>
+    <li><strong>void Remove(T&amp; element)</strong> &mdash; O(n)</li>
+    <li><strong>void RemoveNode(DoubleLinkNode<t>* node)</strong> &mdash; O(1)</li>
+    <li><strong>void RemoveAll(T&amp; element)</strong> &mdash; O(n)</li>
+    <li><strong>void RemoveFirst()</strong> &mdash; O(1)</li>
+    <li><strong>void RemoveLast()</strong> &mdash; O(1)</li>
+    <li><strong>T* ToArray()</strong> &mdash; O(n)</li>
+</ul>
+<p>Please leave some thoughts below and thanks for the read.</p>

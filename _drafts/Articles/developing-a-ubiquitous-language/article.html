@@ -1,0 +1,50 @@
+﻿<p>
+    At the core of  a CMS, a URL is entered into a browser and up comes an HTML page.  OK,  
+                there are some things that go on behind the request, such as  determining if the user 
+                has permission to see the page, does the page  exist, selecting a presentation theme, etc.  
+                However, in the simplest  form a URL translates to an HTML page.
+</p>
+<p>
+    Before designing the domain model of the CMS, it makes sense to fully understand the  HTML 
+                page. A start to understanding can be found  with the 
+                <a href="http://www.w3.org/TR/2010/WD-html5-20100624/" target="_blank">HTML 5 specification</a>; 
+                however, the specification does  not tell a story about industry best practices.  For this,
+                 we can look  at projects like <a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate,</a>
+    which has four years of refinement of best practices with regards  to HTML5, CSS3, and JavaScript. 
+                From here forward, when referring to HTML, I am referring to both the HTML 5 specification and HTML 5 
+                best practices. I will reiterate to emphasize what our application does.
+</p>
+<p>
+    <strong>When a URL is entered in the browser, our CMS  output is an  HTML page, and that page 
+                follows both the HTML5 specification and  best practices from HTML5 boilerplate.</strong>
+</p>
+<p>
+    The article <a href="http://www.toddbadams.co.uk/domain-driven-design">Domain Driven Design</a>
+    discusses the importance of developing a model of the domain. To develop a domain model of our 
+                CMS a full understanding of the HTML 5 specification and best practices is  required.  Through 
+                this understanding, a language is developed. This language is known as 
+                <strong>Ubiquitous Language,</strong> which is structured around the domain model and used by 
+                all team  members to connect all the activities of the team with the software. 
+                (see <a href="http://en.wikipedia.org/wiki/Domain-driven_design">http://en.wikipedia.org/wiki/Domain-driven_design</a>). In other words, if we are going to build a software program to help front-end developers build a website, the team needs to have a common language and understanding of domain.
+</p>
+<h2>The HTML5 page</h2>
+<p>In its most basic form, an html page consists of:</p>
+<pre>&lt;!DOCTYPE HTML/&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;/head&gt;
+&lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;</pre>
+<p>The HTML page has a document type, and  a root.  The root has a head and a body. The head contains information about the page, its language, a  brief description, files to load prior to loading the body content,  and more. The body contains the document's content. The following are the definitions of the head and body tags from W3C.</p>
+<dl>
+    <dt>HEAD</dt>
+    <dd>The HEAD element  contains information about the current document, such as its title,  keywords that may be useful to search engines, and other data that is  not considered document content. User agents do not generally render  elements that appear in the HEAD as  content. They may, however, make information in the HEAD available  to users through other mechanisms.
+                    <br>
+        W3C &mdash; <a href="http://www.w3.org/TR/html401/struct/global.html#h-7.4.1">http://www.w3.org/TR/html401/struct/global.html#h-7.4.1</a></dd>
+    <dt>BODY</dt>
+    <dd>The  body of a document contains the document's content. The content may  be presented by a user agent in a variety of ways. For example, for  visual browsers, you can think of the body as a canvas where the  content appears: text, images, colors, graphics, etc. For audio user  agents, the same content may be spoken. 
+                    <br>
+        W3C &mdash; 
+  <a href="http://www.w3.org/TR/html401/struct/global.html#h-7.5.1">http://www.w3.org/TR/html401/struct/global.html#h-7.5.1</a></dd>
+</dl>
+<h2>Next Steps</h2>
+<p>This article discusses the need to create a ubiquitous language, which  describes the domain. The domain in this context the specification and best practices of an HTML 5 page. In the next two articles the  &lt;HEAD&gt; and &lt;BODY&gt; elements are discussed in detail.</p>

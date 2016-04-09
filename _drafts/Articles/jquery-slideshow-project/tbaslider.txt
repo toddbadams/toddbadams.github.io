@@ -1,0 +1,221 @@
+﻿/*
+* tbaSlider - Version 1.0
+* June 14, 2012 - Developed structure with much of the functionality not working.
+*                 Further functionaly to be added in later versions.
+*
+* This jQuery plugin and its content is copyright of Wholething Ltd,
+* 5 Jupiter House, Calleva Park, Aldermaston, Reading, Berkshire, RG7 8NN
+* © Wholething Ltd 2012. All rights reserved.
+*
+* Any redistribution or reproduction of part or all of the contents in
+* any form is prohibited.
+*
+* http://www.wholething.co.uk/
+*/
+
+
+// A standard jQuery plugin, http://docs.jquery.com/Plugins/Authoring
+// designed and coded by Todd B Adams  http://www.toddbadams.co.uk/
+(function ($) {
+
+var methods = {
+init: function () {
+// store this object
+var self = this;
+
+// play status
+self.isPlaying = false;
+
+// merge data attributes with defaults
+self.settings = $.extend({
+'transition': 'fade',               // fade
+'textTransition': 'fade',           // fade
+'speed': 1500,                      // Slide transition speed (milliseconds)
+'delay': 4000,                      // length of time a slide shows (milliseconds)
+'startSlide': 0,                    // starting Slide (0 index, -1 for random)
+'autoStart': true,                  // start the slideshow is play mode
+'showNextPrev': true,               // Next & Prev navigation (true, false)
+'showNextPrevOnHover': false,       // show prev/next on hover  (NON FUNCTIONAL)
+'prevButtonLabel': 'prev',          // label for previous naviation button  (NON FUNCTIONAL)
+'nextButtonLabel': 'next',          // label for next naviation button  (NON FUNCTIONAL)
+'playButtonLabel': 'play',          // label for the play button  (NON FUNCTIONAL)
+'pauseButtonLabel': 'pause',        // label for the pause button  (NON FUNCTIONAL)
+'showThumbs': false,                // show thumbnails for navigation  (NON FUNCTIONAL)
+'thumbDirection': 'horizontal',     // what direction to scroll thumbs (horizontal, verticle)  (NON FUNCTIONAL)
+'showCoins': false,                 // show coins (boxes, or circles) for navigation  (NON FUNCTIONAL)
+'showImageOnCoinHover': false,      // show a thumbnail image on hover of coin  (NON FUNCTIONAL)
+'childElement': 'li',               // the dom element that is a child slide of our slideshow
+'imageClass': 'thumbnail',          // the class of the image inside the child element  (NON FUNCTIONAL)
+'titleClass': 'title',              // the class of the title inside the child element  (NON FUNCTIONAL)
+'descriptionClass': 'description',   // the class of the description inside the child element  (NON FUNCTIONAL)
+'titleDescriptionClass': 'title_description', // wraps around the title and description
+'titleDescriptionInDelay': 1000,    // delay from start of image transition in to title/description transition
+'titleDescriptionInSpeed': 500,     // speed of title/description transition in
+'titleDescriptionOutDelay': 0,      // delay from start of image transition out to title/description transition
+'titleDescriptionOutSpeed': 500,    // speed of title/description transition out
+'titleDescriptionTransition': 'fade'// type of title/description transition
+}, {
+'transition': self.attr("data-transition"),
+'textTransition': self.attr("data-textTransition"),
+'speed': self.attr("data-speed"),
+'delay': self.attr("data-delay"),
+'startSlide': self.attr("data-startSlide"),
+'autoStart': self.attr("autoStart"),
+'showNextPrev': self.attr("data-showNextPrev"),
+'showNextPrevOnHover': self.attr("data-showNextPrevOnHover"),
+'prevButtonLabel': self.attr("data-prevButtonLabel"),
+'nextButtonLabel': self.attr("data-nextButtonLabel"),
+'playButtonLabel': self.attr("data-playButtonLabel"),
+'pauseButtonLabel': self.attr("data-pauseButtonLabel"),
+'showThumbs': self.attr("data-showThumbs"),
+'thumbDirection': self.attr("data-thumbDirection"),
+'showCoins': self.attr("data-showCoins"),
+'showImageOnCoinHover': self.attr("data-showImageOnCoinHover"),
+'childElement': self.attr("data-childElement"),
+'imageClass': self.attr("data-imageClass"),
+'titleClass': self.attr("data-titleClass"),
+'descriptionClass': self.attr("data-descriptionClass"),
+'titleDescriptionInDelay': self.attr("data-titleDescriptionInDelay"),
+'titleDescriptionInSpeed': self.attr("data-titleDescriptionInSpeed"),
+'titleDescriptionOutDelay': self.attr("data-titleDescriptionOutDelay"),
+'titleDescriptionOutSpeed': self.attr("data-titleDescriptionOutSpeed"),
+'titleDescriptionTransition': self.attr("data-titleDescriptionTransition")
+});
+
+// play button label
+self.playButtonLabel = self.settings.playButtonLabel;
+
+// find our slide elements
+self.$slides = self.find(self.settings.childElement);
+
+// current slide (-1 indicates random start)
+self.currentSlide = parseInt(self.settings.startSlide);
+self.nextSlide = self.currentSlide + 1;
+if (self.settings.startSlide > -1) {
+if (self.settings.startSlide >= self.$slides.length) {
+// setting value out of range use max value (NOT TESTED)
+self.currentSlide = self.$slides.length;
+}
+} else {
+// start at a random slide (NOT TESTED)
+self.currentSlide = Math.floor(Math.random() * (1 + self.$slides.length));
+}
+
+// place the current slide at the top of the z index
+$(self.$slides[self.currentSlide]).css('z-index', 3)
+
+// determine next slide number
+self.nextSlideNumber = function (slideshow) {
+return (slideshow.currentSlide < slideshow.$slides.length - 1) ? slideshow.currentSlide + 1 : 0;
+            }
+
+            // determine previous slide number
+            self.prevSlideNumber = function (slideshow) {
+                return (slideshow.currentSlide > 0) ? slideshow.currentSlide - 1 : slideshow.$slides.length;
+            }
+
+            // play next slide and loop while isPlaying is true
+            self.loopToNext = function (slideshow) {
+                setTimeout(function () {
+                    if (slideshow.isPlaying) {
+                        slideshow.next(slideshow);
+                        slideshow.loopToNext(slideshow);
+                    }
+                }, slideshow.settings.delay);
+            }
+
+            // Play
+            self.play = function (slideshow) {
+                // set a flag indicating the slide show is now playing
+                slideshow.isPlaying = true;
+
+                // set the text of the play button to pause
+                slideshow.playButtonLabel = slideshow.settings.pauseButtonLabel;
+
+                // loop and play
+                slideshow.loopToNext(slideshow);
+            }
+
+            // goto next slide
+            self.next = function (slideshow) {
+                // determine the next slide index
+                slideshow.nextSlide = slideshow.nextSlideNumber(slideshow);
+                // show the slide
+                slideshow.show(slideshow);
+            }
+
+            // goto prev slide (UNTESTED)
+            self.prev = function (slideshow) {
+                // determine the next slide index
+                slideshow.nextSlide = slideshow.prevSlideNumber(slideshow);
+                // show the slide
+                slideshow.show(slideshow);
+            }
+
+            // transition of the title/description
+            self.transitionTitleDescription = function (slideshow) {
+                switch (slideshow.settings.titleDescriptionTransition) {
+                    case 'fade':
+                        //outgoing
+                        $(slideshow.$slides[slideshow.currentSlide])
+                            .find('.' + slideshow.settings.titleDescriptionClass)
+                                .delay(slideshow.settings.titleDescriptionOutDelay)
+                                .fadeOut(slideshow.settings.titleDescriptionOutSpeed);
+
+                        //incomming
+                        $(slideshow.$slides[slideshow.nextSlide])
+                            .find('.' + slideshow.settings.titleDescriptionClass)
+                                .delay(slideshow.settings.titleDescriptionInDelay)
+                                .fadeIn(slideshow.settings.titleDescriptionInSpeed);
+
+                       break;
+                    default: // Random TO DO                 
+                }
+
+            }
+
+            // show a particular slide
+            self.show = function (slideshow) {
+                switch (slideshow.settings.transition) {
+                    case 'fade':
+                        // perform a simple cross fade
+                        // move the next image up the pile
+                        $(slideshow.$slides[slideshow.nextSlide]).css('z-index', 2).css('display', 'list-item');
+                        // transition of title/description
+                        slideshow.transitionTitleDescription(slideshow);
+                        //fade out the top image
+                        $(slideshow.$slides[self.currentSlide]).fadeOut(slideshow.settings.speed, function () {
+                            //make the next image the top one
+                            $(slideshow.$slides[slideshow.nextSlideNumber(self)]).css('z-index', 3);
+                            //reset the z-index and unhide the active image
+                            $(slideshow.$slides[slideshow.currentSlide]).css('z-index', 1).css('display', 'none');
+                            // set current slide to what was the next slide
+                            slideshow.currentSlide = slideshow.nextSlide;
+                        });
+                        break;
+                    default: // Random TO DO                 
+                }
+            }
+
+            // if auto start is set, run the play function
+            if (self.settings.autoStart == true) self.play(self);
+        }
+    };
+
+    $.fn.tbaSlider = function (method) {
+        // Method calling logic
+        if (methods[method]) {
+            return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+        } else if (typeof method === 'object' || !method) {
+            return methods.init.apply(this, arguments);
+        } else {
+            $.error('Method ' + method + ' does not exist on jQuery.tbaSlider');
+        }
+    };
+})(jQuery);
+
+// On document read
+$(document).ready(function () {
+    /* find all tbaSlideshow */
+    $('.tbaSlideshow').tbaSlider();
+});

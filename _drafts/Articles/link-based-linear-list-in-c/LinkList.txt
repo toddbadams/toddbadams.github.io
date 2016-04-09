@@ -1,0 +1,243 @@
+﻿#pragma once
+#include "DoubleLinkNode.h"
+
+namespace tbaADT {
+	template<class T>
+	class LinkList 
+	{
+	public:
+		// Constructor/Destructor
+		LinkList(void);
+		~LinkList(void);
+
+		// Read Only Properties
+		int GetCount();
+		DoubleLinkNode<T>* GetFirst(); 
+		DoubleLinkNode<T>* GetLast();
+
+		// Methods
+		void AddFirst(T&);
+		void AddLast(T&);
+		void Clear();
+		bool Contains(T&);
+		DoubleLinkNode<T>* Find(T&);
+		DoubleLinkNode<T>* FindLast(T&);
+		void Remove(T& element);
+		void RemoveNode(DoubleLinkNode<T>*);
+		void RemoveAll(T& element);
+		void RemoveFirst();
+		void RemoveLast();
+		T* ToArray();
+
+	protected:
+		int count;
+		DoubleLinkNode<T>* first;
+		DoubleLinkNode<T>* last;
+	};
+
+	// Constructor
+	template<class T>
+	tbaADT::LinkList<T>::LinkList()
+	{ 
+		first = new DoubleLinkNode<T>();
+		last = new DoubleLinkNode<T>(first);
+		first->Next = last;
+		count = 0;
+	}
+
+	// Destructor
+	template<class T>
+	tbaADT::LinkList<T>::~LinkList()
+	{ 
+		/*DoubleLinkNode<T>* element = first;
+		DoubleLinkNode<T>* temp;
+		while (element != nullptr)
+		{
+		temp = element->Next;
+		delete element;
+		element = temp;
+		}*/
+	}
+
+	// Add and element to the end of list
+	template<class T>
+	void LinkList<T>::AddFirst(T& value)
+	{
+		DoubleLinkNode<T>* node = new DoubleLinkNode<T>(first, first->Next, value);
+		first->Next->Previous = node;
+		first->Next = node;
+		count ++;
+	}
+
+	// Add and element to the end of list
+	template<class T>
+	void LinkList<T>::AddLast(T& value)
+	{
+		DoubleLinkNode<T>* node = new DoubleLinkNode<T>(last->Previous, last, value);
+		last->Previous->Next = node;
+		last->Previous = node;
+		count ++;
+	}
+
+	// Empty the list
+	template<class T>
+	void LinkList<T>::Clear()
+	{
+		count = 0;
+		DoubleLinkNode<T>* node = first->Next;
+		DoubleLinkNode<T>* temp;
+		while (node != last)
+		{
+			temp = node->Next;
+			delete [] node;
+			node = temp;
+		}
+		first->Next = last;
+		last->Previous = first;
+	}
+
+	// Returns true if this list contain the element, else returns false
+	template<class T>
+	bool LinkList<T>::Contains(T& value)
+	{
+		DoubleLinkNode<T>* node = first->Next;
+		while (node->Value != value && node != last)
+		{
+			node = node->Next;
+		}
+		if (node == last)
+			return false;
+		else
+			return true;
+	}
+
+	// Get the first index of element
+	template<class T>
+	DoubleLinkNode<T>* LinkList<T>::Find(T& value)
+	{
+		DoubleLinkNode<T>* node = first->Next;
+		while (node->Value != value && node != last)
+		{
+			node = node->Next;
+		}
+		if (node == last)
+			return nullptr;
+		else
+			return node;
+	}
+
+	// Get the first index of element
+	template<class T>
+	DoubleLinkNode<T>* LinkList<T>::FindLast(T& value)
+	{
+		DoubleLinkNode<T>* node = last->Previous;
+		while (node->Value != value && node != first)
+		{
+			node = node->Previous;
+		}
+		if (node == first)
+			return nullptr;
+		else
+			return node;
+	}
+
+	// Ready Only count attribute
+	template<class T>
+	int LinkList<T>::GetCount()
+	{
+		return count;
+	}
+
+	// return the first node if it exists otherwise return a null
+	template<class T>
+	DoubleLinkNode<T>* LinkList<T>::GetFirst()
+	{ 
+		if (first->Next == last) 
+			return nullptr;
+		else
+			return first->Next;
+	}
+
+	// return the last node if it exists otherwise return a null
+	template<class T>
+	DoubleLinkNode<T>* LinkList<T>::GetLast()
+	{
+		if (last->Previous == first)
+			return nullptr;
+		else
+			return last->Previous;
+	}
+
+	// Remove the first occurrence of element
+	template<class T>
+	void LinkList<T>::Remove(T& value)
+	{
+		DoubleLinkNode<T>* node = Find(value);
+		if (node != nullptr)
+		{
+			RemoveNode(node);
+		}		
+	}
+
+	// Remove the first occurrence of element
+	template<class T>
+	void LinkList<T>::RemoveNode(DoubleLinkNode<T>* node)
+	{
+		node->Previous->Next = node->Next;
+		node->Next->Previous = node->Previous;
+		delete [] node;
+		count--;
+	}
+
+	// Remove all occurrences of element from the list
+	template<class T>
+	void LinkList<T>::RemoveAll(T& value)
+	{
+		DoubleLinkNode<T>* node = first->Next;
+		DoubleLinkNode<T>* temp;
+		while (node != last)
+		{
+			if (node->Value == value) 
+			{
+				temp = node->Next;
+				RemoveNode(node);
+				node = temp;
+			}
+			else
+			{
+				node = node->Next;
+			}
+		}
+	}
+
+	// Remove first node from the list
+	template<class T>
+	void LinkList<T>::RemoveFirst()
+	{
+		if (first->Next != last)
+			RemoveNode(first->Next);
+	}
+
+	// Remove last node from the list
+	template<class T>
+	void tbaADT::LinkList<T>::RemoveLast()
+	{
+		if (last->Previous != first)
+			RemoveNode(last->Previous);
+	}
+
+	// Create an array copy of this list
+	template<class T>
+	T* tbaADT::LinkList<T>::ToArray()
+	{
+		T* newArr = new T[count];
+		int i = 0;
+		DoubleLinkNode<T>* node = first->Next;
+		while (node != last && i<count)
+		{
+			newArr[i++] = node->Value;
+			node = node->Next;
+		}
+		return newArr;
+	}
+}

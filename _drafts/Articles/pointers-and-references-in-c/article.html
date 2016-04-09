@@ -1,0 +1,84 @@
+﻿<p>
+    One area of confusion in c++ programming is when to implement a reference and when to implement a
+                pointer. The following table summarizes the differences between these two types.
+</p>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th class="span3">Pointer</th>
+            <th class="span3">Reference</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td></td>
+            <td>A variable holding an address</td>
+            <td>An alias to another variable</td>
+        </tr>
+        <tr>
+            <td>sample declaration</td>
+            <td>int* pi = &i;</td>
+            <td>int& ri = i;</td>
+        </tr>
+        <tr>
+            <td>sample value assignment</td>
+            <td>*pi = 2;</td>
+            <td>ri = 2;</td>
+        </tr>
+        <tr>
+            <td>Address increment</td>
+            <td>pi++;</td>
+            <td>not available</td>
+        </tr>
+        <tr>
+            <td>initialization</td>
+            <td>anytime</td>
+            <td>declaration only</td>
+        </tr>
+        <tr>
+            <td>null allowed</td>
+            <td>yes</td>
+            <td>no</td>
+        </tr>
+        <tr>
+            <td>reassignment</td>
+            <td>anytime</td>
+            <td>not allowed</td>
+        </tr>
+        <tr>
+            <td>pointer math</td>
+            <td>yes</td>
+            <td>no</td>
+        </tr>
+        <tr>
+            <td>point to another pointer</td>
+            <td>yes</td>
+            <td>no</td>
+        </tr>
+        <tr>
+            <td>Array of </td>
+            <td>yes</td>
+            <td>no</td>
+        </tr>
+        <tr>
+            <td>sample function parameter</td>
+            <td>void foo(int* i)</td>
+            <td>void foo(int& i)</td>
+        </tr>
+        <tr>
+            <td>sample function calling</td>
+            <td>foo(&a)</td>
+            <td>foo(a)</td>
+        </tr>
+        <tr>
+            <td>when to use</td>
+            <td>to implement algorithms and data structures</td>
+            <td>in function parameters and return types to define attractive interfaces</td>
+        </tr>
+    </tbody>
+</table>
+<p>
+    Please leave some thoughts below and thanks for the read.
+</p>

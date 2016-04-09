@@ -1,0 +1,40 @@
+--- 
+layout: posts 
+title: Array based queue 
+date: 2012-11-07
+tags: c, data structures 
+category: code 
+permalink: /code/array-based-queue/index.html
+excerpt_separator: <!--more-->
+---
+
+<p>This article discusses the implementation of an array based queue as coded in c++.</p>
+<!--more--> 
+
+<h2>Unit Tests</h2>
+<p>
+    The following code is the unit tests developed for the array based queue.  
+                See <a href="http://www.toddbadams.co.uk/quick-unit-testing-in-cpp" title="Quick Unit Testing in c++">Quick Unit Testing in c++</a>
+    for an article on how the unit test code was developed.  
+</p>
+<pre data-file="QueueUnitTests.txt"></pre>
+<p class="caption">Unit test class for array based queue</p>
+<h2>The Queue Class</h2>
+<p>The following code was developed to meet the unit tests described in <em>QueueUnitTests</em>.</p>
+<pre data-file="Queue.txt"></pre>
+<p class="caption">Queue class</p>
+<h2>Algorithm Complexity</h2>
+<p>
+    The following is a list of methods within the <em>Queue</em> class and their respective
+                complexity.
+</p>
+<ul>
+    <li><strong>void Add(T&amp; element)</strong> &mdash; O(1)</li>
+    <li><strong>void Clear()</strong> &mdash; O(1)</li>
+    <li><strong>T Dequeue()</strong> &mdash; O(1)</li>
+    <li><strong>T Enqueue()</strong> &mdash; O(1)</li>
+    <li><strong>T Peek()</strong> &mdash; O(1)</li>
+    <li><strong>T* ToArray()</strong> &mdash; O(n)</li>
+    <li><strong>void TrimExcess()</strong> &mdash; O(n)</li>
+</ul>
+<p>Please leave some thoughts below and thanks for the read.</p>

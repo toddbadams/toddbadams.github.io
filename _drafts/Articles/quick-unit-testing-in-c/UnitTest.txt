@@ -1,0 +1,63 @@
+﻿#pragma once
+#include <sstream>
+using namespace std;
+
+class UnitTest
+{
+public:
+	// Constructor
+	UnitTest(string testName) 
+	{ 
+		TestsAsserted = 0; 
+		Passes = 0;
+		Fails = 0;
+		TestName = testName;
+		Results = "Unit Tests for " + testName + "\n" +
+			"============================================\n";
+	}
+
+private:
+	string TestName;
+	int TestsAsserted;
+	int Passes;
+	int Fails;
+
+	string IntToString(int& value)
+	{
+		stringstream ss;
+		ss << value;
+		return ss.str();
+	}
+
+protected:
+	string Results;
+
+	void Assert(string testname, bool isPass)
+	{
+		Results += IntToString(++TestsAsserted) + ". " + testname;
+
+		if (isPass) 
+		{
+			Results +=  " PASS\n\r";
+			Passes ++;
+		}
+		else 
+		{
+			Results += " FAIL\n\r";
+			Fails ++;
+		}
+	}
+
+	void Totals()
+	{
+		if (Fails>0)
+			Results += IntToString(Fails) + 
+			" FAILURES\n" +
+			"============================================\n";
+		else
+			Results += IntToString(Passes) + 
+			" of " + IntToString(TestsAsserted) + " PASSED\n" +
+			"============================================\n";
+	}
+};
+

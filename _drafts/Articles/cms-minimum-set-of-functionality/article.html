@@ -1,0 +1,97 @@
+﻿<p>
+    This article asks the question &#8220;<em>What is the minimum set of functionality 
+    that is required in a modern content management system?</em>&#8221; The purpose 
+    of asking this question is to establish a starting point (version 1.0) in developing 
+    a CMS. From here a roadmap can then be developed to incorporate a prioritized list 
+    of other features to include in the CMS (but that is for a later article).
+</p>
+<h2>1. Separation of Content and Presentation</h2>
+<p>
+    The content within our CMS consists of  video, articles, and images. The presentation 
+    concerns itself with look of the content (colors, fonts, and placement). Separating 
+    these two in a CMS requires the implementation of themes, which handle the presentation, 
+    and an administration area where the content can be created, edited, and published.
+</p>
+<dl>
+    <dt>Separation of presentation and content</dt>
+    <dd>To make a distinction between the actual meaning of a document, and how this meaning 
+            is presented to its readers.<cite><a href="http://en.wikipedia.org/wiki/Separation_of_presentation_and_content" title="Separation of presentation and content" target="_blank">http://en.wikipedia.org/wiki/Separation_of_presentation_and_content</a></cite></dd>
+</dl>
+<figure class="thumblink">
+    <a href="http://www.toddbadams.co.uk/uk-mobile-vs-desktop">
+        <img src="http://www.toddbadams.co.uk/Content/Images/articles/cms-functionality/uk-mobile-vs-desktop-120x150.jpg" title="UK Mobile Vs Desktop Internet Usage Statistics" /></a> <a href="http://www.toddbadams.co.uk/uk-mobile-vs-desktop">mobile vs desktop<br />
+            infographic</a>
+</figure>
+<p>While websites can be viewed on a wide range of platforms, desktop usage currently accounts for over 90% of usage. However, mobile and tablet platforms are quickly gaining popularity and should be part of a modern CMS. In looking at a minimal delivery of the CMS, the tablet and desktop platforms can be delivered with the same presentation. Mobile devices, however, require a unique presentation, using <a href="http://en.wikipedia.org/wiki/Responsive_Web_Design" title="Responsive Web Design" target="_blank" class="wikipedia">responsive web design</a>.</p>
+<h3>Separation of Content and Presentation Features</h3>
+<ul class="no-bullets">
+    <li><strong>Themes</strong> &mdash; The CMS can apply a theme to a set of views, style sheets, and javascript across the public side of the CMS</li>
+    <li><strong>Administration of content</strong> &mdash; The CMS allows for the creation, editing, and publishing of content in an administration area.</li>
+    <li><strong>Desktop/Mobile themes</strong> &mdash; The CMS can detect the platform and automatically select from either a mobile or desktop version of the current theme, providing separate views, style sheets, and javascript.</li>
+</ul>
+<h2>2. Internationalization and Localization</h2>
+<dl>
+    <dt>Internationalization and localization</dt>
+    <dd>A means of adapting computer software to different languages, regional differences and technical requirements of a target market. Internationalization is the process of designing a software application so that it can be adapted to various languages and regions without engineering changes. Localization is the process of adapting internationalized software for a specific region or language by adding locale-specific components and translating text. <cite><a href="http://en.wikipedia.org/wiki/Internationalization_and_localization" title="Internationalization and localization" target="_blank">http://en.wikipedia.org/wiki/Internationalization_and_localization</a></cite></dd>
+</dl>
+<p>Internationalization can be divided into two separate problems. The first is how to communicate to users that the website is available in different languages. This is part of the presentation and thus part of the theme system. The second is how to communicate administration tasks on the administration side. This can be accomplished by providing a localization data store that holds field labels and help information. For example, the administration side of the CMS allows for editing of pages, each of which have a title. The localization file will hold the label &quot;title&quot; and any help information about the title in a separate data store.</p>
+<p>In the baseline CMS, a single language will be implemented, then further languages are added as required. In order to accommodate multiple languages <a href="http://en.wikipedia.org/wiki/Unicode" target="_blank" class="wikipedia" title="Unicode definition">Unicode</a> character encoding is implemented. Any written language, whether it reads left-to-right (LTR) or right-to-left (RTL), can be implemented within the Unicode character encoding scheme. <a href="http://en.wikipedia.org/wiki/Utf-8" title="UTF-8 definition" class="wikipedia" target="_blank">UTF-8</a> is the most common character-encoding for Unicode, and it's a variable-length encoding that represents every character in the Unicode character set.</p>
+<h3>Internationalization and Localization Features</h3>
+<ul class="no-bullets">
+    <li><strong>Themes</strong> &mdash; For any given theme within the CMS a separate sub-theme should be presented based upon the users' selection of language/region.</li>
+    <li><strong>Administration</strong> &mdash; Based upon the administration selection of language/region all administration field labels and help should be selected from a common language/region data store. Note that administration and the public user language/region selections can be different.</li>
+    <li><strong>Unicode character encoding</strong> &mdash; UTF-8 encoding should be implemented on both the public and administration sides of the CMS</li>
+</ul>
+<h2>3. User Management</h2>
+<p>User Management is an authentication feature that provides CMS with the ability to identify the current user.  A key aspect to user management is roles, where each user belongs to one or more roles.  The following is a list of user roles as part of our CMS</p>
+<ul class="no-bullets">
+    <li><strong>Administrator</strong> &mdash; Provides ability to manage website settings.</li>
+    <li><strong>Author</strong> &mdash; Provides ability to add and edit content.</li>
+    <li><strong>Editor</strong> &mdash; Provides ability to edit content.</li>
+    <li><strong>Publisher</strong> &mdash; Provides ability to publish content.</li>
+</ul>
+<p>The above list of users represents a very simple workflow of content.  In most cases a single person is the author, editor, and publisher.  In larger organization more roles may be required to fulfill the organizations workflow.  Our CMS must have the ability to create and edit users and their roles, yet come with administrator, author, editor, and publisher as a fixed administration side workflow. </p>
+<p>On the public side of the website it is expected that the majority of the content is viewable by the world (unauthenticated users). However, some of the content may be viewable by only those in a specific role. Therefore, the CMS will need the ability to create and assign roles to users for the purpose of viewing content on the public side.</p>
+<h3>User Management Features</h3>
+<ul class="no-bullets">
+    <li><strong>Users</strong> &mdash; An administrator has the capability to create and edit a list of users.</li>
+    <li><strong>Workflow</strong> &mdash; An administrator has the capability to create and edit roles that provide create/edit permissions to each type of content.</li>
+    <li><strong>Content Access</strong> &mdash; A public user, when authenticated, is capable of viewing content that is assigned to his/her role(s).</li>
+</ul>
+<h2>4. Menu System</h2>
+<p>A menu system provides the ability for content publishers to place the content inside of a tree-like menu system. The technology chosen for this CMS allows for any URL to be assigned to any of the content pages, see why in SEO section. For each of the content pages, it has the ability to be added to the public side menu and be placed where the publisher feels it belongs. This provides a tree-like taxonomy for the website, which is independent of content type, or any of its information.</p>
+<h3>Menu System Features</h3>
+<ul class="no-bullets">
+    <li><strong>Menu</strong> &mdash; A publisher has the capability to add any content page anywhere in the public viewable menu.</li>
+    <li><strong>Content Access</strong> &mdash; If the content page is restricted by role, then so are its menu items.</li>
+</ul>
+<p>&nbsp;</p>
+<h2>5. Search Engine Optimization</h2>
+<p>Think of the Internet as a very large library, and a website is a book within that library.  SEO is the methodology used to help readers find the book. </p>
+<dl>
+    <dt>Search engine optimization (SEO)</dt>
+    <dd>The process of improving the visibility of a website or a web page in a search engine's "natural," or un-paid ("organic" or "algorithmic"), search results. In general, the earlier (or higher ranked on the search results page), and more frequently a site appears in the search results list, the more visitors it will receive from the search engine's users. SEO may target different kinds of search, including image search, local search, and video search. <cite><a href="http://en.wikiquote.org/wiki/Academic_databases_and_search_engines" title="Search engine optimization" target="_blank">http://en.wikiquote.org/wiki/Academic_databases_and_search_engines</a></cite></dd>
+</dl>
+<p>There is a fairly long list of rules and suggestions to improve a website's SEO. In designing our CMS, let's break these into two categories, content and presentation. When dealing with the presentation, each theme needs to have the ability to provide clean and modern semantic markup. To accomplish this, for each piece of content, a designer needs the ability to create a view of the content in HTML. For example a designer can edit a file that deals with the presentation of a summary view of a blog entry. This then get's folded into a list view of many blog entries.</p>
+<p>As far as the content side is concerned it is best to leave as much HTML out of the content as possible. Each type of content can be stored in a wide range of granularity. For example, a page that stores information about a project can be a single field with just HTML, which has very little granularity. If the data store has a lot of granularity it will have many fields describing information like project location, budget, etc. Having more granularity aids in the SEO capabilities in that it allows the designer to decide the semantic markup of the content, rather than the author, who is typically not an expert in the area of SEO.</p>
+<p>SEO Features</p>
+<ul class="no-bullets">
+    <li><strong>Theme</strong> &mdash; As much of the semantic markup as possible is created within the themes.</li>
+    <li><strong>Content </strong>&mdash; Each content piece is broken into a level of granularity that has little to no HTML (semantic markup).</li>
+</ul>
+<h2>6. Extensibility</h2>
+<p>A CMS is more of a framework than it is an application. Yes, it runs like an application, but the core of the CMS contains only minimal functionality. Only those functional items that are required to add extensions (aka plugins) are contained within the core. The plugin can be broken into three categories; those that add new content types (called domain), those that add new features, and those that provide a view of the content (called a widget).</p>
+<dl>
+    <dt>Extensibility</dt>
+    <dd>A system designed to include hooks and mechanisms for expanding/enhancing the system with anticipated capabilities without having to make major changes to the system infrastructure. A good architecture provides the design principles to ensure this—a roadmap for that portion of the road yet to be built. <cite><a href="http://en.wikipedia.org/wiki/Extensibility" title="Extensibility" target="_blank">ATP://en.wikipedia.org/wiki/Extensibility</a></cite></dd>
+</dl>
+<h3>Extensibility Features</h3>
+<ul class="no-bullets">
+
+    <li><strong>Domain</strong> &mdash; A new type of feature within the data store. The base infrastructure should contain a web page type, and this can be extended into specific types of web pages, such as an about page or blog article.</li>
+    <li><strong>Feature</strong> &mdash; A variety of features, such as logging into the CMS via Facebook.</li>
+    <li><strong>Widget</strong> &mdash; A view of the content, such as recent blog entries.</li>
+</ul>
+<h2>Next Steps</h2>
+<p>We now have a reasonable start on functionality for our CMS.  So the next step is to design the application architecture. </p>
+<p>Is there anything missing?  If so, please add your comments below.</p>

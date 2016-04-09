@@ -1,0 +1,62 @@
+﻿<p>
+    This is an introductory article on the process of designing and building a 
+        content management system (CMS) using .Net MVC.
+</p>
+<h2>Some Background</h2>
+<p>
+    I have written a number of books on topics such as project management and 
+        the design of electronic systems for automated homes.  The writing process 
+        takes about one year and as soon as it is completed, there is a need for 
+        updates and additions.  This time I will take on the challenge of building 
+        a modern <a href="http://en.wikipedia.org/wiki/Content_management_system" target="_blank" class="wikipedia">content management system (CMS)</a>
+    using <a href="http://en.wikipedia.org/wiki/ASP.NET_MVC_Framework" target="_blank" class="wikipedia">ASP.NET MVC Framework</a>.
+</p>
+<p>
+    Writing this book as a series of online articles builds the basis of the 
+        content, and allows the reader to provide valuable input in terms of technology
+         and varied ideas and strategies.
+</p>
+<h2>The CMS Mission &amp; Stakeholders</h2>
+<p>
+    Our CMS provides  a means to display content on the Internet for a small to 
+        mid-sized company, all of which is available for public view.  The content 
+        consists of articles, images, links, and videos, with the possibility of other 
+        types of content in the future.  All of the content has a very simple workflow, 
+        consisting of creating, editing, and  publishing.  Once published the content 
+        must stay stable for SEO purposes, meaning no changing URLs and minimal changes 
+        to the content.  The authors and editors of the public view content have very little 
+        knowledge of HTML, and therefore the creation of the content must be kept free of 
+        semantic markup.
+</p>
+
+<p>
+    The <a href="http://en.wikipedia.org/wiki/Project_stakeholder" target="_blank" class="wikipedia">project stakeholders</a>
+    of the CMS can be divided into five categories:
+</p>
+<ol>
+    <li><strong>Public User</strong> &mdash; Consumers of the content.</li>
+    <li><strong>Content Authors</strong> &mdash; One or more persons who create, edit, and publish the content.</li>
+    <li><strong>Front End Developer</strong> &mdash; Person responsible for initial setup and administration of the CMS.  This person is responsible for the look and feel of the website, aka developing a theme, writing the semantic markup, planning the content presentation.</li>
+    <li><strong>PlugIn Developer</strong> &mdash; Person who adds functionality to the CMS in the form of plugins.</li>
+    <li><strong>Core Developer</strong> &mdash; Person who creates all of the core functionality of the CMS.</li>
+</ol>
+
+<p>
+    The following figure shows visually how the various project stakeholders interact with 
+        the CMS and its top level design.
+</p>
+
+<figure>
+    <img src="/content/images/articles/building-a-cms-with-net-mvc/mvc-cms-design.jpg" />
+    <figcaption>Design of our CMS</figcaption>
+</figure>
+<p>This is my <a href="http://en.wikipedia.org/wiki/Big_Hairy_Audacious_Goal" target="_blank" class="wikipedia">Big Hairy Audacious Goal</a>, so let's get started.</p>
+<h2>Next Steps</h2>
+<p>
+    The construction of a CMS is complex and requires substantial time and planning.  
+        The fastest way to get a product to market is to deliver the bare minimum, then 
+        allow customers (users) to determine the direction of the product. In the next 
+        article, I ask and answer &ldquo;What is the minimum set of functionality that 
+        is required in a modern content management system?&rdquo;  This serves as our 
+        minimum product delivery.
+</p>

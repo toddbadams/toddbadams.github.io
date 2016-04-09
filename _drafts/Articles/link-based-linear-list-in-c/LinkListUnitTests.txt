@@ -1,0 +1,419 @@
+﻿#pragma once
+
+#include "UnitTest.h"
+#include "../tbaADT/DoubleLinkNode.h"
+#include "../tbaADT/LinkList.h"
+#include <iostream>
+  using namespace std;
+  using namespace tbaADT;
+
+  class LinkListUnitTests : public UnitTest
+  {
+  public:
+  // Constructor
+  LinkListUnitTests(void) : UnitTest("LinkList")
+  {
+  listSize=5;
+  testElements = new int[listSize+1];
+  testElements[0] = 1;
+  testElements[1] = 2;
+  testElements[2] = 3;
+  testElements[3] = 4;
+  testElements[4] = 5;
+  testElements[5] = 6;
+  }
+
+  // Destructor
+  ~LinkListUnitTests(void) { }
+
+  // Public Tests
+  string Run()
+  {
+  //DoubleLinkNodeCanCreate();
+  LinkListCanCreate();
+  LinkListHasCountZeroOnCreate();
+  LinkListCanAddFirst();
+  LinkListCanAddLast();
+  LinkListHasContains();
+  LinkListCanClear();
+  LinkListCanFind();
+  LinkListReturnsNullWhenNotFound();
+  LinkListCanFindLast();
+  LinkListCanGetFirst();
+  LinkListCanGetLast();
+  LinkListCanRemoveByValue();
+  LinkListCanRemoveByNode();
+  LinkListCanRemoveFirst();
+  LinkListCanRemoveLast();
+  LinkListCanRemoveAll();
+  LinkListCanCreateArrayFromList();
+
+  Totals();
+  return Results;
+  }
+
+  private:
+  LinkList<int>
+    * list;
+    int listSize;
+    int* testElements;
+
+    void TestInitialize()
+    {
+    list = new LinkList<int>
+      ();
+      }
+
+      void TestDispose()
+      {
+      delete list;
+      }
+
+      void DoubleLinkNodeCanCreate()
+      {
+      // Arrange & Act
+      DoubleLinkNode<int>
+        * node = new DoubleLinkNode<int>
+          ();
+
+          // Assert
+          Assert("DoubleLinkNodeCanCreate",node!=nullptr);
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListCanCreate()
+          {
+          // Arrange & Act
+          TestInitialize();
+
+          // Assert
+          Assert("LinkListCanCreate",list!=nullptr);
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListHasCountZeroOnCreate()
+          {
+          // Arrange & Act
+          TestInitialize();
+
+          // Assert
+          Assert("LinkListHasCountZeroOnCreate",
+          list->GetCount() == 0);
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListCanAddFirst()
+          {
+          // Arrange
+          TestInitialize();
+
+          // Act
+          list->AddFirst(testElements[0]);
+
+          // Assert
+          Assert("LinkListCanAddFirst", list->GetCount() == 1);
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListCanAddLast()
+          {
+          // Arrange
+          TestInitialize();
+
+          // Act
+          list->AddLast(testElements[0]);
+          list->AddLast(testElements[1]);
+
+          // Assert
+          Assert("LinkListCanAddLast", list->GetCount() == 2);
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListHasContains()
+          {
+          // Arrange
+          TestInitialize();
+          list->AddLast(testElements[0]);
+          list->AddLast(testElements[1]);
+          list->AddLast(testElements[2]);
+
+          // Act
+          bool result1 = list->Contains(testElements[1]);
+          bool result2 = list->Contains(testElements[3]);
+
+          // Assert
+          Assert("LinkListHasContains", result1 && !result2);
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListCanClear()
+          {
+          // Arrange
+          TestInitialize();
+          list->AddLast(testElements[0]);
+          list->AddLast(testElements[1]);
+          list->AddLast(testElements[2]);
+
+          // Act
+          list->Clear();
+
+          // Assert
+          Assert("LinkListHasContains",
+          list->GetCount() == 0 &&
+          !list->Contains(testElements[2]));
+
+          // Dispose
+          TestDispose();
+          }
+
+          void LinkListCanFind()
+          {
+          // Arrange
+          TestInitialize();
+          list->AddLast(testElements[0]);
+          list->AddLast(testElements[1]);
+          list->AddLast(testElements[2]);
+
+          // Act
+          DoubleLinkNode<int>
+            * result = list->Find(testElements[1]);
+
+            // Assert
+            Assert("LinkListCanFind", result->Value == testElements[1]);
+
+            // Dispose
+            TestDispose();
+            }
+
+            void LinkListReturnsNullWhenNotFound()
+            {
+            // Arrange
+            TestInitialize();
+            list->AddLast(testElements[0]);
+            list->AddLast(testElements[1]);
+            list->AddLast(testElements[2]);
+
+            // Act
+            DoubleLinkNode<int>
+              * result = list->Find(testElements[3]);
+
+              // Assert
+              Assert("LinkListReturnsNullWhenNotFound", result == nullptr);
+
+              // Dispose
+              TestDispose();
+              }
+
+              void LinkListCanFindLast()
+              {
+              // Arrange
+              TestInitialize();
+              list->AddLast(testElements[0]);
+              list->AddLast(testElements[1]);
+              list->AddLast(testElements[2]);
+              list->AddLast(testElements[1]);
+              list->AddLast(testElements[3]);
+              list->AddLast(testElements[4]);
+
+              // Act
+              DoubleLinkNode<int>
+                * result = list->FindLast(testElements[1]);
+
+                // Assert
+                Assert("LinkListCanFindLast", result->Value == testElements[1]);
+
+                // Dispose
+                TestDispose();
+                }
+
+                void LinkListCanGetFirst()
+                {
+                // Arrange
+                TestInitialize();
+                list->AddLast(testElements[0]);
+                list->AddLast(testElements[1]);
+                list->AddLast(testElements[2]);
+                list->AddLast(testElements[3]);
+
+                // Act
+                DoubleLinkNode<int>
+                  * result = list->GetFirst();
+
+                  // Assert
+                  Assert("LinkListCanGetFirst", result->Value == testElements[0]);
+
+                  // Dispose
+                  TestDispose();
+                  }
+
+                  void LinkListCanGetLast()
+                  {
+                  // Arrange
+                  TestInitialize();
+                  list->AddLast(testElements[0]);
+                  list->AddLast(testElements[1]);
+                  list->AddLast(testElements[2]);
+                  list->AddLast(testElements[3]);
+
+                  // Act
+                  DoubleLinkNode<int>
+                    * result = list->GetLast();
+
+                    // Assert
+                    Assert("LinkListCanGetLast", result->Value == testElements[3]);
+
+                    // Dispose
+                    TestDispose();
+                    }
+
+                    void LinkListCanRemoveByValue()
+                    {
+                    // Arrange
+                    TestInitialize();
+                    list->AddLast(testElements[0]);
+                    list->AddLast(testElements[1]);
+                    list->AddLast(testElements[2]);
+                    list->AddLast(testElements[0]);
+                    list->AddLast(testElements[3]);
+
+                    // Act
+                    list->Remove(testElements[0]);
+                    DoubleLinkNode<int>
+                      * node = list->Find(testElements[0]);
+
+                      // Assert
+                      Assert("LinkListCanRemoveByValue",
+                      list->GetCount() == 4 &&
+                      node->Next->Value == testElements[3]);
+
+                      // Dispose
+                      TestDispose();
+                      }
+
+                      void LinkListCanRemoveByNode()
+                      {
+                      // Arrange
+                      TestInitialize();
+                      list->AddLast(testElements[0]);
+                      list->AddLast(testElements[1]);
+                      list->AddLast(testElements[2]);
+                      list->AddLast(testElements[0]);
+                      list->AddLast(testElements[3]);
+                      DoubleLinkNode<int>
+                        * node = list->Find(testElements[0]);
+
+                        // Act
+                        list->RemoveNode(node);
+
+                        // Assert
+                        Assert("LinkListCanRemoveByNode",
+                        list->GetCount() == 4);
+
+                        // Dispose
+                        TestDispose();
+                        }
+
+                        void LinkListCanRemoveFirst()
+                        {
+                        // Arrange
+                        TestInitialize();
+                        list->AddLast(testElements[0]);
+                        list->AddLast(testElements[1]);
+                        list->AddLast(testElements[2]);
+
+                        // Act
+                        list->RemoveFirst();
+                        DoubleLinkNode<int>
+                          * node = list->GetFirst();
+
+                          // Assert
+                          Assert("LinkListCanRemoveFirst",
+                          list->GetCount() == 2 &&
+                          node->Value == testElements[1]);
+
+                          // Dispose
+                          TestDispose();
+                          }
+
+                          void LinkListCanRemoveLast()
+                          {
+                          // Arrange
+                          TestInitialize();
+                          list->AddLast(testElements[0]);
+                          list->AddLast(testElements[1]);
+                          list->AddLast(testElements[2]);
+
+                          // Act
+                          list->RemoveLast();
+                          DoubleLinkNode<int>* node = list->GetLast();
+
+		// Assert
+		Assert("LinkListCanRemoveLast",
+			list->GetCount() == 2 &&
+			node->Value == testElements[1]);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void LinkListCanRemoveAll()
+	{		
+		// Arrange
+		TestInitialize();
+		list->AddLast(testElements[0]);
+		list->AddLast(testElements[1]);
+		list->AddLast(testElements[0]);
+		list->AddLast(testElements[2]);
+		list->AddLast(testElements[0]);
+
+		// Act 
+		list->RemoveAll(testElements[0]);  
+
+		// Assert
+		Assert("LinkListCanRemoveAll",
+			list->GetCount() == 2);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void LinkListCanCreateArrayFromList()
+	{		
+		// Arrange
+		TestInitialize();
+		list->AddLast(testElements[0]);
+		list->AddLast(testElements[1]);
+		list->AddLast(testElements[2]);
+		list->AddLast(testElements[3]);
+		list->AddLast(testElements[4]);
+
+		// Act	
+		int* results = list->ToArray();  
+
+		// Assert
+		Assert("LinkListCanCreateArrayFromList",
+			(results[0]==testElements[0]) &&
+			(results[1]==testElements[1]) &&
+			(results[2]==testElements[2]) &&
+			(results[3]==testElements[3]) &&
+			(results[4]==testElements[4]) );
+
+		// Dispose
+		TestDispose();
+	}
+	
+	
+};
+

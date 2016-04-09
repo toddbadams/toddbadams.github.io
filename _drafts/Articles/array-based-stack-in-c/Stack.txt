@@ -1,0 +1,132 @@
+﻿#pragma once
+#include "list.h"
+
+namespace tbaADT {
+template<class T="">
+  class Stack
+  {
+  public:
+  // Constructor/Destructor
+  Stack(int);
+  ~Stack(void);
+
+  // Read Only Properties
+  int GetCapacity();
+  int GetCount();
+
+  // Methods
+  void Clear();
+  T Peek();
+  T Pop();
+  void Push(T& element);
+  T* ToArray();
+  void TrimExcess();
+
+  protected:
+  List<T>
+    * list;
+    };
+
+    // Constructor
+    template<class T="">
+      tbaADT::Stack<T>
+        ::Stack(int Capacity)
+        {
+        list = new List<T>
+          (Capacity);
+          }
+
+          // Destructor
+          template<class T="">
+            tbaADT::Stack<T>
+              ::~Stack()
+              {
+              delete [] list;
+              }
+
+              // Empty the list
+              template<class T="">
+                void tbaADT::Stack<T>
+                  ::Clear()
+                  {
+                  list->Clear();
+                  }
+
+                  // Ready Only capacity attribute
+                  template<class T="">
+                    int tbaADT::Stack<T>
+                      ::GetCapacity()
+                      {
+                      return list->GetCapacity();
+                      }
+
+                      // Ready Only count attribute
+                      template<class T="">
+                        int tbaADT::Stack<T>
+                          ::GetCount()
+                          {
+                          return list->GetCount();
+                          }
+
+                          // Returns the value at the top of the list
+                          template<class T="">
+                            T tbaADT::Stack<T>
+                              ::Peek()
+                              {
+                              if (list->GetCount()>0)
+                              return list->Item(list->GetCount()-1);
+                              else
+                              {
+                              T foo;
+                              return foo;
+                              }
+
+                              }
+
+                              // Returns the value at the top of the list and removes it from the list
+                              template<class T="">
+                                T tbaADT::Stack<T>
+                                  ::Pop()
+                                  {
+                                  if (list->GetCount()>0)
+                                  {
+                                  T value = list->Item(list->GetCount()-1);
+                                  list->RemoveAt(list->GetCount()-1);
+                                  return value;
+                                  }
+                                  else
+                                  {
+                                  T foo;
+                                  return foo;
+                                  }
+                                  }
+
+                                  // Add an element to the top of stack
+                                  template<class T="">
+                                    void tbaADT::Stack<T>
+                                      ::Push(T& value)
+                                      {
+                                      list->Add(value);
+                                      }
+
+                                      // Create an array copy of this list
+                                      template<class T="">
+                                        T* tbaADT::Stack<T>
+                                          ::ToArray()
+                                          {
+                                          T* newArr = new T[list->GetCount()];
+                                          for (int i=0; i < list->GetCount(); i++)
+		{
+			newArr[list->GetCount()-1-i] = list->Item(i);
+		}
+		return newArr;
+	}
+
+	// Resize the array to the current count
+	template<class T="">
+                                            void  tbaADT::Stack<T>::TrimExcess()
+	{
+		list->TrimExcess();
+	}
+
+}

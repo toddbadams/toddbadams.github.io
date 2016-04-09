@@ -1,0 +1,12 @@
+﻿int _tmain(int argc, _TCHAR* argv[])
+{
+  int dummy;
+  FooAdderUnitTest* fooAdderUnitTest = new FooAdderUnitTest();
+  
+  std::cout << "Unit Tests" << std::endl;
+  std::cout << fooAdderUnitTest->Run().c_str() << std::endl;
+  std::cin >> dummy;
+
+  delete fooAdderUnitTest;
+  return 0;
+}

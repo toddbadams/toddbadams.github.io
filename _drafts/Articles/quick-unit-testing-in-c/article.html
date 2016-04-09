@@ -1,0 +1,63 @@
+﻿<p>
+    While there exist several c++ unit test frameworks, at times it is best
+                to develop a quick method to unit test a class in c++.  This method saves 
+                the time required to setup and learn a new framework.  It is quick and 
+                dirty and should not be implemented on larger projects.
+</p>
+
+<p>
+    The code below is an example of a c++ class that needs to be tested.
+</p>
+<pre data-file="FooAdder.txt"></pre>
+<p class="caption">FooAdder class requiring unit tests</p>
+<h2>The Console Application</h2>
+<p>
+    To test the unit functionality a console application is created, shown below. This 
+                application creates an object of class <em>FooAdderUnitTest</em>, which is constructed to 
+                hold all of the tests for the class <em>FooAdder</em>. Once created the <em>Run</em> method is invoked 
+                and returns a string holding all of the test results, which are sent to the console.
+</p>
+<pre data-file="FooAddrConsole.txt"></pre>
+<p class="caption">Unit test application</p>
+<h2>The Unit Test Class</h2>
+<p>
+    The  <em>FooAdderUnitTest</em> (shown below) holds all of the individual tests and inherits 
+                <em>UnitTest</em>. The class has a single public method Run(), which invokes a series of 
+                three private methods, which hold each unit test. All of the unit test functions have the 
+                same template, following the typical "arrange, act, assert" methodology of unit testing.
+</p>
+<p>
+    The first test, <em>CanCreateFooAdder()</em>, invokes for the <em>TestInitialize()</em> method, which sets 
+                up the test by initializing <em>fooAdder</em>. Because it is the constructor that is being tested, 
+                the Arrange and Act are one in the same. Next an <em>Assert()</em> method is invoked, which is 
+                part of the base class <em>UnitTest</em>. Finally the test is disposed.
+</p>
+<pre data-file="FooAdderUnitTest.txt"></pre>
+<p class="caption">FooAdder unit test class</p>
+<h2>The UnitTest Class</h2>
+<p>
+    The <em>UnitTest</em> base class holds the results and processes the <em>Assert()</em>
+    methods. The code is not very elegant, but is quick to code, and gets the job done.
+</p>
+<pre data-file="UnitTest.txt"></pre>
+<p class="caption">UnitTest class</p>
+<h2>The Results</h2>
+<p>
+    Running the console application produces the following results. The results 
+                contain the name of the class tested, a list of tests, PASS or FAIL for each 
+                test, and a set of totals at the end.
+
+</p>
+<pre>Unit Tests for FooAdder
+1. CanCreateFooAdder PASS
+2. FooAdderHasZeroResultOnCreate PASS
+3. FooAdderCanAdd PASS
+Totals for FooAdder
+Tests Failed: 0
+Tests Passed: 3
+Total Tests: 3</pre>
+<p class="caption">Results of unit tests</p>
+
+<p>
+    Please leave some thoughts below and thanks for the read.
+</p>

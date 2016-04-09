@@ -1,0 +1,18 @@
+﻿class FooAdder
+{
+  public:
+  // Constructor
+  FooAdder(void)
+  {
+    Result = 0;
+  }
+
+  // The result of adds
+  int Result;
+
+  // Add - Adds passed value to result
+  void Add(int val)
+  {
+    Result += val;
+  }
+};

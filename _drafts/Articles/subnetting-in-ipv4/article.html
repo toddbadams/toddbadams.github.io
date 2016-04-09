@@ -1,0 +1,153 @@
+﻿<p>
+    The Internet consists of four functional layers, the Network Access Layer, the Internet Layer, the 
+                Transportation layer, and the Application Layer.  Each of these layers has several 
+                <a href="http://en.wikipedia.org/wiki/Communications_protocol" title="wikipedia" target="blank"><em>protocols</em></a>
+    which are sets of rules used to communicate on that layer.  This article looks at how the
+                <a href="http://en.wikipedia.org/wiki/Datagrams" title="wikipedia" target="blank"><em>Internet Protocol Version 4</em></a> (IPv4)
+                is implemented to transmit and receive messages between a client and a host.  Where the client is
+                a person sitting at their computer typing in a website address, and the host is the computer that
+                holds that website.  The following figure shows each of the four layers, and a few of the protocols used on
+                each layer.
+</p>
+
+<figure>
+    <img src="/Content/images/articles/subnetting-in-ipv4/Internet-Four-Functional-Layers.jpg" />
+    <figcaption>The Four Functional Layers of the Internet</figcaption>
+</figure>
+
+<p>
+    The <a href="http://en.wikipedia.org/wiki/Internet_Layer" title="wikipedia" target="blank"><em>Internet Layer</em></a>
+    is a group of methods, protocols, and  specifications used to transmit 
+                <a href="http://en.wikipedia.org/wiki/Datagrams" title="wikipedia" target="blank"><em>datagrams</em></a> (packets) 
+                between computers on the Internet. IPv4 is the most widely deployed Internet Layer protocol. An IPv4 address is a 
+                sequence of 32 bits (4 bytes). The number of addresses is limited to 2<sup>32</sup>, which is 
+                approximately 4.3 billion. 
+                <a href="http://en.wikipedia.org/wiki/Datagrams" title="wikipedia" target="blank"><em>Internet Corporation for Assigned Names and Numbers</em></a>  (ICANN)
+                is responsible for assigning IP numbers to organizations and only a limited number of IPv4 address remain to be assigned.
+                As a result a new standard (IPv6) has been introduced and we are in a transition to this new standard. While this
+                article discusses IPv4, all of the discussed methodology applies to to IPv6.
+</p>
+
+
+
+<h2>Subnets</h2>
+<p>
+    Often each network is broken into sub networks, called  subnets. The subnet provides a group of 
+                hosts that sit inside the network.  The network then becomes a group of groups.
+</p>
+<p>
+    In our example address 209.85.231.104/25 results in a network address of 209.85.231.128. The subnets 
+                can then be specified 75.24.16.145/24 where each subnet prefix runs from an 
+                address of  75.24.1 to 75.24.254. The hosts then take the address using the last 8 bits. Our  subnet 
+                address is 75.24.16.0 with a broadcast of 75.24.16.255, and it has hosts  of 75.24.16.1 to 75.24.16.254,
+                 which means 254 host ids
+</p>
+<p>
+    A subnet mask is created for each subnet, which is a series  of 1’s for the address.  For our example  
+                subnet’s IP address of 75.24.16.145/24 the mask is comprised of 24 1’s followed  by 8 0’s, which is 255.255.255.0.
+</p>
+
+
+
+<h2>A Sample Subnet Assignment Problem</h2>
+<p>
+    A medium size company was given the network block 137.73.0.0/16. The block needs to be divided into 6 subnets
+                 with the following capacities:
+</p>
+<ol>
+    <li>Two large subnets with capacity for 8,000 hosts each</li>
+    <li>Three smaller subnets with capacity for 4,000 hosts each</li>
+    <li>A very large subnet with capacity for 20,000 addresses</li>
+</ol>
+<p>
+    Provide a division of the network block to meet the above requirements and give addresses for each one of the 
+                subnets. If there is a spare block of addresses left, please indicate so.
+</p>
+<h3>Algorithm</h3>
+<ul>
+    <li>For each subnet:</li>
+    <ol>
+        <li>Determine the required bits for each subnet from capacity.
+                        <br />
+            <em>Required Bits</em> = RoundUp( LOG<sub>2</sub>(Capacity))</li>
+        <li>Determine subnet address prefix
+            <br />
+            <em>Prefix Bits</em> = 32 - Required Bits
+        </li>
+    </ol>
+    <li>The maximum value of <em>Prefix Bits</em> must be at least one less than 
+                    the number of bits required for the network prefix bits. If not the network
+                    does not support the subnets, exit.
+        <br />
+        IF ( MAX(all <em>Prefix Bits</em>) > <em>Network Prefix Bits</em> THEN EXIT
+    </li>
+    <li>Order the subnets from largest to smallest <em>Prefix Bits</em></li>
+    <li>Create a bit array of size from the largest <em>Prefix Bits</em> to the smallest,
+        <br />
+        <em>Subnet Bit Array</em> = new Array(Largest <em>Prefix Bits</em> - Smallest <em>Prefix Bits</em>)
+    </li>
+    <li>The bit array <em>Subnet Bit Array</em> must be large enough to accommodate all requested
+                    subnets, if not the network does not support all of the subnets, exit.<br />
+        IF ( Length of <em>Subnet Bit Array</em> < Log<sub>2</sub> Number of Subnets) THEN EXIT
+    </li>
+    <li>For each subnet:</li>
+    <ol>
+        <li>Set the most significant bit to 1</li>
+
+    </ol>
+</ul>
+
+<h3>The Solution</h3>
+<table class="table table-bordered table-hover">
+    <tr>
+        <td>Subnet </td>
+        <td>Capacity</td>
+        <td>Bits Required</td>
+        <td>Subnet Bit Array</td>
+        <td>Subnet Decimal Address</td>
+    </tr>
+    <tr>
+        <td>A</td>
+        <td>20000</td>
+        <td>15</td>
+        <td><strong>1</strong>000</td>
+        <td>137.73.128.0/17</td>
+    </tr>
+    <tr>
+        <td>B</td>
+        <td>8000</td>
+        <td>13</td>
+        <td><strong>011</strong>0</td>
+        <td>137.73.96.0/19</td>
+    </tr>
+    <tr>
+        <td>C</td>
+        <td>8000</td>
+        <td>13</td>
+        <td><strong>010</strong>0</td>
+        <td>137.73.64.0/19</td>
+    </tr>
+    <tr>
+        <td>D</td>
+        <td>4000</td>
+        <td>12</td>
+        <td><strong>0011</strong></td>
+        <td>137.73.48.0/20</td>
+    </tr>
+    <tr>
+        <td>E</td>
+        <td>4000</td>
+        <td>12</td>
+        <td><strong>0010</strong></td>
+        <td>137.73.32.0/20</td>
+    </tr>
+    <tr>
+        <td>F</td>
+        <td>4000</td>
+        <td>12</td>
+        <td><strong>0001</strong></td>
+        <td>137.73.16.0/20</td>
+    </tr>
+
+</table>
+

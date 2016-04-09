@@ -1,0 +1,36 @@
+﻿[TestClass()]
+public class EntityBaseTest
+{
+    private FakeEntityBase testEntity1;
+    private FakeEntityBase testEntity2;
+    private FakeEntityBase target;
+
+    [TestInitialize()]
+    public void TestInitialize()
+    {
+        testEntity1 = new FakeEntityBase { Id = 1 };
+        testEntity2 = new FakeEntityBase { Id = 2 };
+        target = new FakeEntityBase { Id = 1 };
+    }
+
+    [TestMethod()]
+    public void EqualsToBaseObjectTest()
+    {
+        Assert.IsTrue(target.Equals(testEntity1));
+        Assert.IsFalse(target.Equals(testEntity2));
+    }
+
+    [TestMethod()]
+    public void EqualsOperatorTest()
+    {
+        Assert.IsTrue((testEntity1 == target));
+        Assert.IsFalse((testEntity2 == target));
+    }
+
+    [TestMethod()]
+    public void NotEqualsOperatorTest()
+    {
+        Assert.IsTrue((testEntity2 != target));
+        Assert.IsFalse(testEntity1 != target);
+    }
+}

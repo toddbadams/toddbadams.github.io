@@ -1,0 +1,181 @@
+﻿<h2>Introduction to Cookies</h2>
+<p>
+    A cookie is a text only string (less than 4KB) that is sent from a web server to 
+                a client’s hard drive via the browser. This text only string is sent and stored 
+                as a name-value pair. For example if the web server wants to track the number of 
+                visits the name may be “visits” and the value is set to 1 on the first visit, and 
+                incremented on subsequent visits. This data is stored for a given website based 
+                on its root URL, and can be retrieved at a later time by the website. This allows 
+                user preferences or user state to be saved without the need to log into the website.
+</p>
+<h3>A few facts:</h3>
+<ul>
+    <li>Cookies are only data, not program code.</li>
+    <li>Cookies cannot erase or read information from the user's computer.</li>
+    <li>Cookies are usually anonymous (do not contain personal information).</li>
+    <li>Cookies CAN be used to track your viewing habits on a particular site.</li>
+</ul>
+
+<h2>How to View Your Cookies</h2>
+<p>
+    In Google Chrome go to the <a href="https://chrome.google.com/webstore/category/home"
+        title="Chrome web store">Chrome web store</a> and search for &#8220;<strong>cookies</strong>&#8221;.  
+                You will find apps like &#8220;<strong>Edit This Cookie</strong>&#8221;, which can 
+                be downloaded and used to view/edit/delete cookies.
+</p>
+
+<h2>Personalization</h2>
+<p>
+    Cookies allow a user to set personalization settings on a website for unauthorized users, 
+                which are users that have not yet logged into the website. A movie show times website may
+                ask your current postal code in order to show cinemas close by. These preferences can be
+                stored in cookie in one of the three following ways.
+</p>
+
+<h3>Plain Text Example &mdash; not secure</h3>
+<p>
+    In the following example the website requests the users' favourite colour.  Because this 
+                information does not contain any sensitive information it is stored as a plain text cookie.
+                The information on the form below is passed to the web server which stores it as a cookie 
+                with the name &#8220;<em>favourite-colour</em>&#8221;. The server then refreshes this page 
+                which reads the cookie and displays it below.
+</p>
+<div class="row-fluid">
+    <div class="span4 well">
+        @if (Model.FavoriteColor == string.Empty)
+                    {
+                        <p>&#8220;<em>favourite-colour</em>&#8221; cookie does not exist.</p>
+        }
+                    else
+                    {
+                        <p>cookie name = favourite-colour</p>
+        <p>cookie value = @Model.FavoriteColor</p>
+        }
+    </div>
+    <!--/span-->
+    <div class="span4">
+        <form action="/cookies/save-favourite-color" method="post">
+        <fieldset>
+            <legend>What is your favourite colour?</legend>
+            <input type="text" name="color" />
+            <input type="submit" value="Save" class="btn btn-primary" />
+        </fieldset>
+        </form>
+    </div>
+</div>
+
+
+<p>Try using a browser add-on to edit the cookie, then refresh the page. What happens?</p>
+
+<h3>A Hashed Example &mdash; somewhat secure</h3>
+<p>
+    In the example above the user can edit the cookie using a cookie add-on tool inside of 
+                the browser. There are cases where this can cause issues.  For example the website may 4
+                taking an unauthenticated user (someone who is not logged in) through a survey that 
+                provides a bonus offer at the end. In this case it is advantageous to store the current 
+                survey page in a cookie, but we want the user to get through all of the pages of the 
+                survey.  If the cookie is changed inside a cookie editor add-on, the user could potentially 
+                skip a few (or all) of the pages.
+</p>
+<p>
+    The solution is to utilize a hash function.  A hash function can be though of as a one-way 
+                function. A string is passed to the hash which converts it to a unique fixed length string.  
+                It is not feasible to get the original string from just the of the hash function, however 
+                if both the input string and the returned hashed value are stored in a cookie, then upon 
+                read the two can be validated by entering the input string from the cookie into the value 
+                to check if it creates the same hash value that is stored in the cookie.
+</p>
+<p>
+    Enter your favourite number below, and it will be saved into a cookie along with it's hash.  
+                The page then refreshes and shows your favourite number if it can be verified. Which means  
+                the web sever is going to run the favourite number from the cookie into the hash function 
+                and compare it to the hash value also stored in the cookie. If the favourite number cannot 
+                be verified the server defaults to no favourite number. Try changing the favourite number 
+                in a cookie editor add-on and see what happens.
+</p>
+<div class="row-fluid">
+    <div class=" well">
+        @if (Model.FavoriteNumber == string.Empty)
+                    {
+                        <p>&#8220;<em>favourite-number</em>&#8221; cookie does not exist.</p>
+        }
+                    else
+                    {
+                        <p>cookie name = favourite-number</p>
+        <p>cookie value = @Model.FavoriteNumberCookieValue</p>
+        <p>favourite number = @Model.FavoriteNumber</p>
+        <p>hash value = @Model.FavoriteNumberCookieValue.Substring(Model.FavoriteNumber.Length + 1)</p>
+        }
+    </div>
+</div>
+<div class="row-fluid">
+    <form action="/cookies/save-favourite-number" method="post">
+    <fieldset>
+        <legend>What is your favourite number?</legend>
+        <input type="text" name="number" />
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </fieldset>
+    </form>
+</div>
+<p>Try using a browser add-on to edit the cookie, then refresh the page. What happens?</p>
+<h3>A Hashed and Salted Example &mdash; very secure</h3>
+<p>
+    In the above example we have provided a means to verify that the value has not changed in the 
+    cookie by means of a hash.  However, people are cleaver, and can try to create the same hash 
+    from an online service.  Go to <a href="http://www.xorbin.com/tools/sha256-hash-calculator" target="_blank">Xorbin</a>
+    and enter the same favourite number and compare it to the hash stored in the cookie.  They 
+    are the same.  This is because both use identical hash functions.  Now enter a  new favourite 
+    number at <a href="http://www.xorbin.com/tools/sha256-hash-calculator" target="_blank">Xorbin</a>
+    and build your own cookie value in a text editor and paste it into this website's cookie.  If you 
+     are careful you can fool the website. Not Good!
+</p>
+<p>
+    The work around for this is to add salt to the value before it enters the hash function.  A salt 
+    is any random text that is added to the input string of the hash function. Remember a hash returns 
+    a consistent size string, regardless of the input size. For example, the server can have a secret 
+    salt of &#8220;foobar&#8221; and add this to the input value.  It uses this same secret salt during 
+    the  verification process.  Since the salt is kept on the server, the intrepid hacker cannot create 
+    a new hash value.
+</p>
+<div class="row-fluid">
+    <div class=" well">
+        @if (Model.FavoriteFood == string.Empty)
+                    {
+                        <p>&#8220;<em>favourite-food</em>&#8221; cookie does not exist.</p>
+        }
+                    else
+                    {
+                        <p>cookie name = favourite-food</p>
+        <p>cookie value = @Model.FavoriteFoodCookieValue</p>
+        <p>favourite food = @Model.FavoriteFood</p>
+        <p>hash value = @Model.FavoriteFoodCookieValue.Substring(Model.FavoriteFood.Length + 1)</p>
+        }
+    </div>
+</div>
+<div class="row-fluid">
+    <form action="/cookies/save-favourite-food" method="post">
+    <fieldset>
+        <legend>What is your favourite food?</legend>
+        <input type="text" name="food" />
+        <input type="submit" value="Save" class="btn btn-primary" />
+    </fieldset>
+    </form>
+</div>
+<p>
+    Try using a browser add-on to edit the cookie, then refresh the page. What happens? Even if you try 
+    to use a hash service without knowing what the salt used for the hashing function, it is unfeasible
+    to determine the correct hash for a given favourite food value.
+</p>
+<h3>Session Management</h3>
+<p>
+    Session management is the process of tracking a user's activity while visiting a website. Let's look 
+    at a couple of examples:
+</p>
+<ul>
+    <li><strong>User authentication</strong> &mdash; Start by viewing the current cookies for this website.  
+        Then <a href="/account/register">register</a> for this website.  The registration 
+        utilizes Microsoft's .Net authorization mechanism, which stores your registration information in 
+        a local database. You are automatically logged into the website, and at the top of the page you 
+        will now see an option to logoff the website.</li>
+    <li><strong>A web cart application</strong> &mdash; </li>
+</ul>

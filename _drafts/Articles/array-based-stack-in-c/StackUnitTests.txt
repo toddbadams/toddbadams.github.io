@@ -1,0 +1,217 @@
+﻿#pragma once
+#include "../tbaADT/Stack.h"
+#include "UnitTest.h"
+#include <iostream>
+  using namespace std;
+
+  class StackUnitTests : public UnitTest
+  {
+  public:
+  // Constructor
+  StackUnitTests(void) : UnitTest("Stack")
+  {
+  listSize=5;
+  testElements = new int[listSize+1];
+  testElements[0] = 1;
+  testElements[1] = 2;
+  testElements[2] = 3;
+  testElements[3] = 4;
+  testElements[4] = 5;
+  testElements[5] = 6;
+  }
+  // Destructor
+  ~StackUnitTests(void) { }
+
+  // Public Tests
+  string Run()
+  {
+  StackCanCreate();
+  StackHasCapacity();
+  StackHasCountZeroOnCreate();
+  StackCanPush();
+  StackCanPop();
+  StackCanPeek();
+  StackDoublesCapacityWhenOutofMemory();
+  StackCanCreateArrayFromList();
+  StackCanTrimExcess();
+
+  Totals();
+  return Results;
+  }
+
+  private:
+  tbaADT::Stack<int>
+    * list;
+    int listSize;
+    int* testElements;
+
+    void TestInitialize()
+    {
+    list = new tbaADT::Stack<int>(listSize);		
+	}
+
+	void TestDispose()
+	{
+		//delete list;
+	}
+
+	void StackCanCreate()
+	{		
+		// Arrange & Act
+		TestInitialize();
+
+		// Assert
+		Assert("StackCanCreate",list!=nullptr);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void StackHasCapacity()
+	{		
+		// Arrange & Act
+		TestInitialize();
+
+		// Assert
+		Assert("StackHasCapacity",
+			list->GetCapacity() == listSize);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void StackHasCountZeroOnCreate()
+	{		
+		// Arrange & Act
+		TestInitialize();
+
+		// Assert
+		Assert("StackHasCountZeroOnCreate", 
+			list->GetCount() == 0);
+
+		// Dispose
+		TestDispose();
+	}	
+
+	void StackCanPush()
+	{		
+		// Arrange
+		TestInitialize();
+
+		// Act
+		list->Push(testElements[0]);
+
+		// Assert
+		Assert("StackCanPush", list->GetCount() == 1);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void StackCanPop()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Push(testElements[0]);
+		list->Push(testElements[1]);
+		list->Push(testElements[2]);
+
+		// Act
+		int result = list->Pop();
+
+		// Assert
+		Assert("StackCanPop", 
+			result == testElements[2] &&
+			list->GetCount() == 2);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void StackCanPeek()
+	{
+		// Arrange
+		TestInitialize();
+		list->Push(testElements[0]);
+		list->Push(testElements[1]);
+		list->Push(testElements[2]);
+
+		// Act
+		int result = list->Peek(); 
+
+		// Assert
+		Assert("StackCanPeek", 
+			result == testElements[2] &&
+			list->GetCount() == 3);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void StackDoublesCapacityWhenOutofMemory()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Push(testElements[0]);
+		list->Push(testElements[1]);
+		list->Push(testElements[2]);
+		list->Push(testElements[3]);
+		list->Push(testElements[4]);
+
+		// Act - test element 5 exceeds capacity
+		list->Push(testElements[5]);  
+
+		// Assert
+		Assert("StackDoublesCapacityWhenOutofMemory",
+			list->GetCapacity() == 2*listSize);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void StackCanCreateArrayFromList()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Push(testElements[0]);
+		list->Push(testElements[1]);
+		list->Push(testElements[2]);
+		list->Push(testElements[3]);
+		list->Push(testElements[4]);
+
+		// Act	
+		int* results = list->ToArray();  
+
+		// Assert
+		Assert("StackCanCreateArrayFromList",
+			(results[0]==testElements[4]) &&
+			(results[1]==testElements[3]) &&
+			(results[2]==testElements[2]) &&
+			(results[3]==testElements[1]) &&
+			(results[4]==testElements[0]) );
+
+		// Dispose
+		TestDispose();
+	}
+	
+	void StackCanTrimExcess()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Push(testElements[0]);
+		list->Push(testElements[1]);
+		list->Push(testElements[2]);
+
+		// Act	
+		list->TrimExcess();  
+
+		// Assert			
+		Assert("StackCanTrimExcess", 
+			(list->GetCount() == 3) &&
+			(list->GetCapacity() == 3));
+
+		// Dispose
+		TestDispose();
+	}
+	
+};

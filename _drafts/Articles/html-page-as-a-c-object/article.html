@@ -1,0 +1,81 @@
+﻿<p>
+    In the previous article 
+        <a href="http://www.toddbadams.co.uk/html-page-as-c-sharp-object">&ldquo;<em>HTML Page as a C# Object</em>&rdquo;</a>
+    a C# object was developed to hold the settings of a website page. In this article 
+        we discuss creating a domain entity from this object.
+</p>
+<p>
+    A domain entity is an object that is defined by its identity. Sometimes an object 
+        can be an entity in one system, but not in another; for example, and address. In 
+        an address book system each address needs to be uniquely identified and retrieved 
+        from the persistent storage, and therefore, it is an entity. In an invoice system, 
+        the address may represent properties in the invoice entity, therefore, the address 
+        is not an entity. The upshot of this example is that each object must be carefully 
+        designed to determine if it is an entity.
+</p>
+<p>
+    In our CMS, the PageSettings object is indeed an entity and requires an identity to 
+        find it in the persistent storage. Rather than changing the properties of each of 
+        the entities in our application, I am going to use a 
+        <a href="http://martinfowler.com/eaaCatalog/layerSupertype.html" target="_blank">Layered Supertype Pattern</a>. 
+        This will encapsulate all of the domain entity properties and functionality in a 
+        single object. All of the objects in this layer (our domain entities) will inherit 
+        the newly created object.
+</p>
+<h2>Test Driven Development</h2>
+<p>
+    I am going to use a 
+        <a href="http://en.wikipedia.org/wiki/Test-driven_development" target="_blank" class="wikipedia" title="Test-driven development">Test-driven development</a>
+    (TDD) to build the CMS application. TDD is about writing the tests prior to the code. 
+        In fact it is the tests that drive the design and coding of the application. To 
+        start this process, first write down what we know about the new object.
+</p>
+<p>The new object will be called EntityBase and;</p>
+<ol>
+    <li>have the means to identify itself,</li>
+    <li>needs to be able to check equality between two EntityBase objects,</li>
+    <li>will be an abstract object, which is inherited by all entity objects in the 
+            application (this is the layered super type design pattern).</li>
+</ol>
+<p>
+    The following tests are written to fully specify the functionality of the object. 
+        Note that comments have been removed for brevity, the download has complete code.
+</p>
+<code data-file="entitybaseunittests.cs" data-caption="Unit tests for EntityBase" />
+<p>
+    I have initialized each test with three objects; testEntity1, testEntity2, target. 
+        TestEntity1 should be equal to target, while testEntity2 should not be equal. The first 
+        test EqualsToBaseObjectTest checks if a given object is equal to the base object. The 
+        second test EqualsOperatorTest checks if two objects are equal, and the final test 
+        NotEqualsOperatorTest checks if two objects are not equal.
+</p>
+<p>
+    Because the EntityBase object is abstract, I create a fake object, called FakeEntityBase, 
+        which is concrete. Its purpose is to allow testing of the EntityBase object and does 
+        not have any production use. For more information on mocks, stubs, fakes, and dummies 
+        see <a href="http://martinfowler.com/articles/mocksArentStubs.html" target="_blank" title="Mocks Aren't Stubs">&ldquo;<em>Mocks Aren't Stubs</em>&rdquo;</a>
+    by Martin Fowler.
+</p>
+<code data-file="fakeentitybaseempty.cs" data-caption="The FakeEntityBase class" />
+<p>
+    The code below is the EntityBase object stripped of any functionality, instead each of 
+        the methods have been coded to substantially fail the written tests.
+</p>
+<code data-file="entitybasesignature.cs" data-caption="The EntityBase class signature" />
+<p class="caption">The EntityBase object</p>
+<p>
+    When the unit tests are run they fail, and it is at this point, I can start to write 
+        the code for each method, testing until each test passes. This is known as the red 
+        to green method, as the test results go from red (fail) to green (pass). The code 
+        below is EntityBase after it has been fully coded and passes all tests.
+</p>
+<code file="entitybase.cs" caption="The Coded EntityBase object" />
+<h2>Other Entities and Next Steps</h2>
+<p>
+    The PageSettings, Person, and Image objects developed in 
+        <a href="http://www.toddbadams.co.uk/html-page-as-c-sharp-object">&ldquo;<em>HTML Page as a C# Object</em>&rdquo;</a>
+    each inherit the EntityBase object, and are now domain entities.  These entities can 
+        be stored in persistent storage. The next step is to create a repository pattern to 
+        create, read, update, and delete entities from our persistent storage.
+</p>
+<p><a href="http://www.toddbadams.co.uk/content/images/articles/building-a-domain-entity/classlibrary1.zip" class="zip" target="_blank">Download the Visual Studio 2010 Project for this article.</a></p>

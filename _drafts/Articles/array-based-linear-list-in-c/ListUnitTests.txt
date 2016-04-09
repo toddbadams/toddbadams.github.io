@@ -1,0 +1,305 @@
+﻿#pragma once
+
+#include "UnitTest.h"
+#include "../tbaADT/List.h"
+using namespace std;
+
+class ListUnitTests : public UnitTest
+{
+public:
+// Constructor
+ListUnitTests(void) : UnitTest("List")
+{
+listSize=5;
+testElements = new int[listSize+1];
+testElements[0] = 1;
+testElements[1] = 2;
+testElements[2] = 3;
+testElements[3] = 4;
+testElements[4] = 5;
+testElements[5] = 6;
+}
+// Destructor
+~ListUnitTests(void) { }
+
+// Public Tests
+string Run()
+{
+CanCreateList();
+ListHasCapacity();
+ListHasCountZeroOnCreate();
+ListCanAdd();
+ListHasIndexOf();
+ListCanGetByIndex();
+ListHasLastIndexOf();
+ListCanInsertAt();
+ListCanRemoveAt();
+ListCanRemoveAll();
+ListDoublesCapacityWhenOutofMemory();
+ListCanCreateArrayFromList();
+ListCanTrimExcess();
+
+Totals();
+return Results;
+}
+
+private:
+tbaADT::List<int>
+  * list;
+  int listSize;
+  int* testElements;
+
+  void TestInitialize()
+  {
+  list = new tbaADT::List<int>(listSize);
+	}
+
+	void TestDispose()
+	{
+		delete list;
+	}
+
+	void CanCreateList()
+	{		
+		// Arrange & Act
+		TestInitialize();
+
+		// Assert
+		Assert("CanCreateList",list!=nullptr);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListHasCapacity()
+	{		
+		// Arrange & Act
+		TestInitialize();
+
+		// Assert
+		Assert("ListHasCapacity",
+			list->GetCapacity() == listSize);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListHasCountZeroOnCreate()
+	{		
+		// Arrange & Act
+		TestInitialize();
+
+		// Assert
+		Assert("ListHasCountZeroOnCreate", 
+			list->GetCount() == 0);
+
+		// Dispose
+		TestDispose();
+	}	
+
+	void ListCanAdd()
+	{		
+		// Arrange
+		TestInitialize();
+
+		// Act
+		list->Add(testElements[0]);
+
+		// Assert
+		Assert("ListCanAdd", list->GetCount() == 1);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListHasIndexOf()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Add(testElements[0]);
+		list->Add(testElements[1]);
+		list->Add(testElements[2]);
+
+		// Act
+		int result = list->IndexOf(testElements[1]);
+
+		// Assert
+		Assert("ListHasIndexOf", result == 1);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListCanGetByIndex()
+	{
+		// Arrange
+		TestInitialize();
+		list->Add(testElements[0]);
+		list->Add(testElements[1]);
+		list->Add(testElements[2]);
+
+		// Act
+		int result = list->Item(1);
+
+		// Assert
+		Assert("ListCanGetByIndex", result == testElements[1]);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListHasLastIndexOf()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Add(testElements[0]);
+		list->Add(testElements[1]);
+		list->Add(testElements[0]);
+		list->Add(testElements[3]);
+		int expected = 2;
+
+		// Act 
+		int result = list->LastIndexOf(testElements[0]);
+
+		// Assert
+		Assert("ListHasLastIndexOf", result == expected);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListCanInsertAt()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Add(testElements[0]);
+		list->Add(testElements[2]);
+		list->Add(testElements[3]);
+		list->Add(testElements[4]);
+
+		// Act - 0th and 2nd are same value
+		list->InsertAt(1,testElements[1]);
+
+		// Assert
+		Assert("ListCanInsertAt", 
+			list->GetCount() == 5 &&
+			list->Contains(testElements[1]));
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListCanRemoveAt()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Add(testElements[0]);
+		list->Add(testElements[1]);
+		list->Add(testElements[2]);
+		list->Add(testElements[3]);
+
+		// Act - 0th and 2nd are same value
+		list->RemoveAt(1); 
+
+		// Assert
+		Assert("ListCanRemoveAt", 
+			!list->Contains(testElements[1]) &&
+			list->GetCount() == 3);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListCanRemoveAll()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Add(testElements[0]);
+		list->Add(testElements[1]);
+		list->Add(testElements[0]);
+		list->Add(testElements[3]);
+
+		// Act - 0th and 2nd are same value
+		list->RemoveAll(testElements[0]); 
+
+		// Assert
+		Assert("ListCanRemoveAll", 
+			list->GetCount() == 2);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListDoublesCapacityWhenOutofMemory()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Add(testElements[0]);
+		list->Add(testElements[1]);
+		list->Add(testElements[2]);
+		list->Add(testElements[3]);
+		list->Add(testElements[4]);
+
+		// Act - test element 5 exceeds capacity
+		list->Add(testElements[5]);  
+
+		// Assert
+		Assert("ListCanRemoveAt",
+			list->GetCapacity() == 2*listSize);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void ListCanCreateArrayFromList()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Add(testElements[0]);
+		list->Add(testElements[1]);
+		list->Add(testElements[2]);
+		list->Add(testElements[3]);
+		list->Add(testElements[4]);
+
+		// Act	
+		int* results = list->ToArray();  
+
+		// Assert
+		Assert("ListCanCreateArrayFromList",
+			(results[0]==testElements[0]) &&
+			(results[1]==testElements[1]) &&
+			(results[2]==testElements[2]) &&
+			(results[3]==testElements[3]) &&
+			(results[4]==testElements[4]) &&
+			(results != testElements) );
+
+		// Dispose
+		TestDispose();
+	}
+	
+	void ListCanTrimExcess()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Add(testElements[0]);
+		list->Add(testElements[1]);
+		list->Add(testElements[2]);
+
+		// Act	
+		list->TrimExcess();  
+
+		// Assert			
+		int* results = list->ToArray();  
+		Assert("ListCanTrimExcess", 
+			(results[0]==testElements[0]) &&
+			(results[1]==testElements[1]) &&
+			(results[2]==testElements[2]) &&
+			(list->GetCount() == 3) &&
+			(list->GetCapacity() == 3));
+
+		// Dispose
+		TestDispose();
+	}
+	
+};
+

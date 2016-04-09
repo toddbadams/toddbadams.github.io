@@ -1,0 +1,220 @@
+﻿#pragma once
+#include "../tbaADT/Queue.h"
+#include "UnitTest.h"
+#include <iostream>
+  using namespace std;
+
+  class QueueUnitTests : public UnitTest
+  {
+  public:
+  // Constructor
+  QueueUnitTests(void) : UnitTest("Queue")
+  {
+  listSize=5;
+  }
+  // Destructor
+  ~QueueUnitTests(void) { }
+
+  // Public Tests
+  string Run()
+  {
+  QueueCanCreate();
+  QueueHasCapacity();
+  QueueHasCountZeroOnCreate();
+  QueueCanEnqueue();
+  QueueCanDequeue();
+  QueueCanPeek();
+  QueueDoublesCapacityWhenOutofMemory();
+  QueueCanCreateArrayFromList();
+  QueueCanTrimExcess();
+
+  Totals();
+  return Results;
+  }
+
+  private:
+  tbaADT::Queue<int>
+    * list;
+    int listSize;
+    int* testElements;
+
+    void TestInitialize()
+    {
+    list = new tbaADT::Queue<int>(listSize);
+		testElements = new int[listSize+1];
+		testElements[0] = 1;
+		testElements[1] = 2;
+		testElements[2] = 3;
+		testElements[3] = 4;
+		testElements[4] = 5;
+		testElements[5] = 6;
+	}
+
+	void TestDispose()
+	{
+		//delete list;
+	}
+
+	void QueueCanCreate()
+	{		
+		// Arrange & Act
+		TestInitialize();
+
+		// Assert
+		Assert("QueueCanCreate", list!=nullptr);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void QueueHasCapacity()
+	{		
+		// Arrange & Act
+		TestInitialize();
+
+		// Assert
+		Assert("QueueHasCapacity",
+			list->GetCapacity() == listSize);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void QueueHasCountZeroOnCreate()
+	{		
+		// Arrange & Act
+		TestInitialize();
+
+		// Assert
+		Assert("QueueHasCountZeroOnCreate", 
+			list->GetCount() == 0);
+
+		// Dispose
+		TestDispose();
+	}	
+
+	void QueueCanEnqueue()
+	{		
+		// Arrange
+		TestInitialize();
+
+		// Act
+		list->Enqueue(testElements[0]);
+
+		// Assert
+		Assert("QueueCanEnqueue", list->GetCount() == 1);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void QueueCanDequeue()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Enqueue(testElements[0]);
+		list->Enqueue(testElements[1]);
+		list->Enqueue(testElements[2]);
+
+		// Act
+		int result = list->Dequeue();
+
+		// Assert
+		Assert("QueueCanDequeue", 
+			result == testElements[0] &&
+			list->GetCount() == 2);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void QueueCanPeek()
+	{
+		// Arrange
+		TestInitialize();
+		list->Enqueue(testElements[0]);
+		list->Enqueue(testElements[1]);
+		list->Enqueue(testElements[2]);
+
+		// Act
+		int result = list->Peek(); 
+
+		// Assert
+		Assert("QueueCanPeek", 
+			result == testElements[0] &&
+			list->GetCount() == 3);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void QueueDoublesCapacityWhenOutofMemory()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Enqueue(testElements[0]);
+		list->Enqueue(testElements[1]);
+		list->Enqueue(testElements[2]);
+		list->Enqueue(testElements[3]);
+		list->Enqueue(testElements[4]);
+
+		// Act - test element 5 exceeds capacity
+		list->Enqueue(testElements[5]);  
+
+		// Assert
+		Assert("QueueDoublesCapacityWhenOutofMemory",
+			list->GetCapacity() == 2*listSize);
+
+		// Dispose
+		TestDispose();
+	}
+
+	void QueueCanCreateArrayFromList()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Enqueue(testElements[0]);
+		list->Enqueue(testElements[1]);
+		list->Enqueue(testElements[2]);
+		list->Enqueue(testElements[3]);
+		list->Enqueue(testElements[4]);
+
+		// Act	
+		int* results = list->ToArray();  
+
+		// Assert
+		Assert("QueueCanCreateArrayFromList",
+			(results[0]==testElements[0]) &&
+			(results[1]==testElements[1]) &&
+			(results[2]==testElements[2]) &&
+			(results[3]==testElements[3]) &&
+			(results[4]==testElements[4]) );
+
+		// Dispose
+		TestDispose();
+	}
+	
+	void QueueCanTrimExcess()
+	{		
+		// Arrange
+		TestInitialize();
+		list->Enqueue(testElements[0]);
+		list->Enqueue(testElements[1]);
+		list->Enqueue(testElements[2]);
+
+		// Act	
+		list->TrimExcess();  
+
+		// Assert			
+		int* results = list->ToArray();  
+		Assert("QueueCanTrimExcess", 
+			(results[0]==testElements[0]) &&
+			(results[1]==testElements[1]) &&
+			(results[2]==testElements[2]) &&
+			(list->GetCount() == 3) &&
+			(list->GetCapacity() == 3));
+
+		// Dispose
+		TestDispose();
+	}
+};

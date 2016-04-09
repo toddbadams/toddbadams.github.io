@@ -1,0 +1,65 @@
+﻿<p>The Internet consists of four functional layers;</p>
+    <ul>
+        <li>the Network Access Layer,</li>
+        <li>the Internetwork Layer,</li>
+        <li>the Host-to-Host Transportation Layer,</li>
+        <li>and the Process/Application Layer.</li>
+    </ul>
+<p>Each of these layers has several 
+    <a href="http://en.wikipedia.org/wiki/Communications_protocol" title="wikipedia" target="blank"><em>protocols</em></a>
+    which are sets of rules used to communicate on that layer.  The following figure shows each of the four layers,
+    and a few of the protocols used on each layer.
+</p>
+
+<figure>
+    <img src="/Content/images/articles/four-functional-layers-of-internet/Internet-Four-Functional-Layers.jpg" />
+    <figcaption>The Four Functional Layers of the Internet</figcaption>
+</figure>
+
+<p>When transmitting a message each layer processes the message in turn starting with the 
+    Process/Application Layer and ending with the Network Access Layer. When receiving a 
+    message it is processed in reverse of transmitting, starting with the Network Access
+    Layer and ending with the Process/Application layer.
+</p>
+
+<h2>The Network Access Layer</h2>
+<p>
+    This layer (also known as the link layer) defines how to deliver data between the host and 
+    client on the same network. This layer describes the protocols used to describe the local 
+    network topology and the interfaces needed to effect transmission of Internet layer 
+    <a href="http://en.wikipedia.org/wiki/Datagrams" title="wikipedia" target="blank"><em>datagrams</em></a> (packets) 
+    to next-neighbour hosts.
+</p>
+
+<h2>The Internetwork Layer</h2>
+<p>
+    This layer (also known as the internet layer) defines how to route messages across networks.
+    It exchanges datagrams across network boundaries, and establishes internetworking, thus the
+    name the Internet. This layer defines the addressing and routing structures used for the 
+    TCP/IP protocol suite. The primary protocol in this scope is the Internet Protocol, which 
+    defines IP addresses. Its function in routing is to transport datagrams to the next IP router 
+    that has the connectivity to a network closer to the final data destination.
+</p>
+
+<h2>The Host-to-Host Transportation Layer</h2>
+<p>
+    This layer defines how to provide reliable communication, so that data will not be lost or corrupted
+    during the transport from host to client. The transport layer constitutes the networking regime 
+    between two network hosts, either on the local network or on remote networks separated by routers. 
+    The transport layer provides a uniform networking interface that hides the actual topology (layout) 
+    of the underlying network connections. This is where flow-control, error-correction, and connection 
+    protocols exist, such as TCP. This layer deals with opening and maintaining connections between 
+    Internet hosts.
+</p>
+
+<h2>The Process/Application Layer</h2>
+<p>
+    This layer defines how application requests are sent across the internet, using encryption, compression,
+    and ?? etc. This is the scope within which applications create user data and communicate this data to 
+    other processes or applications on another or the same host. The communications partners are often 
+    called peers. This is where the "higher level" protocols such as SMTP, FTP, SSH, HTTP, etc. operate.
+</p>
+
+<p>Please leave some thoughts below and thanks for the read.</p>
+
+<p>Enumerate the four main layers in the Internet reference model and give three reasons why it is important to arrange the protocols in layers.</p>

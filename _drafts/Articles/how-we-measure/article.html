@@ -1,0 +1,242 @@
+﻿<p>
+    In this article measurement of data is discussed. In particular the properties of 
+                measurement and how these properties comprise a scale of measurement.
+</p>
+
+<h2>Definition of Measurement </h2>
+<p>
+    Let's first start by defining measurement. 
+</p>
+<blockquote>
+    Measurement is the process of empirical objective assignment of numbers to 
+                entities, in order to characterise a specific  attribute.<cite>Norman Fenton, Shari 
+                Lawrence Pfleeger. (1997). In: Software  metrics: a rigorous and practical 
+                approach. Boston, MA, USA: PWS Publishing Co.</cite>
+</blockquote>
+<p>
+    In terms of this definition and our discussion, we define an entity as an object or 
+                event and an attribute is defined as a property or feature of the entity. In order 
+                to measure we need an object or event, which has a property or feature. Let's look 
+                at attributes and how they impact a measurement. 
+</p>
+<h2>Measurement of Attributes</h2>
+<p>
+    Because it is the attributes of an entity that are measured,  it follows that each attribute must 
+                first be defined in a measureable way.  Further the attribute must be meaningful as a  
+                means of describing the entity.
+</p>
+<p>
+    For  example we can say the software has 1000 lines of code. Is this meaningful?  
+                Let's look at our two criteria:
+</p>
+<p>
+    <strong>Definition</strong> &mdash;  What is a line of code?  
+                In order to count the number of lines of code  we first need to define what is 
+                included and what is not.  On way to define it is to simply count the  number 
+                of carriage returns.
+</p>
+<p>
+    <strong>Meaningful</strong> &mdash; Does the  concept of measuring 
+                the lines of code really matter in describing a  program?  Does a computer program 
+                with  2000 lines have more complexity, time spent, cost, authority, etc. than does a  
+                program with only 1000 lines?  In this  case it is not feasible to make statements 
+                about the complexity, time spent,  etc. of a program with regards to the lines of code.  
+                Therefore the conclusion is the attribute is not a meaningful measure of entity.
+</p>
+<p>
+    Let's look at an example of a meaningful attribute. The weight of rocks. 
+</p>
+<p>
+    <strong>Definition</strong> &mdash;  This can be done in one of several  
+                        units, but each describes the same measurement. A lighter rock will 
+                        always have  a smaller value than a heavier rock.
+</p>
+<p>
+    <strong>Meaningful</strong> &mdash; Is weight meaningful to describe a 
+                        rock? Sure, knowing the weight provides insight into the properties of the rock. 
+</p>
+
+<h2>Properties of Measurement</h2>
+<p>
+    It is the attributes of an entity that are measured, but  what are the properties 
+                of a measurement. Let's look at four properties.
+</p>
+<ul>
+    <li><strong>Identity</strong> is what defines an entity and makes it recognizable.  
+                    For example we are all humans, which defines us separately from other animals 
+                     and thus allows humans to be recognized separately from other animals.</li>
+    <li><strong>Magnitude</strong> provides a means to categorize an entity as  being 
+                    bigger or smaller than another entity.   For example the magnitude of size of 
+                    the earth is larger than that of the moon. This property allows entities to 
+                    be ordered.</li>
+    <li><strong>Equal Intervals</strong> can be found along a scale where the  difference 
+                    from one to the next is consistent.   
+                    <p>
+                        For example the difference between 5 and 6 is the same as between 89 and 90. 
+                        An example of non-equal intervals can be found in a rating system as part of 
+                        a survey:
+                    </p>
+        <p><em>Please rate your satisfaction in our product: Excellent, good, fair, poor</em></p>
+        <p>
+            While the ratings do express magnitude of satisfaction, the  difference 
+                        between the ratings is undefined.   Sometimes this can be expressed as a 
+                        number, but don't be fooled.
+        </p>
+        <p>
+            <em>Please rate your satisfaction in our product from 1 to 4  with 4 being the 
+                        most satisfied:</em>
+        </p>
+        <p>
+            While the difference in the numbers is the same throughout the scale, the 
+                        purpose of this is only for ranking and does not express equal intervals.
+        </p>
+    </li>
+    <li><strong>Absolute Zero</strong> is present in a scale when the zero value represents 
+                    an empty state of measurement.  For  example a height of zero actually means there
+                    is no height present. However a  temperature of zero degrees Celsius does not 
+                    represent the absence of  temperature, after all it can get colder than zero.</li>
+</ul>
+<h2>Scales of Measurement</h2>
+<p>
+    Now that we have an understanding of the properties of measurement, we can define 
+                measurement in terms of scales. There are four scales of measurement, each having one or 
+                more of the properties of measurement than the prior scale. The table below lists the 
+                scales of measurement and the properties associated with each.
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <td>Scale of Measurement </td>
+        <td>Identity</td>
+        <td>Magnitude</td>
+        <td>Equal Intervals</td>
+        <td>Absolute Zero</td>
+    </tr>
+    <tr>
+        <td>Nominal</td>
+        <td>X</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Ordinal</td>
+        <td>X</td>
+        <td>X</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Interval</td>
+        <td>X</td>
+        <td>X</td>
+        <td>X</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>Ratio</td>
+        <td>X</td>
+        <td>X</td>
+        <td>X</td>
+        <td>X</td>
+    </tr>
+</table>
+<p>
+    An attribute measurement can be categorized into one of the four scales of measurement.  This is done by
+                checking which properties of measurement apply to the attribute. Here are a few examples of 
+                properties that can be measured.
+</p>
+<table class="table table-bordered table-hover">
+    <tr>
+        <td>Example </td>
+        <td>Identity</td>
+        <td>Magnitude</td>
+        <td>Equal Intervals</td>
+        <td>Absolute Zero</td>
+        <td>Scale</td>
+    </tr>
+    <tr>
+        <td>Fred has blood type B</td>
+        <td>X</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Nominal</td>
+    </tr>
+    <tr>
+        <td>Fred is 172 cm tall</td>
+        <td>X</td>
+        <td>X</td>
+        <td>X</td>
+        <td>X</td>
+        <td>Ratio</td>
+    </tr>
+    <tr>
+        <td>Fred weights 85 Kg</td>
+        <td>X</td>
+        <td>X</td>
+        <td>X</td>
+        <td>X</td>
+        <td>Ratio</td>
+    </tr>
+    <tr>
+        <td>Fred is Male</td>
+        <td>X</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Nominal</td>
+    </tr>
+    <tr>
+        <td>Fred is taller than Sally</td>
+        <td>X</td>
+        <td>X</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>Ordinal</td>
+    </tr>
+    <tr>
+        <td>It is 23 degrees C outside</td>
+        <td>X</td>
+        <td>X</td>
+        <td>X</td>
+        <td>&nbsp;</td>
+        <td>Interval</td>
+    </tr>
+</table>
+<h2>A Method to Determine the Scale of Measurement of Data</h2>
+<p>
+    The figure below illustrates the decision process involved in determining which scale to use in
+                measuring data.
+</p>
+<figure>
+    <img src="/Content/images/articles/how-we-measure/measurement-flowchart.jpg" alt="data measurement flowchart" />
+    <figcaption>Data measurement flowchart</figcaption>
+</figure>
+<p>
+    We start with our data, and ask are these data quantitative or qualitative?
+</p>
+<p>
+    Qualitative means the data are measurements of category, such as make, model, or rating.  
+                Sometimes numbers can be used to categorize, such as ranking from one to ten. Within categorical  
+                data we ask: &quot;<em>Can these data be sorted?</em>&quot; Examples of this are rankings.  If  
+                the data can be sorted, it is measured with the ordinal scale, if not, then it is measured with 
+                the nominal scale.
+</p>
+<p>
+    Quantitative means it has some unit of measure, such as length, weight, time, temperature. 
+                Within quantitative data we ask: &quot;<em>Does this unit of measure have an absolute zero?</em>&quot;
+                If the  answer is yes, then the data are measured using the Ratio scale, if not, then the data are
+                measured using the Interval scale.  Most units of measure have an absolute zero such as weight 
+                and length.  However there are a few that do not such as time. After all when was time of zero?
+</p>
+
+<h2>Why Do Scales of Measurement Matter</h2>
+<p>
+    Why do these scales of measurement matter to a programmer? The answer lies in testing.  When a piece
+                of code is written is needs to be tested. During that test process, an assertion is made, and it is
+                here where the scales come into play. When we test, we are measuring, and we must first understand
+                the properties of measurement and how they relate to the data under test.
+</p>
+<p>
+    Please leave some thoughts below and thanks for the read.
+</p>

@@ -1,0 +1,77 @@
+﻿class FooAdderUnitTest :
+  public UnitTest
+{
+public:
+  FooAdderUnitTest(void): UnitTest(&quot;FooAdder&quot;) 
+  {
+  }
+  ~FooAdderUnitTest(void) { }
+
+  // Public Tests
+  string Run()
+  {
+    CanCreateFooAdder();
+    FooAdderHasZeroResultOnCreate();
+    FooAdderCanAdd();
+
+    Totals();
+    return Results;
+  }
+
+private:
+  FooAdder* fooAdder;
+
+  void TestInitialize()
+  {
+    fooAdder = new FooAdder();
+  }
+
+  void TestDispose()
+  {
+    delete fooAdder;
+  }
+
+  void CanCreateFooAdder()
+  {    
+    // Arrange
+    TestInitialize();
+
+    // Act
+
+    // Assert
+    Assert(&quot;CanCreateFooAdder&quot;,fooAdder!=nullptr);
+
+    // Dispose
+    TestDispose();
+  }
+
+  void FooAdderHasZeroResultOnCreate()
+  {    
+    // Arrange
+    TestInitialize();
+
+    // Act
+
+    // Assert
+    Assert(&quot;FooAdderHasZeroResultOnCreate&quot;,fooAdder-&gt;Result == 0);
+
+    // Dispose
+    TestDispose();
+  }
+
+  void FooAdderCanAdd()
+  {    
+    // Arrange
+    TestInitialize();
+    int valueToAdd = 4;
+
+    // Act
+    fooAdder-&gt;Add(valueToAdd);
+
+    // Assert
+    Assert(&quot;FooAdderCanAdd&quot;, fooAdder-&gt;Result == 4);
+
+    // Dispose
+    TestDispose();
+  }
+};

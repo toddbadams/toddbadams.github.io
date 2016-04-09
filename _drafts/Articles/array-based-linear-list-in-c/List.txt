@@ -1,0 +1,250 @@
+﻿#pragma once
+
+namespace tbaADT {
+template<class T="">
+  class List
+  {
+  public:
+  // Constructor/Destructor
+  List(int);
+  ~List(void);
+
+  // Read Only Properties
+  int GetCapacity();
+  int GetCount();
+
+  // Methods
+  void Add(T&);
+  void Clear();
+  bool Contains(T&);
+  int IndexOf(T&);
+  void InsertAt(int index, T&);
+  T Item(int);
+  int LastIndexOf(T&);
+  void MoveTo(int,int);
+  void Remove(T&);
+  void RemoveAt(int);
+  void RemoveAll(T&);
+  T* ToArray();
+  void TrimExcess();
+
+  protected:
+  int capacity;
+  int count;
+  T *elements; // dynamic 1D array
+  void CheckBounds(int index);
+  void CheckMemory();
+  };
+
+  // Constructor
+  template<class T="">
+    tbaADT::List<T>
+      ::List(int Capacity)
+      {
+      capacity = Capacity;
+      elements = new T[capacity];
+      count = 0;
+      }
+
+      // Destructor
+      template<class T="">
+        tbaADT::List<T>
+          ::~List()
+          {
+          delete [] elements;
+          }
+
+          // Add and element to the end of list
+          template<class T="">
+            void tbaADT::List<T>
+              ::Add(T& element)
+              {
+              CheckMemory();
+
+              elements[count] = element;
+              count ++;
+              }
+
+              // Empty the list
+              template<class T="">
+                void tbaADT::List<T>
+                  ::Clear()
+                  {
+                  count = 0;
+                  }
+
+                  // Returns true if this list contain the element, else returns false
+                  template<class T="">
+                    bool tbaADT::List<T>
+                      ::Contains(T& element)
+                      {
+                      for (int i = 0; i<count; i=""
+		{
+       if="" (elements=""[i=""] == element="") return="" true=""
+		}
+     return="" false="";
+	}
+
+	// Ready Only capacity attribute
+                      template<class T="">
+                        int tbaADT::List<T>
+                          ::GetCapacity()
+                          {
+                          return capacity;
+                          }
+
+                          // Ready Only count attribute
+                          template<class T="">
+                            int tbaADT::List<T>
+                              ::GetCount()
+                              {
+                              return count;
+                              }
+
+                              // Get the first index of element
+                              template<class T="">
+                                int  tbaADT::List<T>
+                                  ::IndexOf(T& element)
+                                  {
+                                  for (int i = 0; i<count; i=""
+		{
+                   if="" (elements=""[i=""] == element="") return="" i=""
+		}
+                 return="" -1="";
+	}
+
+	// Insert at position index
+                                  template<class T="">
+                                    void tbaADT::List<T>
+                                      ::InsertAt(int index, T& element)
+                                      {
+                                      CheckBounds(index);
+                                      CheckMemory();
+
+                                      for(int i = count; i>index; i--)
+                                      {
+                                      elements[i] = elements[i-1];
+                                      }
+                                      elements[index] = element;
+                                      count++;
+                                      }
+
+                                      template<class T="">
+                                        T tbaADT::List<T>
+                                          ::Item(int index)
+                                          {
+                                          return elements[index];
+                                          }
+
+                                          // Get the last index of the element
+                                          template<class T="">
+                                            int  tbaADT::List<T>
+                                              ::LastIndexOf(T& element)
+                                              {
+                                              for (int i = count-1; i>-1; i--)
+                                              {
+                                              if (elements[i] == element) return i;
+                                              }
+                                              return -1;
+                                              }
+
+                                              // move element from index2 to index1
+                                              template<class T="">
+                                                void List<T>
+                                                  ::MoveTo(int indexTo, int indexFrom)
+                                                  {
+                                                  elements[indexTo] = elements[indexFrom];
+                                                  }
+
+                                                  // Remove the first occurrence of element
+                                                  template<class T="">
+                                                    void tbaADT::List<T>
+                                                      ::Remove(T& element)
+                                                      {
+                                                      int index = IndexOf(element);
+                                                      if (index > -1)
+                                                      {
+                                                      RemoveAt(index);
+                                                      }
+                                                      }
+
+                                                      // Remove at position index
+                                                      template<class T="">
+                                                        void tbaADT::List<T>
+                                                          ::RemoveAt(int index)
+                                                          {
+                                                          CheckBounds(index);
+
+                                                          for(int i = index; i<count; i=""
+		{
+                                        elements=""[i=""] = elements=""[i=""+1=""
+		}
+                                      count--="";
+	}
+
+	// Remove all occurrences of element from the list
+                                                          template<class T="">
+                                                            void tbaADT::List<T>
+                                                              ::RemoveAll(T& element)
+                                                              {
+                                                              for(int i = 0; i < count; i++)
+		{
+			if (elements[i]==element) 
+			{
+				for (int j = i; j<count-2; j=""
+				{
+                                               elements=""[j=""] = elements=""[j=""+1=""
+				}
+                                             count="" --="";
+			}
+		}
+	}
+
+	// Create an array copy of this list
+                                                              template<class T="">
+                                                                T* tbaADT::List<T>
+                                                                  ::ToArray()
+                                                                  {
+                                                                  T* newArr = new T[count];
+                                                                  memcpy( newArr, elements, count * sizeof(T) );
+                                                                  return newArr;
+                                                                  }
+
+                                                                  // Resize the array to the current count
+                                                                  template<class T="">
+                                                                    void  List<T>
+                                                                      ::TrimExcess()
+                                                                      {
+                                                                      capacity = count;
+                                                                      T* newArr = new T[capacity];
+                                                                      memcpy( newArr, elements, capacity * sizeof(T) );
+                                                                      delete [] elements;
+                                                                      elements = newArr;
+                                                                      }
+
+                                                                      //
+                                                                      // Private Methods
+                                                                      //
+
+                                                                      // if index is out of bounds of capacity throw and exception
+                                                                      template<class T="">
+                                                                        void tbaADT::List<T>
+                                                                          ::CheckBounds(int index)
+                                                                          {
+                                                                          if (index > count-1 || index<0) index = "0";
+	}
+
+	// if index exceeds memory bounds of capacity then double capacity
+                                                                          template<class T="">
+                                                                            void tbaADT::List<T>::CheckMemory()
+	{
+		if (count>capacity-2)
+		{
+			capacity *= 2;
+			T* newArr = new T[capacity];
+			memcpy( newArr, elements, capacity * sizeof(T) );
+			delete [] elements;
+			elements = newArr;
+		}
+	}
+}

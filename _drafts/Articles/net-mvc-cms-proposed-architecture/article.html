@@ -1,0 +1,134 @@
+﻿<p>
+    Many years ago I attended a management conference where we played a game. 
+    The idea was to get your team across a desert while retaining the most 
+    pieces of gold. Along the way there were numerous paths, each with its own 
+    traps, costs, and advantages.  Of course you don't really know those until 
+    you've gone down a particular path.  At the start of the race each team has 
+    the option of staying behind for a day to chat with an old man, who has lived 
+    in the desert his entire life. The moral of this game is to seek advice, as 
+    no matter how smart or careful the teams were, no one beat the advice given 
+    by a simple old man.
+</p>
+<p>
+    What does this have to do with architecture?  In deciding how best to design 
+    the application, I looked at other .Net MVC CMS applications and what frameworks
+    were utilized.  The following is a list of researched applications and the 
+    developer choice for <a href="http://en.wikipedia.org/wiki/Persistent_data_structure" class="wikipedia" title="Persistent data structure" target="_blank">Persistent data structure</a>
+    and <a href="http://en.wikipedia.org/wiki/Inversion_of_control" class="wikipedia" title="Inversion of control" target="_blank">Inversion of control</a>.
+</p>
+<figure>
+    <table class="table table-bordered table-hover" width="550px">
+        <tr>
+            <th>Application</th>
+            <th>Data Persistence</th>
+            <th>Inversion of Control</th>
+        </tr>
+        <tr>
+            <td><a href="http://www.orchardproject.net/" target="_blank">Orchard</a></td>
+            <td>NHibernate&nbsp; </td>
+            <td>AutoFac</td>
+        </tr>
+        <tr>
+            <td><a href="http://n2cms.com/" target="_blank">N2</a></td>
+            <td>NHibernate&nbsp; </td>
+            <td>Castle Windsor </td>
+        </tr>
+        <tr>
+            <td><a href="http://www.nopcommerce.com/" target="_blank">nopCommerce</a></td>
+            <td>Entity Framework</td>
+            <td>AutoFac</td>
+        </tr>
+        <tr>
+            <td><a href="http://www.funnelweblog.com/" target="_blank">FunnelWeb</a></td>
+            <td>NHibernate&nbsp;</td>
+            <td>AutoFac</td>
+        </tr>
+        <tr>
+            <td><a href="http://atomiccms.codeplex.com/" target="_blank">Atomic CMS</a></td>
+            <td>NHibernate&nbsp;</td>
+            <td>Castle</td>
+        </tr>
+        <tr>
+            <td><a href="http://www.mvccms.com/" target="_blank">MVC CMS</a></td>
+            <td>Entity Framework</td>
+            <td>Castle Windsor</td>
+        </tr>
+    </table>
+    <figcaption>.Net MVC Applications and their usage of frameworks</figcaption>
+</figure>
+
+<p>
+    Based on what my research found, I chose  NHibernate, for data persistence and AutoFac  for 
+    inversion of control. Like the desert game, the reasons for this path may not be clear at 
+    this point, other than that's what the old man has advised. As we move forward with the 
+    project and investigate how best to utilize these frameworks, we can truly see if they fit.
+</p>
+<p>
+    If designed properly, each of these choices of frameworks should be replaceable. As the 
+    libraries are built to accommodate data persistence and inversion of control, it will 
+    be a good learning exercise to test more than one framework. If nothing else it will 
+    validate our library design. I suspect there will be some trade-offs between performance 
+    and flexibility, but let's see what happens.
+</p>
+<h2>The CMS Architecture</h2>
+<p>
+    The CMS is broken into two websites, administration and public. The administration side 
+    allows for creation, editing, and publishing of content as well as setting various 
+    parameters of the public website. The public website allows viewing of the content. The 
+    core libraries are the foundation of the CMS, which is more of a framework than an application. 
+    The plugins can be thought of as mini applications that sit on the framework, making the CMS 
+    change to suit the needs of the website owners.
+</p>
+<figure>
+    <table class="table table-bordered table-hover" width="550px">
+        <tbody>
+            <tr>
+                <td colspan="3">Administration Website</td>
+                <td colspan="4">Public Website</td>
+            </tr>
+            <tr>
+                <td colspan="7">Plugins</td>
+            </tr>
+            <tr>
+                <td colspan="7">Core Libraries</td>
+            </tr>
+            <tr>
+                <td rowspan="2" colspan="2">MVC 3</td>
+                <td colspan="2">NHibernate</td>
+                <td rowspan="2">Log4Net</td>
+                <td rowspan="2" colspan="2">Autofac</td>
+            </tr>
+            <tr>
+                <td colspan="2">SQL Compact</td>
+            </tr>
+            <tr>
+                <td colspan="7">ASP.NET</td>
+            </tr>
+            <tr>
+                <td colspan="7">.NET</td>
+            </tr>
+        </tbody>
+    </table>
+    <figcaption>Top level architecture of our CMS</figcaption>
+</figure>
+<h2>Foundation Frameworks</h2>
+<p>
+    Much of the heavy lifting within the application is performed by a set of existing open 
+    source frameworks.  The big advantage of an open source is they are supported by a community 
+    of developers, who come together to create a solution to a common problem. Since there is 
+    typically no profit driven company behind the framework, it may stop being supported, which 
+    leads to designing our core libraries to allow for interchangeable frameworks.
+</p>
+<p>The frameworks used in our CMS  are:</p>
+<ul class="no-bullets">
+    <li><strong><a href="http://www.asp.net/mvc" target="_blank">ASP.NET MVC 3</a></strong> &mdash; A web application framework that implements the model-view-controller (MVC) pattern.</li>
+    <li><strong><a href="http://nhforge.org/" target="_blank">NHibernate</a></strong> &mdash; An object-relational mapper for the .NET framework.</li>
+    <li><strong><a href="http://code.google.com/p/autofac/" target="_blank">Autofac</a></strong> &mdash; An IoC container for Microsoft .NET. It manages the dependencies between classes so that applications stay easy to change as they grow in size and complexity.</li>
+    <li><strong><a href="http://msdn.microsoft.com/en-us/data/ff687142.aspx" target="_blank">SQL Compact</a></strong> &mdash;  A compact relational database produced by Microsoft for applications that run on mobile devices and desktops.</li>
+    <li><strong><a href="http://logging.apache.org/log4net/" target="_blank">Log4Net</a></strong> &mdash; The Apache log4net library is a tool to help the programmer output log statements to a variety of output targets.</li>
+</ul>
+<h2>Next Steps</h2>
+<p>
+    From here we will look at the core libraries of our project and roughly determine how to 
+    break the libraries into dlls. Questions, thoughts?  Just add a comment below and thanks for reading.
+</p>

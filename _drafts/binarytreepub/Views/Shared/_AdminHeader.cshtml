@@ -1,0 +1,29 @@
+﻿<section id="topbar" class="navbar">
+    <div class="container">
+        <ul class="nav">
+            <li><a href="@Url.Content("~")">view your site</a></li>
+        </ul>
+        <div class="nav pull-right">
+            @Html.Partial("_LogOn")
+        </div>
+    </div>
+</section>
+<section id="header" class="navbar">
+    <div class="container">
+        <ul class="nav">
+            <li><a href="@Url.Content("~/admin")" class="brand"><i class="icon-th-large icon-white"></i> Administration</a></li>
+        </ul>
+        <ul id="main-nav" class="nav pull-right">
+            @*<li @IsActive("/article/edit")><a href="@Url.Content("~/article/edit")"><span>articles</span></a></li>
+            <li @IsActive("/category/edit")><a href="@Url.Content("~/category/edit")"><span>categories</span></a></li>*@
+            <li @IsActive("/settings")><a href="@Url.Content("~/settings")"><span>settings</span></a></li>
+        </ul>
+    </div>
+</section>
+@helper IsActive(string url)
+{
+    if(Request.Url.ToString().Contains(url))
+    {
+        <text>class="active"</text>
+    }
+}

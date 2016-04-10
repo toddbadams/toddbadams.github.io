@@ -2,20 +2,21 @@
 layout: default 
 ---
 
-<md-content class="container wine" flex layout="column">
+<md-content class="container posts">
     <article class="post">
-            <header>
+        <header>
             <a href="{{ page.url }}" title="{{ page.title }}" class="top-image">
-                <img ng-src="/images/{{page.image}}.jpg" class="md-card-image" alt="{{page.title}}">
+                <img ng-src="/images/{{page.image}}.jpg" alt="{{page.title}}">
             </a>
             <p class="caption">"<span>{{page.imagecaption}}</span>" by {{page.imageby}}</a>, licensed under <a rel="nofollow" class="external text" href="http://creativecommons.org/licenses/by/2.0/">Creative Commons</a></p>
             <h1><a href="{{ page.url }}" title="{{ page.title }}" class="md-display-3">{{ page.title }}</a></h1>
-            <div class="content">
-                {{ content }}
-            </div>
-            <footer>
-                <p class="md-body-1">updated on {{ page.date | date_to_string }}</span>
-                </p>
-            </footer>
+        </header>
+        <div class="content">
+            {{ content }}
+        </div>
+        <footer>
+            <p class="md-body-1">updated on {{ page.date | date_to_string }}</span>
+            </p>
+        </footer>
     </article>
 </md-content>

@@ -162,8 +162,9 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
     -webkit-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    margin: 8px;
+    
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
+    overflow: hidden;
 }
 
 .post h1 {
@@ -188,26 +189,32 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
 .post .content {
     display: block;
     padding: 0 16px;
-    width: 100%;
 }
 .post .top-image {
     padding:0;
     margin: 0;
-
+    height: 450px;
 }
 .post .caption {
     font-size: 0.67em;
     letter-spacing: .020em;
     padding: 0;
-    margin: 0;
+    margin: 0 16px;
+    line-height: 1.167em;
 }
 
 
 /* GRAPE VARIETY COMPONENT */
 
-.grape-variety {
+.grape-variety {    
+    box-sizing: border-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
     margin: 24px 16px;
-    border-bottom: 1px solid rgb(230, 230, 230);
 }
 
 .grape-variety h4 {
@@ -216,46 +223,44 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
     letter-spacing: .010em;
     line-height: 24px;
     padding-bottom: 12px;
-    border-bottom: 1px solid rgb(230, 230, 230);
 }
 
 .grape-variety .grape-variety-detail, .grape-variety p {
     font-size: 0.85em;
 }
 
-.grape-variety  .grape-variety-detail .grape-variety-item {
-    display: flex;
-    flex-direction: row;
-    padding: 16px 0;
+
+
+/*  WT SCALE COMPONENT */
+
+.wt-scale {
+    display: block;
+    padding: 8px;
+}
+.wt-scale:hover {
+    background-color: rgba(234,184,46,0.1);
 }
 
-.grape-variety  .grape-variety-detail .grape-variety-item span {
-    display: inline-block;
-}
-
-.grape-variety  .grape-variety-detail .grape-variety-item span:first-child {
+.wt-scale .label {
     text-align: left;
-    width: 200px;
-}
-
-.grape-variety  .grape-variety-detail .grape-variety-item span:not(:first-child) {
-    box-sizing: border-box;
     display: inline-block;
-    margin-right: 48px;
+    width: 80px;
 }
 
-.grape-variety  .grape-variety-detail .grape-variety-item .grape-variety-item-option{
-    width: 24px;
-    height: 24px;
-    border-radius: 12px;  
-    border: 2px solid rgb(230, 230, 230);  
+.wt-scale .option {
+    text-align: center;
+    font-size: 0.85em;
+    display: inline-block;
+    width: 100px;
+    color: rgba(0,0,0,0.23);
 }
 
 
-.grape-variety  .grape-variety-detail .grape-variety-item .grape-variety-item-option.full{
+.wt-scale .option.full {
     background-color: #EAB82E;
-    border: 2px solid #EAB82E;
+    color: white;
 }
+
 
 
 

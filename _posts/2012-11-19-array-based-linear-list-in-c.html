@@ -17,7 +17,312 @@ excerpt_separator: <!--more-->
         See <a href="http://www.toddbadams.co.uk/quick-unit-testing-in-cpp" title="Quick Unit Testing in c++">Quick Unit Testing in c++</a>
     for an article on how the unit test code was developed.  
 </p>
-<pre data-file="ListUnitTests.txt"></pre>
+<pre data-file="ListUnitTests.txt">
+#pragma once
+
+#include "UnitTest.h"
+#include "../tbaADT/List.h"
+using namespace std;
+
+class ListUnitTests : public UnitTest
+{
+public:
+// Constructor
+ListUnitTests(void) : UnitTest("List")
+{
+listSize=5;
+testElements = new int[listSize+1];
+testElements[0] = 1;
+testElements[1] = 2;
+testElements[2] = 3;
+testElements[3] = 4;
+testElements[4] = 5;
+testElements[5] = 6;
+}
+// Destructor
+~ListUnitTests(void) { }
+
+// Public Tests
+string Run()
+{
+CanCreateList();
+ListHasCapacity();
+ListHasCountZeroOnCreate();
+ListCanAdd();
+ListHasIndexOf();
+ListCanGetByIndex();
+ListHasLastIndexOf();
+ListCanInsertAt();
+ListCanRemoveAt();
+ListCanRemoveAll();
+ListDoublesCapacityWhenOutofMemory();
+ListCanCreateArrayFromList();
+ListCanTrimExcess();
+
+Totals();
+return Results;
+}
+
+private:
+tbaADT::List<int>
+  * list;
+  int listSize;
+  int* testElements;
+
+  void TestInitialize()
+  {
+  list = new tbaADT::List<int>(listSize);
+    }
+
+    void TestDispose()
+    {
+        delete list;
+    }
+
+    void CanCreateList()
+    {       
+        // Arrange & Act
+        TestInitialize();
+
+        // Assert
+        Assert("CanCreateList",list!=nullptr);
+
+        // Dispose
+        TestDispose();
+    }
+
+    void ListHasCapacity()
+    {       
+        // Arrange & Act
+        TestInitialize();
+
+        // Assert
+        Assert("ListHasCapacity",
+            list->GetCapacity() == listSize);
+
+        // Dispose
+        TestDispose();
+    }
+
+    void ListHasCountZeroOnCreate()
+    {       
+        // Arrange & Act
+        TestInitialize();
+
+        // Assert
+        Assert("ListHasCountZeroOnCreate", 
+            list->GetCount() == 0);
+
+        // Dispose
+        TestDispose();
+    }   
+
+    void ListCanAdd()
+    {       
+        // Arrange
+        TestInitialize();
+
+        // Act
+        list->Add(testElements[0]);
+
+        // Assert
+        Assert("ListCanAdd", list->GetCount() == 1);
+
+        // Dispose
+        TestDispose();
+    }
+
+    void ListHasIndexOf()
+    {       
+        // Arrange
+        TestInitialize();
+        list->Add(testElements[0]);
+        list->Add(testElements[1]);
+        list->Add(testElements[2]);
+
+        // Act
+        int result = list->IndexOf(testElements[1]);
+
+        // Assert
+        Assert("ListHasIndexOf", result == 1);
+
+        // Dispose
+        TestDispose();
+    }
+
+    void ListCanGetByIndex()
+    {
+        // Arrange
+        TestInitialize();
+        list->Add(testElements[0]);
+        list->Add(testElements[1]);
+        list->Add(testElements[2]);
+
+        // Act
+        int result = list->Item(1);
+
+        // Assert
+        Assert("ListCanGetByIndex", result == testElements[1]);
+
+        // Dispose
+        TestDispose();
+    }
+
+    void ListHasLastIndexOf()
+    {       
+        // Arrange
+        TestInitialize();
+        list->Add(testElements[0]);
+        list->Add(testElements[1]);
+        list->Add(testElements[0]);
+        list->Add(testElements[3]);
+        int expected = 2;
+
+        // Act 
+        int result = list->LastIndexOf(testElements[0]);
+
+        // Assert
+        Assert("ListHasLastIndexOf", result == expected);
+
+        // Dispose
+        TestDispose();
+    }
+
+    void ListCanInsertAt()
+    {       
+        // Arrange
+        TestInitialize();
+        list->Add(testElements[0]);
+        list->Add(testElements[2]);
+        list->Add(testElements[3]);
+        list->Add(testElements[4]);
+
+        // Act - 0th and 2nd are same value
+        list->InsertAt(1,testElements[1]);
+
+        // Assert
+        Assert("ListCanInsertAt", 
+            list->GetCount() == 5 &&
+            list->Contains(testElements[1]));
+
+        // Dispose
+        TestDispose();
+    }
+
+    void ListCanRemoveAt()
+    {       
+        // Arrange
+        TestInitialize();
+        list->Add(testElements[0]);
+        list->Add(testElements[1]);
+        list->Add(testElements[2]);
+        list->Add(testElements[3]);
+
+        // Act - 0th and 2nd are same value
+        list->RemoveAt(1); 
+
+        // Assert
+        Assert("ListCanRemoveAt", 
+            !list->Contains(testElements[1]) &&
+            list->GetCount() == 3);
+
+        // Dispose
+        TestDispose();
+    }
+
+    void ListCanRemoveAll()
+    {       
+        // Arrange
+        TestInitialize();
+        list->Add(testElements[0]);
+        list->Add(testElements[1]);
+        list->Add(testElements[0]);
+        list->Add(testElements[3]);
+
+        // Act - 0th and 2nd are same value
+        list->RemoveAll(testElements[0]); 
+
+        // Assert
+        Assert("ListCanRemoveAll", 
+            list->GetCount() == 2);
+
+        // Dispose
+        TestDispose();
+    }
+
+    void ListDoublesCapacityWhenOutofMemory()
+    {       
+        // Arrange
+        TestInitialize();
+        list->Add(testElements[0]);
+        list->Add(testElements[1]);
+        list->Add(testElements[2]);
+        list->Add(testElements[3]);
+        list->Add(testElements[4]);
+
+        // Act - test element 5 exceeds capacity
+        list->Add(testElements[5]);  
+
+        // Assert
+        Assert("ListCanRemoveAt",
+            list->GetCapacity() == 2*listSize);
+
+        // Dispose
+        TestDispose();
+    }
+
+    void ListCanCreateArrayFromList()
+    {       
+        // Arrange
+        TestInitialize();
+        list->Add(testElements[0]);
+        list->Add(testElements[1]);
+        list->Add(testElements[2]);
+        list->Add(testElements[3]);
+        list->Add(testElements[4]);
+
+        // Act  
+        int* results = list->ToArray();  
+
+        // Assert
+        Assert("ListCanCreateArrayFromList",
+            (results[0]==testElements[0]) &&
+            (results[1]==testElements[1]) &&
+            (results[2]==testElements[2]) &&
+            (results[3]==testElements[3]) &&
+            (results[4]==testElements[4]) &&
+            (results != testElements) );
+
+        // Dispose
+        TestDispose();
+    }
+    
+    void ListCanTrimExcess()
+    {       
+        // Arrange
+        TestInitialize();
+        list->Add(testElements[0]);
+        list->Add(testElements[1]);
+        list->Add(testElements[2]);
+
+        // Act  
+        list->TrimExcess();  
+
+        // Assert           
+        int* results = list->ToArray();  
+        Assert("ListCanTrimExcess", 
+            (results[0]==testElements[0]) &&
+            (results[1]==testElements[1]) &&
+            (results[2]==testElements[2]) &&
+            (list->GetCount() == 3) &&
+            (list->GetCapacity() == 3));
+
+        // Dispose
+        TestDispose();
+    }
+    
+};
+</pre>
 <p class="caption">Unit test class for array based linear list</p>
 <p>
     The big take away from developing the unit tests first is to create the 
@@ -36,7 +341,258 @@ List->Add(testElements[0]);</pre>
 <p class="caption">Code Snippet from ListUnitTests class</p>
 <h2>The List Class</h2>
 <p>The following code was developed to meet the unit tests described in <em>ListUnitTests</em>.</p>
-<pre data-file="List.txt"></pre>
+<pre data-file="List.txt">
+    #pragma once
+
+namespace tbaADT {
+template<class T="">
+  class List
+  {
+  public:
+  // Constructor/Destructor
+  List(int);
+  ~List(void);
+
+  // Read Only Properties
+  int GetCapacity();
+  int GetCount();
+
+  // Methods
+  void Add(T&);
+  void Clear();
+  bool Contains(T&);
+  int IndexOf(T&);
+  void InsertAt(int index, T&);
+  T Item(int);
+  int LastIndexOf(T&);
+  void MoveTo(int,int);
+  void Remove(T&);
+  void RemoveAt(int);
+  void RemoveAll(T&);
+  T* ToArray();
+  void TrimExcess();
+
+  protected:
+  int capacity;
+  int count;
+  T *elements; // dynamic 1D array
+  void CheckBounds(int index);
+  void CheckMemory();
+  };
+
+  // Constructor
+  template<class T="">
+    tbaADT::List<T>
+      ::List(int Capacity)
+      {
+      capacity = Capacity;
+      elements = new T[capacity];
+      count = 0;
+      }
+
+      // Destructor
+      template<class T="">
+        tbaADT::List<T>
+          ::~List()
+          {
+          delete [] elements;
+          }
+
+          // Add and element to the end of list
+          template<class T="">
+            void tbaADT::List<T>
+              ::Add(T& element)
+              {
+              CheckMemory();
+
+              elements[count] = element;
+              count ++;
+              }
+
+              // Empty the list
+              template<class T="">
+                void tbaADT::List<T>
+                  ::Clear()
+                  {
+                  count = 0;
+                  }
+
+                  // Returns true if this list contain the element, else returns false
+                  template<class T="">
+                    bool tbaADT::List<T>
+                      ::Contains(T& element)
+                      {
+                      for (int i = 0; i<count; i=""
+        {
+       if="" (elements=""[i=""] == element="") return="" true=""
+        }
+     return="" false="";
+    }
+
+    // Ready Only capacity attribute
+                      template<class T="">
+                        int tbaADT::List<T>
+                          ::GetCapacity()
+                          {
+                          return capacity;
+                          }
+
+                          // Ready Only count attribute
+                          template<class T="">
+                            int tbaADT::List<T>
+                              ::GetCount()
+                              {
+                              return count;
+                              }
+
+                              // Get the first index of element
+                              template<class T="">
+                                int  tbaADT::List<T>
+                                  ::IndexOf(T& element)
+                                  {
+                                  for (int i = 0; i<count; i=""
+        {
+                   if="" (elements=""[i=""] == element="") return="" i=""
+        }
+                 return="" -1="";
+    }
+
+    // Insert at position index
+                                  template<class T="">
+                                    void tbaADT::List<T>
+                                      ::InsertAt(int index, T& element)
+                                      {
+                                      CheckBounds(index);
+                                      CheckMemory();
+
+                                      for(int i = count; i>index; i--)
+                                      {
+                                      elements[i] = elements[i-1];
+                                      }
+                                      elements[index] = element;
+                                      count++;
+                                      }
+
+                                      template<class T="">
+                                        T tbaADT::List<T>
+                                          ::Item(int index)
+                                          {
+                                          return elements[index];
+                                          }
+
+                                          // Get the last index of the element
+                                          template<class T="">
+                                            int  tbaADT::List<T>
+                                              ::LastIndexOf(T& element)
+                                              {
+                                              for (int i = count-1; i>-1; i--)
+                                              {
+                                              if (elements[i] == element) return i;
+                                              }
+                                              return -1;
+                                              }
+
+                                              // move element from index2 to index1
+                                              template<class T="">
+                                                void List<T>
+                                                  ::MoveTo(int indexTo, int indexFrom)
+                                                  {
+                                                  elements[indexTo] = elements[indexFrom];
+                                                  }
+
+                                                  // Remove the first occurrence of element
+                                                  template<class T="">
+                                                    void tbaADT::List<T>
+                                                      ::Remove(T& element)
+                                                      {
+                                                      int index = IndexOf(element);
+                                                      if (index > -1)
+                                                      {
+                                                      RemoveAt(index);
+                                                      }
+                                                      }
+
+                                                      // Remove at position index
+                                                      template<class T="">
+                                                        void tbaADT::List<T>
+                                                          ::RemoveAt(int index)
+                                                          {
+                                                          CheckBounds(index);
+
+                                                          for(int i = index; i<count; i=""
+        {
+                                        elements=""[i=""] = elements=""[i=""+1=""
+        }
+                                      count--="";
+    }
+
+    // Remove all occurrences of element from the list
+                                                          template<class T="">
+                                                            void tbaADT::List<T>
+                                                              ::RemoveAll(T& element)
+                                                              {
+                                                              for(int i = 0; i < count; i++)
+        {
+            if (elements[i]==element) 
+            {
+                for (int j = i; j<count-2; j=""
+                {
+                                               elements=""[j=""] = elements=""[j=""+1=""
+                }
+                                             count="" --="";
+            }
+        }
+    }
+
+    // Create an array copy of this list
+                                                              template<class T="">
+                                                                T* tbaADT::List<T>
+                                                                  ::ToArray()
+                                                                  {
+                                                                  T* newArr = new T[count];
+                                                                  memcpy( newArr, elements, count * sizeof(T) );
+                                                                  return newArr;
+                                                                  }
+
+                                                                  // Resize the array to the current count
+                                                                  template<class T="">
+                                                                    void  List<T>
+                                                                      ::TrimExcess()
+                                                                      {
+                                                                      capacity = count;
+                                                                      T* newArr = new T[capacity];
+                                                                      memcpy( newArr, elements, capacity * sizeof(T) );
+                                                                      delete [] elements;
+                                                                      elements = newArr;
+                                                                      }
+
+                                                                      //
+                                                                      // Private Methods
+                                                                      //
+
+                                                                      // if index is out of bounds of capacity throw and exception
+                                                                      template<class T="">
+                                                                        void tbaADT::List<T>
+                                                                          ::CheckBounds(int index)
+                                                                          {
+                                                                          if (index > count-1 || index<0) index = "0";
+    }
+
+    // if index exceeds memory bounds of capacity then double capacity
+                                                                          template<class T="">
+                                                                            void tbaADT::List<T>::CheckMemory()
+    {
+        if (count>capacity-2)
+        {
+            capacity *= 2;
+            T* newArr = new T[capacity];
+            memcpy( newArr, elements, capacity * sizeof(T) );
+            delete [] elements;
+            elements = newArr;
+        }
+    }
+}
+</pre>
 <p class="caption">List class"</p>
 <h2>Algorithm Complexity</h2>
 <p>
@@ -55,6 +611,3 @@ List->Add(testElements[0]);</pre>
     <li><strong>void TrimExcess()</strong> &mdash; O(n)</li>
 </ul>
 
-<p>
-    Please leave some thoughts below and thanks for the read.
-</p>

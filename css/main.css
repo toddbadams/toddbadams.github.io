@@ -1,33 +1,8 @@
-body {
-    background-color: #fafafa;
-    font-size: 20px;
-    line-height: 33px;
-    font-style: normal;
-    font-weight: 300;
-    letter-spacing: 0;
-    text-transform: none;
-    color: #707070;
-}
 
-a {
-    color: rgb(63, 81, 181);
-    text-decoration: initial;
-}
-
-md-content {
-    background-color: transparent;
-}
-
-.region-key {
-    display: none;
-}
 
 .container {
     max-width: 900px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 24px auto;
 }
 
 .date {
@@ -37,9 +12,6 @@ md-content {
     color: #b69b10;
 }
 
-.post_image_inner .post_image_title {
-    display: none;
-}
 
 md-card .md-caption {
     padding: 0 16px;
@@ -154,30 +126,22 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
 
 /*  POSTS */
 
-.post {
-    box-sizing: border-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 2px 1px -1px rgba(0, 0, 0, .12);
-    overflow: hidden;
+.post.intro {
+    margin-bottom: 24px;
 }
 
-.post h1 {
-    font-size: 56px;
-    font-weight: 400;
-    letter-spacing: -.005em;
-    line-height: 56px;
-    padding: 0 16px;
-    margin-bottom: 0;
+.post.intro h1 {
+    margin: 0;
+}
+
+.post.intro md-card md-card-title+md-card-content {
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .post h1 a {
     color: rgba(0, 0, 0, 0.87);
+    text-decoration: none;
 }
 
 .post h3 {
@@ -202,6 +166,12 @@ md-list-item.md-3-line>.md-no-style>.md-avatar.variety {
     margin: 0 16px;
     line-height: 1.167em;
 }
+
+
+.post_image_inner .post_image_title {
+    display: none;
+}
+
 
 
 /* GRAPE VARIETY COMPONENT */

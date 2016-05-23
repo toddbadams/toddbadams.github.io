@@ -36,6 +36,7 @@
         ],
         ripeningScale = [
             { property: 'early', label: 'early', attribute: 'early' },
+            { property: 'mid', label: 'mid', attribute: 'mid' },
             { property: 'late', label: 'late', attribute: 'late' }
         ];
 

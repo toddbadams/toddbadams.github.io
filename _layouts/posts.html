@@ -2,21 +2,16 @@
 layout: default 
 ---
 
-<md-content >
-    <md-card class="container post">
-        <header>
-            <a href="{{ page.url }}" title="{{ page.title }}" class="top-image">
-                <img ng-src="/images/{{page.image}}.jpg" alt="{{page.title}}">
-            </a>
-            <p class="caption">"<span>{{page.imagecaption}}</span>" by {{page.imageby}}</a>, licensed under <a rel="nofollow" class="external text" href="http://creativecommons.org/licenses/by/2.0/">Creative Commons</a></p>
+<md-content>
+    <article class="container post">
+        <header> 
             <h1 class="md-display-3"><a href="{{ page.url }}" title="{{ page.title }}" class="md-display-3">{{ page.title }}</a></h1>
         </header>
         <div class="content">
-            {{ content }}
+            {{ content }}  
         </div>
         <footer>
-            <p class="md-body-1">updated on {{ page.date | date_to_string }}</span>
-            </p>
+            <p class="md-body-1">updated on {{ page.date | date_to_string }}</p>
         </footer>
     </article>
 </md-content>

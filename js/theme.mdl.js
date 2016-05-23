@@ -8,20 +8,20 @@
 
     function config($mdThemingProvider) {
         var customPrimary = {
-                '50': '#ffffff',
-                '100': '#ffffff',
-                '200': '#ffffff',
-                '300': '#ffffff',
-                '400': '#ffffff',
-                '500': '#fafafa',
-                '600': '#ededed',
-                '700': '#e0e0e0',
-                '800': '#d4d4d4',
-                '900': '#c7c7c7',
-                'A100': '#ffffff',
-                'A200': '#ffffff',
-                'A400': '#ffffff',
-                'A700': '#bababa'
+        '50': '#fbd89c',
+        '100': '#face83',
+        '200': '#f9c56a',
+        '300': '#f8bb52',
+        '400': '#f7b239',
+        '500': '#f6a821',
+        '600': '#f49e0a',
+        '700': '#db8e09',
+        '800': '#c37e08',
+        '900': '#aa6e07',
+        'A100': '#fce2b4',
+        'A200': '#fdebcd',
+        'A400': '#fef5e5',
+        'A700': '#925e06'
             },
             customAccent = {
                 '50': '#ffffff',
@@ -56,20 +56,20 @@
                 'A700': '#803200'
             },
             customBackground = {
-                '50': '#ffffff',
-                '100': '#ffffff',
-                '200': '#ffffff',
-                '300': '#ffffff',
-                '400': '#ffffff',
-                '500': '#ffffff',
-                '600': '#f2f2f2',
-                '700': '#e6e6e6',
-                '800': '#d9d9d9',
-                '900': '#cccccc',
-                'A100': '#ffffff',
-                'A200': '#ffffff',
-                'A400': '#ffffff',
-                'A700': '#bfbfbf'
+        '50': '#686e82',
+        '100': '#5c6274',
+        '200': '#515666',
+        '300': '#464a57',
+        '400': '#3a3e49',
+        '500': '#2f323b',
+        '600': '#24262d',
+        '700': '#181a1f',
+        '800': '#2f323b',
+        '900': '#020202',
+        'A100': '#737a90',
+        'A200': '#81889b',
+        'A400': '#9095a6',
+        'A700': '#000000'
             };
 
 
@@ -79,8 +79,9 @@
         $mdThemingProvider.definePalette('customBackground', customBackground);
         $mdThemingProvider.theme('default')
             .primaryPalette('customPrimary')
-            .accentPalette('customAccent')
-            .warnPalette('customWarn')
-            .backgroundPalette('customBackground')
+           .accentPalette('customAccent')
+           .warnPalette('customWarn')
+           .backgroundPalette('customBackground')
+        .dark();
     }
 })();
